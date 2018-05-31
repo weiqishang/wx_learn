@@ -1,0 +1,112 @@
+<view class="page">
+  <view class="weui-tab">
+
+    <view class="weui-navbar myweui-navbar">
+      <view id="0" style="border-right:1rpx solid #D9D9D9;" class=" weui-navbar__item {{activeIndex == 0 ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+        <view class="weui-navbar__title">网址</view>
+      </view>
+      <view id="1" class="weui-navbar__item {{activeIndex == 1 ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+        <view class="weui-navbar__title">图片</view>
+      </view>
+    </view>
+    <view class="weui-tab__panel">
+
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+        <view style="padding:10px;background-color:white;">
+          <textarea bindinput="setCodeAddr" style="width:100%;height:80px;background-color:white;" placeholder="手动输入或长按粘贴您需要生成二维码的网址" />
+        </view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view style="padding-right:20px;">名称</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input bindinput="setCodeName" class="weui-input" placeholder="请输入二维码名称" />
+            </view>
+
+          </view>
+        </view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_switch">
+            <view class="weui-cell__bd">是否带上您的头像</view>
+            <view class="weui-cell__ft">
+              <switch bindchange="checkTX" checked />
+            </view>
+          </view>
+        </view>
+        <view class="weui-cells weui-cells_after-title" style="border-bottom: 1rpx solid #D9D9D9;">
+          <view class="weui-cell" bindtap="checkColor">
+            <view class="weui-cell__hd">二维码颜色</view>
+            <view class="weui-cell__bd"></view>
+            <view class="weui-cell__ft {{checkColorFlag==false?'myweui-cell__ft_in-access':'myweui-cell__ft_in-access2'}}"></view>
+          </view>
+        </view>
+        <view class="weui-flex" hidden="{{!checkColorFlag}}" style="background-color:white;border-bottom: 1rpx solid #D9D9D9;">
+          <view id="c1" bindtap="setcodecolor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+            <image style="height:25px;width:25px;" src="{{colorChoice==1?cg1:cg0}}"></image>
+          </view>
+          <view id="c2" bindtap="setcodecolor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+            <image style="height:25px;width:25px;" src="{{colorChoice==2?cb1:cb0}}"></image>
+          </view>
+          <view id="c3" bindtap="setcodecolor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+            <image style="height:25px;width:25px;" src="{{colorChoice==3?cgr1:cgr0}}"></image>
+          </view>
+          <view id="c4" bindtap="setcodecolor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+            <image style="height:25px;width:25px;" src="{{colorChoice==4?cp1:cp0}}"></image>
+          </view>
+          <view id="c5" bindtap="setcodecolor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+            <image style="height:25px;width:25px;" src="{{colorChoice==5?co1:co0}}"></image>
+          </view>
+          <view id="c6" bindtap="setcodecolor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+            <image style="height:25px;width:25px;" src="{{colorChoice==6?cr1:cr0}}"></image>
+          </view>
+        </view>
+        <view style="height:200px;width:200px;margin:30px auto;" hidden="{{examUrl==''}}">
+          <image style="height:200px;width:200px;" src="{{examUrl}}"></image>
+          <image hidden="{{!isHaveTX}}" style="border:2px solid white;position:relative;top:-123px;left:77px;height:46px;width:46px;border-radius:25px;" src="{{personImg}}"></image>
+        </view>
+        <view style="display:flex;flex-diretion:row;margin-top:{{examUrl==''?'30':'0'}}px;margin-bottom:30px;">
+         
+          <view style="text-align:center;width:80%;">
+            <button bindtap="saveCode" type="primary">保存二维码</button>
+          </view>
+        </view>
+
+      </view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+        <view>
+          <view class="flex-row" style="display: flex;flex-direction: row;justify-content:center ;">
+            <view class="flex-view-item weui-uploader__input-box" hidden="{{picfiles.length!=0}}" style="width:180px;height:180px;margin-top:30px;">
+              <view class="weui-uploader__input" bindtap="choosePic"></view>
+            </view>
+            <view class="flex-view-item" hidden="{{picfiles.length==0}}" style="width:180px;height:180px;margin-top:30px;" bindtap="choosePic">
+              <image src="{{picfiles[0]}}" mode="scaleToFill" style="width:180px;height:180px;"></image>
+            </view>
+          </view>
+          <view class="weui-footer" style="margin-top:10px;">
+            <view class="weui-footer__text" style="font-size:15px;">点击上传二维码</view>
+          </view>
+
+          <view class="weui-cells weui-cells_after-title" style="margin-top:20px;border-bottom: 1rpx solid #D9D9D9;border-top:">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view style="padding-right:20px;">名称</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input bindinput="setCodeImgName" class="weui-input" placeholder="请输入二维码名称" />
+              </view>
+
+
+
+            </view>
+          </view>
+          <view class="page__hd">
+            <button bindtap="saveCodeByImg" class="weui-btn" type="primary">保存二维码</button>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+</view>

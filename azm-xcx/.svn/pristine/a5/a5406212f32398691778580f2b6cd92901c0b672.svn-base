@@ -1,0 +1,6 @@
+/* pages/discover/tools/picture2/previewPoster/previewPoster.wxss */
+Page{
+  max-height: 100%;
+  width:100%;
+  background-color: #2B2D3A;
+}

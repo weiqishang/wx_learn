@@ -1,0 +1,138 @@
+<!--name.wxml-->
+<view class="page" hidden="{{id!='phone'}}">
+  <view class="weui-cell weui-cell_input" style="background-color:white;">
+    <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+      <view class="weui-label">手机号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input"
+      placeholder="请输入您的手机号" id="personPhone" bindblur='setInfo' />
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input weui-cell_vcode" style="background-color:white;" hidden="{{yanzhengmahidden}}">
+    <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+      <view class="weui-label">验证码</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" value="{{checkCode}}"
+       placeholder="请输入验证码" id="checkCode" bindblur="setInfo" />
+    </view>
+    <view class="weui-cell__ft">
+      <view style="color:{{buttoncolor}}" 
+      class="weui-vcode-btn" bindtap="getCheckCode">{{checkvalue}}</view>
+    </view>
+  </view>
+</view>
+<view class="page" hidden="{{id!='picurl'}}">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        设置头像:
+      </view>
+      <view class="weui-cell__bd" style="height:60px;line-height:60px;">
+        <image bindtap="chooseImage2" src="{{picurl}}" style="margin-left:10px;margin-top:5px;width:50px;height:50px;border-radius:50%;"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="page" hidden="{{id!='name'}}">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__bd">
+        <input class="weui-input" value="{{value}}"  bindblur="setValue" placeholder="请输入您的姓名" />
+      </view>
+    </view>
+  </view>
+</view>
+<view class="page" hidden="{{id!='wechat'}}">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__bd">
+        <input class="weui-input" value="{{value}}"  bindblur="setValue" placeholder="请输入您的微信号" />
+      </view>
+    </view>
+  </view>
+</view>
+<view class="page" hidden="{{id!='qq'}}">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__bd">
+        <input class="weui-input" value="{{value}}" bindblur="setValue" placeholder="请输入您的QQ号" />
+      </view>
+    </view>
+  </view>
+</view>
+<view class="page" hidden="{{id!='position'}}">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__bd">
+        <input class="weui-input" value="{{value}}" bindblur="setValue" placeholder="请输入您的职位" />
+      </view>
+    </view>
+  </view>
+</view>
+<view class="page" hidden="{{id!='userInfo'}}">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <textarea class="weui-textarea" value="{{value}}" bindblur="setValue" placeholder="请输入您的个人介绍" style="height: 7.3em" />
+      </view>
+    </view>
+  </view>
+</view>
+<view class="page" hidden="{{id!='doit'}}">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <textarea class="weui-textarea" value="{{value}}" bindblur="setValue" placeholder="请输入您所做业务" style="height: 7.3em" />
+      </view>
+    </view>
+  </view>
+</view>
+<view class="page" hidden="{{id!='sex'}}">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      性别：{{array[index]}}
+    </view>
+  </picker>
+</view>
+<view class="page" hidden="{{id!='Birthday'}}">
+  <picker mode="date" value="{{date}}" start="1880-00-00" end="2017-09-01" bindchange="bindDateChange">
+    <view class="picker">
+      生日: {{date}}
+    </view>
+  </picker>
+</view>
+<view class="page" hidden="{{id!='area'}}">
+  <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+    <view class="picker">
+      地区：{{region[0]}}--{{region[1]}}
+      <!-- --{{region[2]}} -->
+    </view>
+  </picker>
+</view>
+<button type="primary" bindtap="save" disabled="{{isSure}}">保存</button>
+<!-- <view class="page" hidden="{{id!='phone'}}">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input weui-cell_vcode">
+      <view class="weui-cell__hd">
+        <view class="weui-label">手机号</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入您的手机号" />
+      </view>
+      <view class="weui-cell__ft">
+        <button class="phone">验证</button>
+      </view>
+    </view>
+     <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">验证码</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="短信验证码" />
+      </view>
+    </view>
+  </view>
+   <button type="primary">保存</button>
+</view> -->

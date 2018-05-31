@@ -1,0 +1,18 @@
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">直销精准人脉解决方案</view>
+    <view class="page__desc" style=" background: #ffffff;padding:15px 10px;margin-top:10px;margin-bottom:20px">
+      <text>90年代直销模式开始进入中国，97年初国家颁布《传销管理办法》，期间由于出现大量非法传销组织，大批传销难民，引发了较严重的社会问题，98年4月“一刀切”，全面禁止了多层次传销经营活动，仅允许它们以“店铺+直销员”的方式继续经营。 2005年9月2日由国务院正式出台了《直销管理条例》和《禁止传销条例》两个条例。这就意味着直销在中国已经成为一个合法的行业。从2005年两个“条例”正式实施到2017年初，国务院一共发放了83家直销牌照，也同时造就了中国在册直销员280万。截止到2016年11月，
+        在中国商务部，已经提交申请直销牌照的企业已经高达8216家企业，非在册直销员超过3000万。 直企经销商想要做好市场，必须持续做好两点，第一要学习，第二需要大量精准人脉，而获取精准人脉是经销商开展业务最大的阻碍。很多互联网＋直销的企业都想帮助经销商解决这个问题，无疑都没有找到很好的解决方案，如何才能解决经销商获取精准人脉的难题呢？
+      </text>
+    </view>
+    <view stlye="font-size:16px;color: #333333;">
+      <text>我们与100位经销商，30位团队领导人进行沟通分析后，寻找到一个简单有效获取精准人脉的解决方案，您想知道吗？</text>
+      <view style="font-size:18px;color:#E64340;text-align:center;padding-top:20px;">
+        <text>爱知脉 直企经销商精准人脉解决方案 8月不见不散
+        </text>
+      </view>
+      <button type="primary" bindtap="useZm" style="width:100%;margin-top:40rpx;">使用爱知脉</button>
+    </view>
+  </view>
+</view>

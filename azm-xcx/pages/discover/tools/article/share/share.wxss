@@ -1,0 +1,19 @@
+/* share.wxss */
+.page{
+  padding: 50px 10px 0;
+  background: #f8f8f8;
+  height: 100%;
+  box-sizing: border-box;
+}
+.share {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.share view {
+  padding: 10px 0;
+  color: #666;
+}

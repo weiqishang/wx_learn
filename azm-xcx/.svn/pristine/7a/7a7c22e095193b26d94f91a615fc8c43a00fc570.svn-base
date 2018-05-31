@@ -1,0 +1,72 @@
+/* 20.wxss */
+.page{
+  background: #e8e8e8;
+  padding:1.1764em 15px 65px;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+.top{
+  padding: 10px 15px;
+  background: rgba(43, 45, 58, 0.6);
+  color: white;
+  position: fixed; 
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.top button{
+  float: right;
+}
+.weui-cells:before{
+  content:none;
+}
+.weui-cells:after{
+  content: none;
+}
+.weui-cell:before{
+  content: none;
+}
+.myweui-cell__bd{
+  font-size: 18px;
+  color: #666;
+}
+.weui-cell__hd{
+  font-size: 14px;
+  color: #666;
+  margin-right: 10px;
+  width: 45px;
+}
+.mybtn{
+  height: 44px;
+  background: white;
+  border-top: 1px solid #e4e4e4;
+  color: #1AAD19;
+  border-radius: 0;
+  margin-top: 10px;
+}
+.mybtn:after{
+  content: none;
+}
+ .weui-cells{
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.weui-cells_after-title{
+  margin-top: 49px;
+}
+
+.btm{
+  height: 50px;
+  line-height: 50px;
+  background: #2b2d3a;
+  color: white;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}

@@ -1,0 +1,12 @@
+<view class="page__bd">
+
+  <textarea bindblur="setAddr"  class="weui-textarea" placeholder="长按粘贴您需要编辑的外部文章链接" />
+  <button bindtap="getArticleFromAdrr"  disabled="{{isSure}}" class="weui-btn" type="primary">提取文章</button>
+  <view class="mybtn">
+    <text style="font-weight: bold;line-height:32px;">支持平台</text>
+    <text>微信公众号、今日头条</text>
+    <!--<text>微信公众号、今日头条、腾讯新闻</text>
+    <text>网易新闻、凤凰网、天天快报</text>-->
+  </view>
+
+</view>

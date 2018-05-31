@@ -1,0 +1,145 @@
+/* pages/home2/speed/speed.wxss */
+
+.swiper {
+  height: 300rpx;
+  width: 100%; 
+}
+.swiper image {
+  height: 100%;
+  width: 100%;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 10%;
+}
+
+.userinfo-nickname {
+  color: #999;
+}
+
+.weui-cell__ft {
+  font-size: 14px;
+}
+
+.userinfo-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  display: block;
+}
+
+.userinfo-nickName {
+  font-weight: 550;
+  font-size: 32rpx;
+}
+
+.userinfo-vip {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  margin: -8px 0 0 5px;
+}
+.userinfo-company {
+  font-size: 26rpx;
+  color: #888;
+  margin-top: 20rpx;
+}
+.leftNav {  
+  float: left;  
+}   
+.goodsList {  
+  float: right;  
+}    
+.goodsTitle {  
+ 
+  text-align: center;  
+ 
+  float: left;  
+  font-size: 30rpx;  
+  position: relative;
+
+  margin-bottom: 24rpx;
+  
+}  
+.goodsTitle .imgg{
+  width: 88rpx;  
+  height: 88rpx;  
+  margin-right: 91rpx;
+}
+.goodsTitle .imgg>image{
+  width: 64rpx;
+  height: 64rpx;
+}
+/* .goodsTitle>image {  
+  width: 88rpx;  
+  height: 88rpx;  
+  margin-right: 91rpx;
+  
+}  */
+
+
+.word{
+  font-size: 26rpx;
+  margin-top: 10rpx;
+ 
+}
+.weui-cells::after{
+  border-bottom: none;
+}
+.tianchong{
+  height:30rpx;
+  
+  clear:both;
+  background: #eeeeee;
+}
+.tianchongg{
+  height:10rpx;
+  
+  clear:both;
+  background: #eeeeee;
+  margin-bottom: 100rpx;
+}
+.foot{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100rpx;
+  
+}
+.foot image{
+  width: 100%;
+  height: 100%;
+}
+
+.icons {
+  /* border-top: 1px solid #ccc; */
+  height: 80px;
+  box-sizing: border-box;
+  
+  padding: 20rpx 0 30rpx 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background: white;
+ 
+}
+
+.icon {
+  width: 25%;
+  text-align: center;
+  font-size: 14px;
+}
+
+.icon image {
+  width: 32px;
+  height: 32px;
+}

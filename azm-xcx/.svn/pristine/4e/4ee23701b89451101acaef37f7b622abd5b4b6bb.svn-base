@@ -1,0 +1,32 @@
+
+.page{
+  background: #FFFFFF;
+  min-height: 100%;
+}
+.top{
+  padding: 10px 15px;
+  background: rgba(43, 45, 58, 0.6);
+  color: white;
+  position: fixed; 
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.top button{
+  float: right;
+}
+
+
+.btm{
+  height: 50px;
+  line-height: 50px;
+  background: #2b2d3a;
+  color: white;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}

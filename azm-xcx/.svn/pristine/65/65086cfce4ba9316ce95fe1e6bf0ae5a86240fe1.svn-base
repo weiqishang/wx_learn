@@ -1,0 +1,93 @@
+<!--money.wxml-->
+<view class="page">
+  <view class="container">
+    <view class="container-top">
+      <view class="money-use">
+        <text>可用脉点</text>
+        <text>{{proNumber}}</text>
+      </view>
+      <view class="money-used">
+        <text>已使用脉点</text>
+        <text>{{haveUse}}</text>
+      </view>
+    </view>
+    <button bindtap="payClick" class="myweui-btn" hidden='true'>充值脉点</button>
+  </view>
+
+  <view class="page__bd">
+    <view class="weui-cells__title" style="height:50px;line-height:50px;margin:0;">做任务 领脉点</view>
+    <view class="weui-cells weui-cells_after-title myweui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+          <image src="{{icon.qd}}"></image>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="cell__bd-title">每天签到领取</view>
+          <view class="cell__bd-dec">可领取2脉点，VIP＋4脉点</view>
+        </view>
+        <view class="weui-cell__ft">
+          <button hidden="{{qdFlag==0?false:true}}" catchtap="qiandao" class="weui-btn mini-btn" type="warn" size="mini" data-version="{{version}}">签到</button>
+          <button hidden="{{qdFlag==1?false:true}}" class="weui-btn mini-btn mymini-btn" type="warn" size="mini" style="background:#ccc;">已签到</button>
+        </view>
+      </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+          <image src="{{icon.qun}}"></image>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="cell__bd-title">每天分享首页名片3个群</view>
+          <view class="cell__bd-dec">可领取5脉点，VIP＋10脉点</view>
+        </view>
+        <view class="weui-cell__ft" style="display:flex;flex-direction: column;">
+          <button hidden="{{shareFlag==0?false:true}}" bindtap="toShare" class="weui-btn mini-btn mymini-btn" type="primary" size="mini">去分享</button>
+          <button hidden="{{shareFlag==1?false:true}}" catchtap="recieveShare" class="weui-btn mini-btn" type="warn" size="mini" data-version="{{version}}">领取</button>
+          <button hidden="{{shareFlag==2?false:true}}" class="weui-btn mini-btn mymini-btn" type="warn" size="mini" style="background:#ccc;">已领取</button>
+          <text style="font-size:14px;color:#666666;margin-top:5px;">已有{{shareCount}}个群</text>
+        </view>
+      </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+          <image src="{{icon.yq}}"></image>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="cell__bd-title">邀请10位伙伴生成名片</view>
+          <view class="cell__bd-dec">可领取20脉点</view>
+        </view>
+        <view class="weui-cell__ft" style="display:flex;flex-direction: column;">
+          <button hidden="{{ivitFlag==0?false:true}}" class="eui-btn mini-btn mymini-btn" type="warn" size="mini" style="background:#ccc;">领取</button>
+          <button hidden="{{ivitFlag==1?false:true}}" catchtap="recieveIvit" class="weui-btn mini-btn" type="warn" size="mini">领取</button>
+          <button hidden="{{ivitFlag==2?false:true}}" class="weui-btn mini-btn mymini-btn" type="warn" size="mini" style="background:#ccc;">已领取</button>
+          <text style="font-size:14px;color:#666666;margin-top:5px;">已邀请{{ivitCount}}人</text>
+        </view>
+
+      </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+          <image src="{{icon.team}}" style="width:32px;height:29px;"></image>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="cell__bd-title">选择您所在的直销团队</view>
+          <view class="cell__bd-dec">可领取20脉点</view>
+        </view>
+        <view class="weui-cell__ft">
+          <button hidden="{{ctFlag==0?false:true}}" catchtap="setmycard" class="weui-btn mini-btn mymini-btn" type="warn" size="mini" style="background:#ccc;">去选择</button>
+          <button hidden="{{ctFlag==1?false:true}}" catchtap="recieveTeam" class="weui-btn mini-btn" type="warn" size="mini">领取</button>
+          <button hidden="{{ctFlag==2?false:true}}" class="weui-btn mini-btn mymini-btn" type="warn" size="mini" style="background:#ccc;">已领取</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="rules">
+      <view style="color:#666666;">脉点使用规则：</view>
+      <view class="rule-list">
+        <text>1、事业图书馆：发布一篇文章需要消耗2脉点</text>
+        <text>2、图片工场：生成一张海报需要消耗2脉点</text>
+        <text>3、事业相册：上传一组相片需要消耗2脉点</text>
+        <text>4、臻品小栈：发布一款产品需要消耗4脉点</text>
+      </view>
+    </view>
+  </view>
+</view>

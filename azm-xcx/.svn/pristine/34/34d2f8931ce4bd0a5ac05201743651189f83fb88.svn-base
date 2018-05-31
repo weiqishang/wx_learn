@@ -1,0 +1,19 @@
+.mytext{
+  padding:30px 0px 0px 0px;
+}
+
+.rules {
+  margin: 30px 15px 0;
+  font-size: 14px;
+}
+
+.rule-list {
+  padding: 10px 0;
+}
+
+.rule-list text {
+  display: block;
+  line-height: 25px;
+  color: #666;
+}
+

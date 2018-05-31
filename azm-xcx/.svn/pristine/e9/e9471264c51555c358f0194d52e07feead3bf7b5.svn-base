@@ -1,0 +1,19 @@
+page,
+.page,
+.page__bd{
+    height: 100%;
+}
+.page__bd{
+    padding-bottom: 0;
+}
+.weui-tab__content{
+    padding-top: 60px;
+    text-align: center; 
+}
+.city{
+    text-align: center;
+    display:flex;
+    flex-direction:row;
+    padding: 13px 0 12px 0;
+    border-bottom: 1rpx solid #CCCCCC;
+}

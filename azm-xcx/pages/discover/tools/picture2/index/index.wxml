@@ -1,0 +1,27 @@
+<view animation="{{animationData1}}" style="position:fixed;left:{{-width}}px;top:0px;height:{{height}}px;width:{{width}}px;">
+  <image style="height:{{height}}px;width:{{width}}px;" src="https://media.ccyishe.com/xcx/images/20170623/picbg.png"></image>
+</view>
+<view animation="{{animationData2}}" style="position:fixed;left:0px;top:{{height}}px;width:100%;">
+  <view style="display:flex;flex-direction:row;">
+    <button bindtap="chooseImage" style="height:40px;width:145px;background-color:white;font-size:16px;color:#2B2D3A;border:1px solid #2B2D3A;">
+      <view style="height:40px;width:82px;margin:auto;display:flex;flex-direction:row;">
+        <view>
+        <image src="https://media.ccyishe.com/xcx/images/codeExam/pics.png" style="height:16px;width:16px;"></image>
+        </view>
+        <view style="text-align:left;width:74px;margin-left:2px;">选择图片</view>
+      </view>
+    </button>
+    <button bindtap="myfatory" style="height:40px;width:130px;background-color:#2B2D3A;font-size:16px;color:white;">
+       <view style="height:40px;width:82px;margin:auto;display:flex;flex-direction:row;">
+        <view>
+        <image src="https://media.ccyishe.com/xcx/images/20170623/picset.png" style="height:16px;width:16px;"></image>
+        </view>
+        <view style="text-align:left;width:74px;margin-left:2px;">我的工场</view>
+      </view>
+    </button>
+  </view>
+  <!--bindtap="setCode"-->
+  <view  style="height:70px;line-height:70px;width:100%;">
+    <view bindtap="setCode" style="font-size:16px;color:#999999;width:100%;text-align:center;">设置二维码</view>
+  </view>
+</view>

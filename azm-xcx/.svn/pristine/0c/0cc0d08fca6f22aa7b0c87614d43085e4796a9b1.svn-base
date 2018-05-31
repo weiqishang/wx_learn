@@ -1,0 +1,52 @@
+<!--my.wxml-->
+<view class="page">
+
+  <view class="top">
+    <view>已收入</view>
+    <view style="font-size:34px;">{{obj.numberCount}}人</view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title">
+    <view  class="weui-cell" id="1" bindtap="checkRenMailist">
+      <view class="weui-cell__hd"><image src="{{icon.zhiying}}"></image></view>
+      <view class="weui-cell__bd">直销人脉</view>
+      <view class="weui-cell__ft">{{obj.number1}}</view>
+    </view>
+    <view class="weui-cell" id="2" bindtap="checkRenMailist">
+     <view class="weui-cell__hd"><image src="{{icon.wei}}"></image></view>
+      <view class="weui-cell__bd">微商人脉</view>
+      <view class="weui-cell__ft">{{obj.number2}}</view>
+    </view>
+    <view class="weui-cell" id="6" bindtap="checkRenMailist">
+     <view class="weui-cell__hd"><image src="{{icon.baoxian}}"></image></view>
+      <view class="weui-cell__bd">保险人脉</view>
+      <view class="weui-cell__ft">{{obj.number6}}</view>
+    </view>
+    <view class="weui-cell" id="3" bindtap="checkRenMailist">
+     <view class="weui-cell__hd"><image src="{{icon.baoma}}"></image></view>
+      <view class="weui-cell__bd">宝妈人脉</view>
+      <view class="weui-cell__ft">{{obj.number3}}</view>
+    </view>
+    <view class="weui-cell" id="4" hidden='true' bindtap="checkRenMailist">
+     <view class="weui-cell__hd"><image src="{{icon.xuesheng}}"></image></view>
+      <view class="weui-cell__bd">大学生人脉</view>
+      <view class="weui-cell__ft">{{obj.number4}}</view>
+    </view>
+    <view class="weui-cell" id="5" bindtap="checkRenMailist">
+     <view class="weui-cell__hd"><image src="{{icon.siying}}"></image></view>
+      <view class="weui-cell__bd">私营老板人脉</view>
+      <view class="weui-cell__ft">{{obj.number5}}</view>
+    </view>
+    <view class="weui-cell" id="7" bindtap="checkRenMailist" wx:if="{{teamId==3}}">
+     <view class="weui-cell__hd"><image src="https://media.ccyishe.com/images/20170523/1495535756377.png"></image></view>
+      <view class="weui-cell__bd">易成专享人脉</view>
+      <view class="weui-cell__ft">{{obj.number7}}</view>
+    </view>
+    <view class="weui-cell" id="7" bindtap="checkRenMailist" wx:if="{{teamId==5}}">
+     <view class="weui-cell__hd"><image src="https://media.ccyishe.com/images/20170421/1492758741905.jpg"></image></view>
+      <view class="weui-cell__bd">卓越联盟专享人脉</view>
+      <view class="weui-cell__ft">{{obj.number7}}</view>
+    </view>
+
+  </view>
+</view>

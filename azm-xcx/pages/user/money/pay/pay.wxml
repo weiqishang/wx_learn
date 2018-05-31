@@ -1,0 +1,49 @@
+<!--pay.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class="paybtns">
+      <view class="btn">
+        <button bindtap="pay" id="maidian5">
+          <text>5元</text>
+          <text>10脉点</text>
+        </button>
+        <button bindtap="pay" id="maidian25">
+          <text>25元</text>
+          <text>50脉点 <text class="red">+ 10脉点</text></text>
+          <view class="free">送10元</view>
+        </button>
+      </view>
+      <view class="btn">
+        <button bindtap="pay" id="maidian50">
+          <text>50元</text>
+          <text>100脉点</text>
+        </button>
+        <button bindtap="pay" id="maidian100">
+          <text>100元</text>
+          <text>100脉点 <text class="red">+ 50脉点</text></text>
+          <view class="free">送25元</view>
+        </button>
+      </view>
+      <view class="btn">
+        <button bindtap="pay" id="maidian150">
+          <text>150元</text>
+          <text>300脉点</text>
+        </button>
+        <button bindtap="pay" id="maidian200">
+          <text>200元</text>
+          <text>400脉点 <text class="red">+ 100脉点</text></text>
+          <view class="free">送50元</view>
+        </button>
+      </view>
+    </view>
+    <view class="rules">
+      <view style="color:#888888;">温馨提示</view>
+      <view class="rule-list">
+        <text>1、脉点兑换比例为1元兑换2脉点</text>
+        <text>2、充值的脉点使用权仅限本小程序使用</text>
+        <text>3、您购买的是虚拟产品，不支持退款</text>
+      </view>
+    </view>
+
+  </view>
+</view>

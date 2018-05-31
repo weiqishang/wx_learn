@@ -1,0 +1,48 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="searchPerson" bindfocus="inputFocus" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput" style="height:30px">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">请输入姓名或手机号</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+    <view style="font-size:14px;color:gray;height:50px;line-height:50px;width:100%;text-align:center;">{{title}}（{{count}}人）</view>
+    <view class="weui-cells weui-cells_after-title">
+      <block wx:for="{{rms}}" wx:for-item="myItem">
+        <view class="weui-cell" style="background-color:white;" id="{{myItem.pid}}" hidden="{{myItem.hidden}}" bindtap="checkCard">
+          <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src="{{myItem.pImg}}" style="width: 50px; height: 50px; display: block" />
+          </view>
+          <view class="weui-cell__bd">
+            <view>{{myItem.pName}}</view>
+            <view style="font-size: 13px;color: #888888;margin-top: 5px;">{{myItem.pCom=='null'||myItem.pCom==''||myItem.pCom==null?myItem.pPhone:myItem.pCom}}
+              <block wx:if="{{myItem.pTeam!=''&&myItem.pTeam!=null&&myItem.pTeam!='null'}}">-{{myItem.pTeam}}</block>
+            </view>
+          </view>
+          <view id="{{myItem.pPhone}}" class="weui-cell__ft" bindtap="callPhone">
+            <image src="https://media.ccyishe.com/xcx/images/phone2.png" style="width: 30px; height: 30px; display: block" />
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="weui-footer" style="margin-top:30px;">
+      <view class="weui-footer__text" hidden="{{rms.length<count?false:true}}">上拉加载更多</view>
+      <view class="weui-footer__text" hidden="{{rms.length==count?false:true}}">没有更多数据</view>
+    </view>
+    <!--<view class="weui-footer" style="margin-top:30px;">
+      <view class="weui-footer__text">没有更多联系人了</view>
+      <view class="weui-footer__text">分享名片:获取更多联系人</view>
+    </view>-->
+  </view>
+</view>
+<view class="huimenceng" hidden="{{cengHidden}}" style="height:20000%;width:100%;"></view>

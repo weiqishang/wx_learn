@@ -1,0 +1,16 @@
+<view style="background-color: #212121;width:{{width}}px;height:{{height}}px;">
+  <view style="height:{{top}}px;width:100%;"></view>
+  <view style="width:{{width}}px;height:{{width}}px;">
+    <image bindtap="checkImg" id="{{url}}" src="{{url}}" style="width:{{width}}px;height:{{width}}px;" mode="widthFix"></image>
+  </view>
+</view>
+<view style="position:fixed;top:{{height-60}}px;left:{{width*0.05}}px;width:{{width*0.4}}px;font-size:16px;line-height:40px;text-align:center;opacity:0.9;">
+  <button bindtap="myFactory"   class="weui-btn" style="width:100%;" type="warn">
+    我的工场
+  </button>
+</view>
+<view style="position:fixed;top:{{height-60}}px;left:{{width*0.55}}px;width:{{width*0.4}}px;font-size:16px;line-height:40px;text-align:center;opacity:0.9;">
+  <button  bindtap="delCode" class="weui-btn" style="width:100%;" type="warn">
+    删除二维码
+  </button>
+</view>

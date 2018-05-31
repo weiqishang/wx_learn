@@ -1,0 +1,10 @@
+<!--ts.wxml-->
+<view class="page">
+  <view class="main">
+        <image mode="widthFix" src="../../../image/banner1.png" style="width:100%;"></image>
+     <view style="padding-top:30px;">仅对VIP会员开放</view>
+    <view style="color:orangered;">8月1号，我们不见不散</view>
+    <button bindtap="shengji">升级VIP</button>
+    <button bindtap="getBack">返回首页</button>
+  </view>
+</view>

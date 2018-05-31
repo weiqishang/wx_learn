@@ -1,0 +1,29 @@
+/* my.wxss */
+.page{
+  background: #f8f8f8;
+  min-height: 100%;
+}
+.top{
+  padding: 20px 0;
+  text-align: center;
+  color: #666;
+}
+.weui-cell:before{
+  left: 0;
+}
+.weui-cell__ft {
+  font-family: "Arial";
+  font-size: 16px;
+  font-weight: bold;
+  font-style: italic;
+}
+.weui-cell{
+  height: 50px;
+  box-sizing: border-box;
+}
+.weui-cell__hd image{
+  width: 25px;
+  height: 25px;
+  margin-right: 15px;
+  vertical-align: middle;
+}

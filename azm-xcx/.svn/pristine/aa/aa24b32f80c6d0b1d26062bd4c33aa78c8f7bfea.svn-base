@@ -1,0 +1,7 @@
+/* pages/discover/tools/message/message.wxss */
+.page{
+  min-height: 100%;
+}
+.page__hd2 {
+    margin:0px 60px;
+}

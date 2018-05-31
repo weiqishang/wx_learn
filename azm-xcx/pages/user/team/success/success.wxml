@@ -1,0 +1,17 @@
+<view class="page">
+    <view style="text-align:center;margin-top:100px;" >
+       <icon type="success" size="93"/>
+    </view>
+
+
+    <view class="classname" style="text-align:center;margin-top:20px;font-size:20px;">团队入驻成功</view>
+    <view class="weui-footer" style="margin-top:30px;">
+            <view class="weui-footer__text" style="font-size:16px;">我们将会3个工作日内与您一起,完成团队</view>
+            <view class="weui-footer__text" style="font-size:16px;">信息设置，稍后我们将会与您联系！                                </view>
+    </view>
+
+    <view class="page__hd">
+      <button class="weui-btn" bindtap="backzm" type="primary">返回爱知脉</button>
+    </view>
+
+</view>

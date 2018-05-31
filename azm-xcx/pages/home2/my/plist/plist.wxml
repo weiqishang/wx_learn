@@ -1,0 +1,56 @@
+<!--plist.wxml-->
+<view class="page new" hidden="{{list.length!=0}}">
+  <image src="../../../../image/album.png" style="width:50px;height:50px;"></image>
+   <view style="color: #888;">
+   您还没收藏此类人脉
+    <!-- <view wx:if="{userType==1}}">你还没有收藏直销人脉</view>
+    <view wx:if="{{userType==2}}">你还没有收藏微商人脉~</view>
+    <view wx:if="{{userType==3}}">你还没有收藏宝妈人脉~</view>
+    <view wx:if="{{userType==4}}">你还没有收藏在校大学生人脉~</view>
+    <view wx:if="{{userType==5}}">你还没有收藏私营人脉~</view>
+    <view wx:if="{{userType==6}}">你还没有收藏保险从业者人脉~</view> -->
+  </view>
+  <button size="mini" bindtap="back">返回</button>
+</view>
+<view class="" style="padding:0px 15px;margin-bottom:20px;" hidden="{{list.length==0}}">
+  <block wx:for="{{list}}">
+    <view class="weui-cells weui-cells_after-title" style="margin-top:20px;">
+      <view class="weui-cell">
+        <view class="weui-cell__bd myweui-cell__bd">{{item.name}}</view>
+        <view class="weui-cell__ft">
+          <image src="{{item.picUrl}}" style="vertical-align: middle;width:50px; height: 50px;border-radius:10px;"></image>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__hd">电 话</view>
+        <view class="weui-cell__bd" style="color:#6699ff;font-size:16px;" >
+          <block wx:if="{{item.phone!=null}}"><text bindtap="call" id="{{item.phone}}">{{item.phone}}</text> <text bindtap="copyphone" id="{{item.phone}}" style="padding:0px 10px;color:#ee984c">复制号码</text></block>
+        </view>
+      </view>
+      <view class="weui-cell" wx:if="{{item.qq!=''&&item.qq!=null}}">
+        <view class="weui-cell__hd">QQ号</view>
+        <view class="weui-cell__bd" style="color:#333;font-size:16px;">
+          <block wx:if="{{item.qq!=null}}">{{item.qq}}</block>
+        </view>
+      </view>
+      <view class="weui-cell" wx:if="{{item.wechat!=''&&item.wechat!=null}}">
+        <view class="weui-cell__hd">微 信</view>
+        <view class="weui-cell__bd" style="color:#333;font-size:16px;">
+          <block wx:if="{{item.wechat!=null}}">{{item.wechat}} <text bindtap="copywechat" id="{{item.wechat}}" style="padding:0px 10px;color:#ee984c">复制号码</text></block>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__hd">属 性</view>
+        <view class="weui-cell__bd" style="color:#333;font-size:14px;"> <block wx:if="{{item.shuxing!=null}}">{{item.shuxing}}</block>
+          <block wx:if="{{item.provine!=null}}">、{{item.provine}}</block>
+          <block wx:if="{{item.city!=null}}">、{{item.city}}</block>
+        </view>
+      </view>
+      <button id="{{item.cid}}" data-my="{{item}}" bindtap="setInNotes" class="mybtn">保存通讯录</button>
+    </view>
+  </block>
+  <view class="weui-footer" style="padding-top:30px;">
+    <view class="weui-footer__text" hidden="{{list.length<recount?false:true}}">上拉加载更多</view>
+    <view class="weui-footer__text" hidden="{{list.length==recount?false:true}}">没有更多了</view>
+  </view>
+</view>

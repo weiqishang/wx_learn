@@ -1,0 +1,7 @@
+{
+  "navigationBarTextStyle": "#fff",
+  "navigationBarTitleText": "六度人脉",
+  "navigationBarBackgroundColor": "#2B2D3A",
+  "backgroundColor": "#fbf9fe",
+  "enablePullDownRefresh": true
+}

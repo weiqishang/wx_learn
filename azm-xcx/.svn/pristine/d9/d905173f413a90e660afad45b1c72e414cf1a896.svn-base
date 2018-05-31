@@ -1,0 +1,134 @@
+<!--register.wxml-->
+<view class="page">
+  <view hidden="{{isFocus}}" class="" style="height:70rpx;;padding:20rpx 0rpx;background-color:#555761;">
+    <view class="top">下次如何进入？
+      <button type="primary" size="mini" bindtap="focusUs">关注我们</button>
+    </view>
+  </view>
+
+  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="800">
+<swiper-item bindtap="checkAdInfo" id="1">
+      <image src="https://media.ccyishe.com/images/20171027/1509101580958.jpg" class="slide-image" mode="aspectFill" />
+    </swiper-item>
+
+    <swiper-item bindtap="checkAdInfo" id="2">
+      <image src="https://media.ccyishe.com/images/20171027/1509101492256.jpg" class="slide-image" mode="aspectFill" />
+    </swiper-item>
+  </swiper>
+  <view class="main" style='margin-top:10px;'>
+    <view class="icons">
+      <block wx:for="{{iconInfos}}" wx:key="id">
+        <view class="icon" id="{{item.id}}" bindtap="checkDetails">
+          <image src="{{item.picUrl}}"></image>
+          <view class="word">{{item.smallName}}</view>
+        </view>
+
+      </block>
+    </view>
+  </view>
+  <text>{{txt}}</text>
+  <view class="weui-cells__title">已为您精选了5类人脉项目</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell" id="1" bindtap="checkrenmai">
+      <view class="weui-cell__hd">
+        <image src="{{icon.zhiying}}" class="part"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title">加直销人脉</view>
+        <view class="part-text">共有
+          <text class="red">{{obj.number1}}</text>人脉来自
+          <text class="red">200</text>家直销公司</view>
+      </view>
+    </view>
+    <view class="weui-cell" id="2" bindtap="checkrenmai">
+      <view class="weui-cell__hd">
+        <image src="{{icon.wei}}" class="part-box"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title">加微商人脉</view>
+        <view class="part-text">共有
+          <text class="red">{{obj.number2}}</text>人脉来自
+          <text class="red">100</text>家品牌微商</view>
+      </view>
+    </view>
+    <view class="weui-cell" id="3" bindtap="checkrenmai">
+      <view class="weui-cell__hd">
+        <image src="{{icon.baoma}}" class="part-box"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title">加宝妈人脉</view>
+        <view class="part-text" wx:if="{{obj.number3>154310}}">共有
+          <text class="red">{{obj.number3}}</text>宝妈等待你的服务</view>
+        <view class="part-text" wx:if="{{obj.number3==154310}}">微商、直销行业宝妈人群占比：
+          <text class="red">16%</text>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cell" id="4" bindtap="checkrenmai" style="display:none;">
+      <view class="weui-cell__hd">
+        <image src="{{icon.xuesheng}}" class="part-box"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title">加校大学生</view>
+        <view class="part-text" wx:if="{{obj.number4>100000}}">共有
+          <text class="red">{{obj.number4}}</text>人脉来自
+          <text class="red">240</text>所大学院校</view>
+        <view class="part-text" wx:if="{{obj.number4==100000}}">微商、直销行业大学生人群占比：
+          <text class="red">12%</text>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cell" id="5" bindtap="checkrenmai">
+      <view class="weui-cell__hd">
+        <image src="{{icon.siying}}" class="part"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title">加私营老板</view>
+        <view class="part-text">各行各业城市实体店老板等你来加</view>
+      </view>
+    </view>
+    <view class="weui-cell" id="6" bindtap="checkrenmai">
+      <view class="weui-cell__hd">
+        <image src="{{icon.baoxian}}" class="part"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title">加保险从业者</view>
+        <view class="part-text">人脉广、时间自由、善于沟通、事业心强</view>
+      </view>
+    </view>
+    <view class="weui-cell" id="7" bindtap="checkrenmai" wx:if="{{teamId==3}}">
+      <view class="weui-cell__hd">
+        <image src="https://media.ccyishe.com/images/20170523/1495535756377.png" class="part"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title">易成专享人脉</view>
+        <view class="part-text">专为易成国际系统定制专属人脉</view>
+      </view>
+    </view>
+    <view class="weui-cell" hidden='true' id="7" bindtap="checkrenmai" wx:if="{{teamId==5}}">
+      <view class="weui-cell__hd">
+        <image src="https://media.ccyishe.com/images/20170421/1492758741905.jpg" class="part"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title">找正合天下专享人脉</view>
+        <view class="part-text">专为正合天下定制专属人脉</view>
+      </view>
+    </view>
+
+  </view>
+  <view class="btm" style="line-height:2em;">
+    <view style="font-size:15px;">全国唯一一家做精准人脉服务的公司</view>
+    <view style="font-size:15px;">保护期内，人脉一对一封闭式联系</view>
+    <view style="font-size:15px;">不用担心聊好的客户被同行抢走</view>
+
+  </view>
+
+  <view style="position:fixed;color:#09BB07;height:52px;line-height:50px;text-align:center;width:45px;z-index:1000;bottom:10px;right:10px;" bindtap="joinWechat" >
+    <view style="background-color:#09BB07;height:30px;line-height:40px;margin:auto;text-align:center;width:30px;border-radius:50%;">
+      <image src="../../image/call.png" style='width:25px;height:25px;'></image>
+    </view>
+    <view style="height:22px;line-height:22px;width:48px;text-align:center;font-size:12px;">
+      加客服
+    </view>
+  </view>
+</view>

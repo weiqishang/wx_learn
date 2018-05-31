@@ -1,0 +1,83 @@
+<view class="myweui-cells weui-cells_after-title" style="margin-top:10px;border-top:1rpx solid #D9D9D9;border-bottom:1rpx solid #D9D9D9;">
+
+  <view bindtap="moveToEditArticle" class="weui-cell" style="height:60px;">
+    <view class="weui-cell__hd" style="position: relative;">
+      <image src="image/fx1.png" style="vertical-align: middle;width:32px; height: 32px;"></image>
+    </view>
+    <view class="weui-cell__bd" style="padding-left: 20px;line-height:1.8;">
+      <view>事业图书馆</view>
+      <view style="font-size: 13px;color: #888888;">在文章中插入自己的海报、名片、二维码</view>
+    </view>
+  </view>
+
+  <view bindtap="moveToEditPic" class="weui-cell" style="height:60px;">
+    <view class="weui-cell__hd" style="position: relative;">
+      <image src="image/fx2.png" style="vertical-align: middle;width:32px; height: 32px;"></image>
+    </view>
+    <view class="weui-cell__bd" style="padding-left: 20px;line-height:1.8;">
+      <view>图片工场</view>
+      <view style="font-size: 13px;color: #888888;">用图片工场生成属于自己的二维码海报</view>
+    </view>
+  </view>
+  
+  <view bindtap="myrm" class="weui-cell" style="height:60px;">
+    <view class="weui-cell__hd" style="position: relative;">
+      <image src="../../image/rm0.png" style="vertical-align: middle;width:32px; height: 32px;"></image>
+    </view>
+    <view class="weui-cell__bd" style="padding-left: 20px;line-height:1.8;">
+      <view>六度人脉</view>
+      <view style="font-size: 13px;color: #888888;">通过六个人你就能够认识任何一个陌生人</view>
+    </view>
+  </view>
+
+  <view hidden="{{true}}" class="weui-cell" style="height:60px;">
+    <view class="weui-cell__hd" style="position: relative;">
+      <image src="image/fx3.png" style="vertical-align: middle;width:32px; height: 32px;"></image>
+    </view>
+    <view class="weui-cell__bd" style="padding-left: 20px;line-height:1.8;">
+      <view>我的相册</view>
+      <view style="font-size: 13px;color: #888888;">留下你美好的事业足迹，与好友一起分享</view>
+    </view>
+  </view>
+
+  <view hidden="{{true}}" class="weui-cell" style="height:60px;">
+    <view class="weui-cell__hd" style="position: relative;">
+      <image src="image/fx4.png" style="vertical-align: middle;width:32px; height: 32px;"></image>
+    </view>
+    <view class="weui-cell__bd" style="padding-left: 20px;line-height:1.8;">
+      <view>臻品小栈</view>
+      <view style="font-size: 13px;color: #888888;">一键发布，智能装修，在线交易，实时到帐</view>
+    </view>
+  </view>
+
+</view>
+
+<view style="font-size: 14px;color: #888888;margin-top:25px;padding-bottom:30px;">
+  <view style="float:left;margin-left:15px;">人脉解决方案</view>
+  <view style="float:right;margin-right:15px;"><text>相约8月</text><text>  不见不散</text></view>
+</view>
+
+<view class="myweui-cells weui-cells_after-title" style="clear:both;border-top:1rpx solid #D9D9D9;border-bottom:1rpx solid #D9D9D9;">
+<!--bindtap="rmfa"-->
+  <view  class="weui-cell" style="height:60px;">
+    <view class="weui-cell__hd" style="position: relative;">
+      <image src="../../image/get0.png" style="vertical-align: middle;width:32px; height: 32px;"></image>
+    </view>
+    <view class="weui-cell__bd" style="padding-left: 20px;line-height:1.8;">
+      <view style="font-size: 16px;color: #888888;">获取人脉</view>
+      <view style="font-size: 13px;color: #888888;">根据五大人群特点，定制开发人脉解决方案</view>
+    </view>
+  </view>
+</view>
+ <!--bindtap="findrmbyarea"-->
+<view class="myweui-cells weui-cells_after-title" style="border-bottom:1rpx solid #D9D9D9;">
+  <view class="weui-cell" style="height:60px;">
+    <view class="weui-cell__hd" style="position: relative;">
+      <image src="../../image/checkrm0.png" style="vertical-align: middle;width:32px; height: 32px;"></image>
+    </view>
+    <view class="weui-cell__bd" style="padding-left: 20px;line-height:1.8;">
+      <view style="font-size: 16px;color: #888888;">查找人脉（百万精准人脉）</view>
+      <view style="font-size: 13px;color: #888888;">支持地区、人群、年龄段、时间精准查找</view>
+    </view>
+  </view>
+</view>

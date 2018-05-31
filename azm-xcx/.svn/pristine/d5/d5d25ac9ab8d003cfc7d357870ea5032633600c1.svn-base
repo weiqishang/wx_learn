@@ -1,0 +1,46 @@
+<view class="page">
+<view  style="border:1px solid #333;">
+  <view class="contentpage" style="height:{{wheight-2}}px">
+       <view class="content" style="height:{{contenth}}px">
+           
+           <view class="weui-cell">
+                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                    <image src="{{userInfo.avatarUrl}}" style="width: 50px; height: 50px; display: block;border-radius:12rpx;"/>     
+                </view>
+                <view class="weui-cell__bd">
+                    <view>{{userInfo.nickName}}  <image src="../../../image/wd_HL.png" style="width:30rpx;height:30rpx;"></image></view>
+                    <view style="font-size: 13px;color: #888888;">广东 深圳</view>
+                </view>
+            </view>
+
+
+                       
+            
+
+           <view style="text-align:center;margin-top:30rpx;height:{{middlep}}px">
+             <image src="../../../image/3.png" class="contentimages" style="width:{{picw}}px;height:{{picw}}px"></image>
+            </view>
+
+
+            <view class="weui-footer" style="margin-top:-10px;text-align:center;">
+                <view class="weui-footer__text"  >扫一扫上面的二维码图案，加我微信</view>
+               
+            </view>
+            
+        
+       </view>
+
+    
+      
+
+
+ 
+  </view>
+
+  <view style="background-color:white;margin-bottom:0px;">
+          <view style="text-align:center;height:{{buttonw}}px;padding-top:{{buttonpw}}px;">关闭</view>
+  </view>
+</view>
+</view>
+
+

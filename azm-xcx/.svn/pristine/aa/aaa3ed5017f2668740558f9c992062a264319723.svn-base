@@ -1,0 +1,448 @@
+// pages/register/register.js
+var util = require("../../utils/util");
+var app = getApp();
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    isCode: true,
+
+    checkvalue: "获取验证码",
+    code: "",
+    phonecode: "",
+    xcxCode: "",
+
+    tuijianren: '',
+    buttoncolor: '#EEAFAA',
+    icon: {
+      jingxuan: 'https://m.ccyishe.com/html/images/jingxuan.png',
+      zhiying: 'https://m.ccyishe.com/html/images/5Dicon@2x.png',
+      wei: 'https://m.ccyishe.com/html/images/100icon@2x_39.png',
+      yiduiyi: 'https://m.ccyishe.com/html/images/yiduiyi.png',
+
+      siying: 'https://m.ccyishe.com/html/images/2Wicon@2x.png',
+      baoxian: 'https://m.ccyishe.com/html/images/icon@2x.png',
+      banner: 'https://m.ccyishe.com/html/images/banner@2x.png',
+      shouji: 'https://m.ccyishe.com/html/images/shouji.png',
+      suoping: 'https://m.ccyishe.com/html/images/suoping.png',
+      zhuce: 'https://m.ccyishe.com/html/images/zhuce.png',
+    },
+
+    iconInfos: [{
+      id: 0,
+      picUrl: 'https://m.ccyishe.com/html/images/baifen.png',
+      smallName: '百分百',
+      smallN: '精准人脉',
+    }, {
+      id: 1,
+      picUrl: 'https://m.ccyishe.com/html/images/wudalei.png',
+      smallName: '五大类',
+      smallN: '最易转化人脉',
+    }, {
+      id: 2,
+      picUrl: 'https://m.ccyishe.com/html/images/yi.png',
+      smallName: '一对一',
+      smallN: '封闭式联系',
+    }],
+    isFocus: false
+  },
+
+  /**
+   * 设置输入框的值
+   */
+  setInfo: function (e) {
+    var that = this;
+    var id = e.target.id;
+    var value = e.detail.value;
+    console.log(id + "--" + value);
+    if (id == "phone") {
+      this.setData({ phone: value });
+      var length = value.length;
+      if (length == 11 && /^(((13[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(14[0-9]{1})|)+\d{8})$/.test(value)) {
+        that.setData({
+          buttoncolor: "#EEAFAA",
+          isCode: true
+        })
+      } else {
+        that.setData({
+          buttoncolor: "#999999",
+          isCode: false
+        })
+      }
+    } else if (id == "phonecode") {
+      this.setData({ phonecode: value });
+    }
+  },
+
+  /**
+ * 获取验证码
+ */
+  getCode: function (e) {
+    var that = this;
+    if (this.data.phone == "") {
+      wx.showToast({
+        title: '请输入手机号',
+        icon: 'loading',
+        duration: 1000
+      });
+      return;
+    } else {
+      var value = this.data.phone;
+      var length = value.length;
+      if (length == 11 && /^(((13[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(14[0-9]{1})|)+\d{8})$/.test(value)) {
+        wx.showLoading({
+          title: '获取中...',
+        })
+        var that = this;
+        wx.login({
+          success: function (res) {//用户登录成功
+            if (res.code) {
+              console.log(res);
+              var code = res.code;
+              that.setData({ xcxCode: code });
+              that.getCodeFromService(value, code);
+            }
+          }
+        });
+      } else {
+        wx.showToast({
+          title: '手机号格式不对',
+          icon: 'loading',
+          duration: 1000
+        });
+      }
+    }
+  },
+  /**
+   * 发送验证码
+   */
+  getCodeFromService: function (phone, code) {
+    var xcxSession = wx.getStorageSync("xcxSession");
+    var that = this;
+    wx.request({//发到服务器，进行解密数据
+      url: 'https://m.ccyishe.com/page/xcx/user!phoneCode.jsp',
+      method: "POST",
+      data: {
+        phone: phone,
+        code: code,
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        wx.hideLoading();
+        if (res.data.result == "phone is exist") {
+          wx.showToast({
+            title: '该号码已注册过',
+            icon: 'loading',
+            duration: 1000
+          });
+        } else {
+          var wait = 60;
+          that.time(wait);
+        }
+      },
+      fail: function (res) {
+        console.log("测试失败返回");
+        wx.hideLoading();
+        console.log(res);
+      }
+    })
+  },
+  /**
+ * 验证码倒计时
+ */
+  time: function (wait) {
+    //console.log(wait);
+    var that = this;
+    if (wait == 0) {
+      this.setData({
+        checkvalue: "获取验证码",
+        buttoncolor: "#999999",
+        isCode: true
+      })
+      wait = 60;
+    } else {
+      this.setData({
+        checkvalue: wait + "s后重新获取",
+        buttoncolor: "#EEAFAA",
+        isCode: false
+      })
+      wait--;
+      setTimeout(function () {
+        that.time(wait);
+      },
+        1000)
+    }
+  },
+  /**
+   * 获取推荐人信息
+   */
+  getTuijianrenInfo: function (tjid) {
+    var ownerId = tjid;
+    var that = this;
+    wx.request({//请求拿到用户数据的接口
+      url: 'https://m.ccyishe.com/page/xcx/user!userInfoByCid.jsp',
+      data: {
+        cid: ownerId
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log("传ownerId返回7-11");
+        console.log(res);
+
+        that.setData({
+          tuijianren: res.data.json.user.name,
+          tuijianrenphone: res.data.json.user.phone
+        });
+      },
+      fail: function (res) {
+        // fail
+        console.log("传xcxSession失败返回");
+        console.log(res);
+
+      },
+      complete: function (res) {
+        // complete
+
+      }
+    })
+  },
+
+  onPullDownRefresh: function () {
+    wx.showLoading({
+      title: '加载中...',
+      duration: 2000
+    })
+  },
+/**
+ * 注册事件
+ */
+  register: function (e) {
+    var tjphone = this.data.tuijianrenphone;
+    var regPhone = this.data.phone;
+    var xcxcode = this.data.xcxCode;
+    var regCode = this.data.phonecode;  
+
+    if (regPhone == "") {
+      wx.showToast({
+        title: '手机号不能为空',
+        icon: 'loading',
+        duration: 1000
+      })
+      return;
+    } else if (regCode == "") {
+      wx.showToast({
+        title: '验证码不能为空',
+        icon: 'loading',
+        duration: 1000
+      })
+      return;
+    } else {
+      wx.showLoading({
+        title: '注册中...',
+      })
+
+      var that = this;
+      wx.getUserInfo({//获取用户信息
+
+        success: function (res) {
+          console.log("用户登录成功");
+          var encryptedData = res.encryptedData;
+          var iv = res.iv;
+          wx.request({//发到服务器，进行解密数据
+            url: 'https://m.ccyishe.com/page/xcx/user!inNew.jsp',
+            method: "POST",
+            data: {
+              code: xcxcode,
+              encryptedData: encryptedData,
+              iv: iv,
+              phone: regPhone,
+              phoneCode: regCode,
+              parentPhone: tjphone
+            },
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: function (res) {
+              console.log(that.data.phone + "注册成功返回" + that.data.tuijianrenphone);
+              console.log(res);
+              wx.hideLoading();
+              if (res.data.result == "success") {
+                wx.showModal({
+                  title: '注册提示',
+                  content: '注册成功',
+                  showCancel: false,
+                  confirmText: '去加人脉',
+                  success: function (e) {
+
+                    wx.setStorageSync("myId", res.data.json.userId);
+                    //wx.removeStorageSync("xcxSession");
+                    wx.setStorageSync("xcxSession", res.data.json.xcxSession);
+                    wx.redirectTo({
+                      url: './myrm/myrm',
+                    });
+
+                  }
+                });
+
+              } else if (res.data.result == "user is exist") {
+                wx.showToast({
+                  title: '该号码已注册过',
+                  icon: 'loading',
+                  duration: 1000
+                })
+              } else if (res.data.result == "phone is exist") {
+                wx.showToast({
+                  title: '该号码已注册过',
+                  icon: 'loading',
+                  duration: 1000
+                })
+              } else if (res.data.result == "phoneCode is error") {
+                wx.showToast({
+                  title: '验证码错误',
+                  icon: 'loading',
+                  duration: 1000
+                })
+              } else if (res.data.result == "parentOne is null") {
+                wx.showToast({
+                  title: '推荐人不存在',
+                  icon: 'loading',
+                  duration: 1000
+                })
+              } else {
+                wx.showToast({
+                  title: '服务器忙',
+                  icon: 'loading',
+                  duration: 1000
+                })
+              }
+            },
+            fail: function (res) {
+
+            }
+          })
+        },
+        fail: function (res) {
+          wx.hideLoading();
+          wx.openSetting({
+            success: function (res) {
+
+            }
+          })
+        }
+      })
+    }
+  },
+
+  onLoad: function (options) {
+    var part = options.part;
+    var myid = wx.getStorageSync('myId');
+    //判断用户是否是注册用户，如果是，则让分享页面给好友，邀请他们注册
+    if (myid != "0" && myid != "" && myid != "undefined" && myid != undefined) {
+      wx.showModal({
+        title: '您已注册过了',
+        content: '点击右上角"…"，转发给好友注册',
+        showCancel: false,
+        confirmText: '确定',
+        success: function (res) {
+          if (res.confirm) {
+          } else if (res.cancel) {
+          }
+        }
+      })
+    }
+    var that = this;
+    var tuijian_Id = options.tuijianrenId;// 参数传过来的推荐人Id
+
+    app.getXcxSession();
+    //获取推荐Id，如果当前打开的用户已经注册，推荐人优先为当前用户，如果当前用户没有注册，推荐人显示为参数传过来的推荐人Id
+    if (tuijian_Id != 'undefined' && tuijian_Id != '' && tuijian_Id != undefined) {
+      if (myid != "0" && myid != "" && myid != "undefined" && myid != undefined) {
+        tuijian_Id = myid;
+        this.setData({
+          tuijianrenId: tuijian_Id
+        });
+      }
+      else {
+        this.setData({
+          tuijianrenId: tuijian_Id
+        });
+      }
+      this.getTuijianrenInfo(tuijian_Id);
+    } else {
+      if (myid != "0" && myid != "" && myid != "undefined" && myid != undefined) {
+        tuijian_Id = myid;
+        this.setData({
+          tuijianrenId: tuijian_Id
+        });
+        this.getTuijianrenInfo(tuijian_Id);
+      }
+      else {
+        this.setData({
+          tuijianrenId: 0
+        });
+      }
+    }
+  },
+
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  onShow: function () {
+    //this.checkIsLogin();
+    //this.getRenMaiCount();
+  },
+
+  onShareAppMessage: function () {
+    var that = this;
+    var name = this.data.tuijianren;
+    var tuiianrenid = this.data.tuijianrenId;
+    return {
+      title: '我是' + name + '，邀请你使用爱知脉，找精准人脉！',
+      path: "pages/register/register?tuijianrenId=" + tuiianrenid,
+      success: function (res) {
+        // 分享成功
+      },
+      fail: function (res) {
+        // 分享失败
+      }
+    }
+  },
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+})

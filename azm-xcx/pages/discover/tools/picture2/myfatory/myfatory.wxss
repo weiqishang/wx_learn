@@ -1,0 +1,19 @@
+Page{
+  background-color: #ffffff;
+  max-height: 100%;
+  width:100%;
+}
+.myweui-navbar {
+  height: 44px;
+  font-size: 16px;
+  color: #666;
+  position: fixed;
+  background: #fff;
+}
+.weui-navbar__item.weui-bar__item_on {
+  color: #2b2d3a;
+  font-weight: 700;
+}
+.weui-navbar__slider {
+  background: #2b2d3a;
+}

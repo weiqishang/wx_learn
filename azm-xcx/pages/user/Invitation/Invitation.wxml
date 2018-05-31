@@ -1,0 +1,51 @@
+<!--Invitation.wxml-->
+<canvas canvas-id="canvas1"
+ style="height:1920px;width:1080px;position:fixed;bottom:1920px;left:0px;" />
+<canvas canvas-id="canvas2"
+ style="height:366px;width:792px;position:fixed;bottom:900px;left:0px;" />
+<canvas canvas-id="canvas4"
+ style="height:980px;width:860px;position:fixed;bottom:900px;left:0px;" />
+<canvas canvas-id="canvas5"
+ style="height:980px;width:860px;position:fixed;bottom:900px;left:0px;" />
+ <canvas canvas-id="canvas8"
+ style="height:750px;width:750px;position:fixed;bottom:900px;left:0px;" />
+ <canvas canvas-id="canvas9"
+ style="height:1600px;width:900px;position:fixed;bottom:900px;left:0px;" />
+
+<view class="page">
+  <view class="weui-cells__title">我的二维码</view>
+  <view class="weui-cells weui-cells_after-title">
+   <view class="weui-cell" bindtap="makeRigisterCode" data-id="1">
+      <view class="weui-cell__hd">
+        <image src="../../../image/yq2.png"  class="part"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title">我的二维码<text style="padding:2px 4px;font-size:24rpx;background:#ff0000;color:#fff;margin-left:5px;">最新</text></view>
+        <view class="part-text">生成您独有的二维码</view>
+      </view>      </view>
+    <view class="weui-cell" bindtap="free">
+      <view class="weui-cell__hd">
+        <image src="../../../image/yq.png" class="part"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title">我的链接</view>
+        <view class="part-text">生成您独有的注册链接</view>
+      </view>
+    </view>
+      <view class="weui-cell"  bindtap="shareMyXiaoChengXuMa" >
+      <view class="weui-cell__hd">
+        <image src="../../../image/ewm.png"  class="part"></image>
+      </view>
+      <view class="weui-cell__bd" >
+        <view class="title">我的名片小程序码</view>
+        <view class="part-text">做事业，你必须要有一个电子名片</view>
+      </view>
+    </view>
+  </view>
+
+
+  <view style="margin:20px 0px 50px 0px;padding:0 50px;">
+    <button  bindtap="makeRigisterCode" data-id="4" class="weui-btn" type="default"  style="background:#fff">生成二维码</button>
+    <button  bindtap="makeRigisterCode" data-id="5" class="weui-btn" type="default"  style="background:#fff">生成小程序码</button>
+  </view>
+</view>

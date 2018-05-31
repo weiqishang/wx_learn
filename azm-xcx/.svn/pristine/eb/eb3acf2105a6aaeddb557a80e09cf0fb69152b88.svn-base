@@ -1,0 +1,217 @@
+<view class="page">
+
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell" style="padding:15px;" bindtap="setmycard">
+      <view class="weui-cell__hd" style="margin-right: 10px;">
+        <image class="userinfo-avatar" src="{{personData.personImg}}"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="userinfo-nickName">{{personData.name}}
+          <image wx:if="{{version==1}}" src="../../image/vip.png" class="userinfo-vip"></image>
+          <image wx:if="{{hehuo=='1'}}" src="../../image/he.png" class="userinfo-vip"></image>
+        </view>
+        <view wx:if="{{personData.teamName!='undefined'}}" class="userinfo-company" hidden="{{personData.shareCom==''}}">{{personData.shareCom}}
+          <block wx:if="{{personDatateamName!=''&&personData.teamName!=null&&personData.teamName!='undefined'}}">-{{personData.teamName}}</block>
+        </view>
+        <view wx:if="{{personData.teamName=='undefined'}}" class="userinfo-company" hidden="{{personData.belongCom==''}}">{{personData.belongCom}}
+        </view>
+        <view  class="userinfo-icon" hidden="{{personData.shareCom!=''}}">完善直销企业名片</view>
+      </view>
+      <view  class="weui-cell__ft weui-cell__ft_in-access">
+        <block hidden="{{personData.shareCom==''}}">编辑</block>
+      </view>
+    </view>
+     <view wx:if="{{tuijianren!=''}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="moneyClick">
+      <view class="weui-cell__bd">我的推荐人</view>
+      <view class="weui-cell__ft ">
+       {{tuijianren}}/{{tuijianrenPhone}}
+      </view>
+    </view>
+  </view>
+  <view class="open-vip" wx:if="{{version==0}}" hidden="{{hehuo=='1'?true:false}}">
+    <button bindtap="openvip">
+      <image src="../../image/vip.png" style=" width: 25px;height: 25px;vertical-align: middle;margin: -3px 0 0 0;"></image>开通会员
+    </button>
+  </view>
+  <view class="weui-cells myweui-cells">
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="moneyClick" >
+      <view class="weui-cell__hd">
+        <image src="{{icon.money}}"></image>
+      </view>
+      <view class="weui-cell__bd">我的脉点</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access ">
+        <text class="mycell__ft">{{personData.proNumber}}</text>
+      </view>
+    </view>
+  
+    <view class="weui-cell weui-cell_access" bindtap="mypallet" hover-class="weui-cell_active">
+      <view class="weui-cell__hd">
+        <image src="{{icon.wallet}}"></image>
+      </view>
+      <view class="weui-cell__bd">我的钱包</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <!-- hidden="{{hehuo!='1'||version!=1}}" -->
+    <view  class="weui-cell weui-cell_access" bindtap="openvip" hover-class="weui-cell_active">
+      <view class="weui-cell__hd">
+        <image src="../../image/vip.png"></image>
+      </view>
+      <view class="weui-cell__bd">VIP会员服务</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+
+  <view class="weui-cells myweui-cells">
+    <view bindtap="bindTapMyChat" hidden="true" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__hd">
+        <image src="{{icon.zx}}"></image>
+      </view>
+      <view class="weui-cell__bd">我的咨询</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view bindtap="checkTwentyRM" hidden="true" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__hd">
+        <image src="{{icon.team}}"></image>
+      </view>
+      <view class="weui-cell__bd">20条人脉</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active"
+     bindtap="friends">
+      <view class="weui-cell__hd">
+        <image src="{{icon.yq}}"></image>
+      </view>
+      <view class="weui-cell__bd">我的二维码</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+
+
+  <view class="weui-cells myweui-cells">
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__hd">
+        <image src="{{icon.tc}}"></image>
+      </view>
+      <view class="weui-cell__bd">在线客服
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+      </view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view bindtap="focusAZM" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__hd">
+        <image src="{{icon.about}}"></image>
+      </view>
+      <view class="weui-cell__bd">关注我们</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+
+  <view bindtap="clearCache" class="weui-cells myweui-cells" >
+    <view  class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__hd">
+        <image src="{{icon.clearCache}}"></image>
+      </view>
+      <view class="weui-cell__bd">清除缓存</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+
+  <view style="height:30px;"></view>
+
+</view>
+<canvas canvas-id="myCanvas2" style="height:1090px;width:720px;" hidden="true"></canvas>
+<!-- <view class="weui-cells myweui-cells">
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="moneyClick">
+      <view class="weui-cell__hd">
+        <image src="{{icon.money}}"></image>
+      </view>
+      <view class="weui-cell__bd">我的脉点</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access ">
+        <text class="mycell__ft">{{personData.proNumber}}</text>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="mypallet">
+      <view class="weui-cell__hd">
+        <image src="{{icon.pallet}}"></image>
+      </view>
+      <view class="weui-cell__bd">我的钱包</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access ">
+
+      </view>
+    </view>
+
+  </view>
+  <view class="weui-cells myweui-cells">
+    <view bindtap="bindTapMyChat" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__hd">
+        <image src="{{icon.zx}}"></image>
+      </view>
+      <view class="weui-cell__bd">我的咨询</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="shareMyXiaoChengXuMa">
+      <view class="weui-cell__hd">
+        <image src="{{icon_xcx}}"></image>
+      </view>
+      <view class="weui-cell__bd">我的小程序码</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size:14px"></view>
+    </view>
+  </view>
+  <view class="weui-cells myweui-cells">
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="footClick">
+      <view class="weui-cell__hd">
+        <image src="{{icon.foot}}"></image>
+      </view>
+      <view class="weui-cell__bd">足迹</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="zanClick">
+      <view class="weui-cell__hd">
+        <image src="{{icon.zan}}"></image>
+      </view>
+      <view class="weui-cell__bd">我的赞</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+  <view bindtap="tucao" class="weui-cells myweui-cells">
+
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__hd">
+        <image src="{{icon.tc}}"></image>
+      </view>
+      <view class="weui-cell__bd">吐槽
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+        <contact-button type="default-light" style="opacity:0.1;"></contact-button>
+      </view>
+      <view style="background-color:white;position:a"></view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+
+    <view bindtap="focusAZM" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__hd">
+        <image src="{{icon.about}}"></image>
+      </view>
+      <view class="weui-cell__bd">关注爱知脉</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+</view> -->

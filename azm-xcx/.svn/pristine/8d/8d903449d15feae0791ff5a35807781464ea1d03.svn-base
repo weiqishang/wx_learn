@@ -1,0 +1,32 @@
+/* help.wxss */
+.page{
+  background: #f8f8f8;
+  padding-bottom: 50px;
+}
+.myweui-cells:before{
+  content: none;
+}
+.weui-cell:before{
+  left: 0;
+}
+.myweui-cell{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.myweui-cell view{
+  padding: 8px 0;
+  color: #666;
+}
+.gzh{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+#myVideo{
+  width: 100%;
+}
+.mycell{
+  padding: 10px 15px;
+}

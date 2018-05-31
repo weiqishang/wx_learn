@@ -1,0 +1,38 @@
+<view class="page">
+  <view class="page__bd" style="margin-top:20px;">
+    <view class="weui-cells weui-cells_after-title" hidden="{{teamInfo.length==0}}">
+      <block wx:for="{{teamInfo}}">
+        <view class="weui-cell" hidden='{{item.teamId==7}}'>
+          <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src="{{item.teamImg}}" style="margin-right: 5px;vertical-align: middle;width:50px; height: 50px;"></image>
+          </view>
+          <view class="weui-cell__bd">
+            <view>{{item.teamName}}</view>
+            <view style="font-size: 13px;color: #888888;margin-top: 5px;overflow: hidden;">{{item.teamIntru}}</view>
+          </view>
+          <view class="weui-cell__ft">
+            <image id="{{item.teamId}}" bindtap="checkTeam" src="{{item.check==1?'../../../images/check1.png':'../../../images/check0.png'}}" style="margin-right: 5px;vertical-align: middle;width:30px; height: 30px;"></image>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-footer">
+      <view class="weui-footer__text" style="font-size:14px;line-height:2em">如果未能找到您的所属团队</view>
+      <view class="weui-footer__text" style="font-size:14px;line-height:2em">您可以邀请团队领导人入驻我们</view>
+    
+      <button class="weui-btn" bindtap="teamIn" type="default" style="background-color:white;width:80%">团队入驻</button>
+      <view class="weui-footer__text" style="font-size:14px;line-height:2em">如果您是团队领导人，可直接入驻。</view>
+      </view>
+  </view>
+</view>
+<view style="position:fixed;color:#09BB07;height:52px;line-height:50px;text-align:center;width:45px;z-index:1000;top:{{H-57}}px;left:{{W-60}}px;">
+  <view style="background-color:#09BB07;height:30px;line-height:40px;margin:auto;text-align:center;width:30px;border-radius:50%;">
+    <contact-button type="default-light" size="20" session-from="weapp">
+    </contact-button>
+  </view>
+  <view style="height:22px;line-height:22px;width:48px;text-align:center;font-size:12px;">
+    联系客服
+  </view>
+</view>

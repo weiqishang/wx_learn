@@ -1,0 +1,66 @@
+<!--openvip.wxml-->
+
+<view class="page">
+ <view class="swiper">   
+      <image src="{{icon.title}}" class="slide-image" mode="aspectFill" style="" /> 
+  </view>
+  <view class="weui-cells weui-cells_after-title" style='background-image:url(https://media.ccyishe.com/teamVersion/icon/hometop.png);background-size:cover;color:#FDE1B1;'  hidden='{{vipObj.vip==0}}'>
+    <view class="weui-cell"  style="padding:15px;margin-top:-1px">
+      <view class="weui-cell__hd" style="margin-right: 10px;">
+        <image class="userinfo-avatar" src="{{personData.personImg}}" background-size="cover"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view style="font-weight: bold;">{{personData.name}}
+          <image hidden="{{vipObj.vip==0}}" src="../../../image/vip.png" class="userinfo-vip"></image>
+        </view>
+        <view wx:if="{{vipObj.vip==0}}" style="font-size: 14px;margin-top: 5px;">爱知脉包年会员</view>
+        <view wx:else style="font-size: 14px;margin-top: 5px;">服务到期时间：{{vipObj.endTime}}</view>
+      </view>
+    </view>  
+  </view>
+  <view class="mid">
+    <text class="mid-tit">开通VIP会员</text>
+     <view class="leftNav">  
+    <block wx:for="{{navList}}" wx:key="goodsId">  
+      <view style="color:{{item.goodsId==currentItemId?'#fff':'#000'}}" data-num="{{item.goodsId}}" class="goodsTitle" bindtap="clickTap" id="{{item.id}}">  
+        <image src="https://m.ccyishe.com/html/images/20171102/{{item.goodsClass}}{{item.goodsId==currentItemId?2:1}}.png"></image>  
+         
+        <view class="money">
+        <span class="moneya">{{item.goodsName}}</span>
+        <span class="mid-time">{{item.goods}}</span>
+        
+         </view>
+         <view class="say">{{item.shuoming}}</view>
+        
+      </view>  
+    </block>  
+  </view>  
+  
+  <view style="height:2rpx;clear:both;"></view>
+   <view class="paybutton" bindtap="improveVip" id="{{vipid}}" size="mini" type="primary">
+        <image src="{{icon.pay}}"></image>
+      </view>
+   <view class="mitt">成为VIP,最高还可以拿到200元、100元的佣金哦</view>
+  </view>
+  <view class="footer">
+       <view class="foot">
+         <view class="foota footb"></view>
+         <view class="foota footd">VIP特权</view>
+         <view class="foota footb"></view>
+       </view>
+       <view style="height:2rpx;clear:both;"></view>
+       <view class="tuiguang">
+           <image src="{{icon.tuiguang}}"></image>
+       </view>
+
+     <view class="icons">
+      <block wx:for="{{iconInfos}}" wx:key="id">
+        <view class="icon" id="{{item.id}}" bindtap="checkDetails">
+          <view class="word">{{item.smallName}}</view>
+          <image src="{{item.picUrl}}"></image>
+          <view class="worda">{{item.smallN}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,196 @@
+<!--index.wxml-->
+<view style="background-color:#e8e8e8;padding-top:20px;" hidden="{{initState==0?true:false}}">
+  <view class="mypage__hd3">
+    <view class="myweui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__hd">
+          <view style="display: inline-block; vertical-align: middle;font-size:22px;;color: #666666;">{{personData.name}}</view>
+        </view>
+        <view class="weui-cell__bd" style="margin-left:20px;">
+          <view style="padding-top:5px;display: inline-block; vertical-align: middle;font-size:14px;color: #999999;">{{personData.zhiwei}}</view>
+        </view>
+        <view class="weui-cell__ft" style="position: relative;margin-right: 5px;">
+          <image bindtap="yulangtouxing" id="{{personData.personImg}}" src="{{personData.personImg}}" style="border-radius:12px;width: 60px; height: 60px; display: block" />
+        </view>
+      </view>
+      <view class="myweui-cell weui-cell_access">
+        <view class="weui-cell__hd">
+          <view style="display: inline-block; vertical-align: middle;color: #999999;font-size:14px;width:50px;text-align:left;">电话</view>
+
+        </view>
+        <view class="weui-cell__hd" style="font-size:14px;">
+          <view style="display: inline-block; vertical-align: middle;color: #70a0ff;font-size:16px;">{{personData.phone}}</view>
+        </view>
+      </view>
+
+      <view class="myweui-cell weui-cell_access" style="margin-top:-5px;">
+        <view class="weui-cell__hd">
+          <view style="display: inline-block; vertical-align: middle;color: #999999;font-size:14px;width:50px;text-align:left;">公司</view>
+
+        </view>
+        <view class="weui-cell__hd">
+          <view style="display: inline-block; vertical-align: middle;font-size:14px;color: #333333;">{{personData.belongCom}}</view>
+        </view>
+      </view>
+      <view class="myweui-cell weui-cell_access" style="margin-top:-5px;">
+        <view class="weui-cell__hd">
+          <view style="display: inline-block; vertical-align: middle;color: #999999;font-size:14px;width:50px;text-align:left;">QQ</view>
+
+        </view>
+        <view class="weui-cell__hd">
+          <view style="display: inline-block; vertical-align: middle;color: #333333;font-size:16px;">{{personData.qq}}</view>
+        </view>
+      </view>
+      <view class="myweui-cell weui-cell_access" style="margin-top:-5px;">
+        <view class="weui-cell__hd">
+          <view style="display: inline-block; vertical-align: middle;color: #999999;font-size:14px;width:50px;text-align:left;">微信</view>
+
+        </view>
+        <view class="weui-cell__hd" style="font-size:14px;">
+          <view style="display: inline-block; vertical-align: middle;color: #333333;font-size:16px;">{{personData.wechar}}</view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <view class="page__bd page__bd_spacing" style="background:#ffffff;padding-top:15px;padding-bottom:15px;margin-top:20px;">
+    <view class="weui-flex" style="width:100%;">
+      <view class="weui-flex__item" style="width:33%;border-right: 1rpx solid #e8e8e8;">
+        <image src="{{icon1}}" style="width: 25px; height: 25px; display: block;margin:auto;" />
+        <view style="padding-top:5px;text-align:center;padding-right:-5px;font-size:14px;color: #333333;margin:auto;">人气：{{personData.renqi}}</view>
+      </view>
+      <view class="weui-flex__item" style="width:33%;border-right: 1rpx solid #e8e8e8;">
+        <view style="position:relative;top:0;left:0;opacity:1;display:flex;flex-direction:rows;width:30px; height:25px;margin:auto;z-index:100;">
+          <image bindtap="bindZan" src="{{bindTapFlag1==1?icon2:icon2_th}}" style="opacity:1;z-index:10;position:relative;top:0;left:0;width: 25px; height: 25px; display: block;margin:auto;" />
+          <view style="height:25px;line-heigth:50px;width:5px;color:red;"></view>
+        </view>
+        <view animation="{{animationData}}" class="{{bindTapFlag1==1?'hiddenClass':'showClass'}}">
+          <image src="{{icon2_th}}" style="width: 25px; height:25px;" />
+          <view style="height:25px;line-heigth:50px;width:5px;color:red;" hidden="{{bindTapFlag1_2}}">+1</view>
+        </view>
+        <view style="padding-top:5px;text-align:center;padding-right:-5px;font-size:14px;color: #333333;margin-top:-25px;">赞：{{personData.zan}}</view>
+      </view>
+      <view class="weui-flex__item" style="width:33%;">
+        <view style="position:relative;top:0;left:0;opacity:1;display:flex;flex-direction:rows;width:30px; height:25px;margin:auto;z-index:100;">
+          <image bindtap="bindFav" src="{{bindTapFlag2==1?icon3:icon3_th}}" style="opacity:1;z-index:10;position:relative;top:0;left:0;width: 25px; height: 25px; display: block;margin:auto;" />
+          <view style="height:25px;line-heigth:50px;width:5px;color:red;"></view>
+        </view>
+        <view animation="{{animationData2}}" class="{{bindTapFlag2==1?'hiddenClass':'showClass'}}">
+          <image src="{{icon3_th}}" style="width: 25px; height:25px;" />
+          <view style="height:25px;line-heigth:50px;width:5px;color:red;" hidden="{{bindTapFlag2_2}}">+1</view>
+        </view>
+        <view style="padding-top:5px;text-align:center;padding-right:-5px;font-size:14px;color: #333333;margin-top:-25px;">收藏：{{personData.fav}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="mypage__hd2" style="margin-top:20px;">
+    <view class="myweui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_access" style="display:flex;flex-direction:column;">
+        <image src="{{company.picUrl1}}" style="width: 150px; height: 150px; display: block;margin:auto;" />
+        <view style="text-align:center;font-size:16px;color: #212121;">{{company.displayName}}</view>
+      </view>
+      <view class="page" style="padding:15px 0 25px 0;">
+        <view class="weui-flex">
+          <block wx:for="{{iconInfos}}" wx:key="cid">
+            <view id="{{item.cid}}" bindtap="checkCompanyDetails" class="weui-flex__item" style="display:flex;flex-direction:column;">
+              <image src="{{item.picUrl}}" style="width: 35px; height:35px; display: block;margin:auto;" />
+              <view style="padding-top:5px;text-align:center;font-size:14px;color: #666666;">{{item.smallName}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class="weui-cells weui-cells_after-title" style="margin-top:-2px">
+        <block wx:for="{{listInfos}}" wx:key="cid">
+          <view id="{{item.cid}}" bindtap="checkCompanyDetails" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__bd">{{item.smallName}}</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class="mypage__hd2" style="margin-top:20px;" hidden="{{listTeamInfos==''?true:false}}">
+    <view class="myweui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 15px;">
+          <image src="{{team.picUrl1}}" style="width: 50px; height: 50px; display: block;border-radius:8px;border:1px solid #D9D9D9" />
+          <view style="position: absolute;top: -.4em;right: -.4em;">
+            <image src="https://media.ccyishe.com/images/20170513/1494651867393.png" style="width: 16px; height: 16px; " />
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <view style="height:25px;width:100%;line-height:25px;margin-bottom:4rpx;">{{team.displayName}}</view>
+          <view style="font-size: 12px;color: #888888;width:100%;">{{team.teamInfo}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section page-section-spacing swiper">
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{iconTeamInfos}}" wx:key="cid">
+          <swiper-item bindtap="checkTeamInfo" id="{{item.cid}}">
+            <view style="height:100%;width:100%;">
+              <image src="{{item.picUrl}}" style="height:100%;width:100%;" mode="widthFix" />
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="myweui-cells weui-cells_after-title">
+      <block wx:for="{{listTeamInfos}}" wx:key="cid">
+        <view bindtap="checkTeamInfo" id="{{item.cid}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__bd">{{item.smallName}}</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="page__hd" style="margin-top:20px;height:auto;text-align:left;background-color:white;font-size:14px;padding:15px;color:#333333;line-height:2em;" hidden="{{textTest==''}}">
+    {{textTest}}
+  </view>
+  <view class="page__hd" hidden="{{newUser==1?false:true}}" style="padding-bottom:80px;">
+    <button bindtap="zixun" class="weui-btn" type="primary">进入首页</button>
+    <button hidden="true" bindtap="IWantToKaiTong" class="weui-btn" type="default" style="background-color:white;">
+      <image src="https://media.ccyishe.com/xcx/image/free.png" style="height:30px;width:30px;float:right;margin-right:-15px;"></image>
+      我也要开通
+    </button>
+  </view>
+  <view class="page__hd" hidden="{{newUser==0?false:true}}" style="padding-bottom:80px;">
+    <button bindtap="zixun" class="weui-btn" type="primary">进入首页</button>
+    <button hidden="true" bindtap="IWantToKaiTong2" class="weui-btn" type="default" style="background-color:white;">
+      我的名片
+    </button>
+  </view>
+
+  <view class="weui-cells myweui-cells" style="position:fixed;left:0px;">
+    <view class="weui-cell">
+      <view class="weui-cell__hd">
+        <image src="../../../image/m_HL.png" style="margin-right: 10px;vertical-align: middle;width:40px; height: 40px;"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view style="color:#2b2d3a;">爱知脉
+          <text style="color:#f64900;font-size:13px;">已有23.3万人使用</text>
+        </view>
+        <view style="font-size: 12px;color: #626574;margin-top: 5px;">免费生成专属自己的事业名片</view>
+      </view>
+      <view class="weui-cell__ft">
+        <button class="mybtn" bindtap="IWantToKaiTong" hidden="{{newUser==1?false:true}}">生成名片</button>
+        <button class="mybtn" bindtap="IWantToKaiTong2" hidden="{{newUser==0?false:true}}">我的名片</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="page" hidden="{{initState==0?false:true}}">
+  <view class="container">
+    <view bindtap="bindViewTap" class="userinfo">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">您好，{{userInfo.nickName}}！</text>
+    </view>
+    <view class="nocard">
+      <text>用知脉获取无限的直销人脉资源</text>
+      <text>专注解决直销人获取人脉难</text>
+      <button type="primary" bindtap="wangshang" style="width:100%;margin-top:40rpx;">完善直销名片信息</button>
+    </view>
+  </view>
+</view>
+<canvas canvas-id="myCanvas2" style="height:1090px;width:720px;" hidden="true"></canvas>

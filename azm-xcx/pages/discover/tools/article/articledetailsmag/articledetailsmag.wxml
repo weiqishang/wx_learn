@@ -1,0 +1,158 @@
+<view style="background-color:white;">
+  <view  style="font-size:24px;line-height:34px;padding:15px 20px 0px 20px;font-weight:bolder;">
+    {{title}}
+  </view>
+  <view class="weui-media-box__info" style="padding:20px 20px;color:#999999;font-size:32rpx;">
+        <view class="weui-media-box__info__meta" style="padding:3px 0px">{{createtime}}</view>
+        <view bindtap="getBackToAllArticle" class="weui-media-box__info__meta" style="padding:3px 6px;border-radius: 4px;margin:0 10px;background-color: #1296db;color:#fff">{{personData.name}}</view>
+        <view class="weui-media-box__info__meta" style="padding:3px 0px" wx:if="{{readNumber!='undefined'}}">阅读数：{{readNumber}}</view>
+      </view>
+</view>
+<view style="padding:0px 20px 25px 20px;line-height:30px;color:#333333;font-size:17px;background-color:white;">
+    <block wx:for="{{article}}">
+      <view catchtap="chooseText" id="{{item.id}}" wx:if="{{item.atype=='text'}}" style="width:100%;height:auto;display:flex;flex-direction:row;border-bottom:{{delHidden?0:1}}px dashed #d9d9d9;">
+        <view catchlongtap="longtapText" wx:if="{{item.atype=='text'}}" style="{{choiceId==item.id?choosedStyle:(item.style==''?defaultStyle:item.style)}};width:{{delHidden?width:width-45}}px;height:auto;{{delHidden?'':'padding-right:10px;padding-left:10px;'}}padding:10px 5px;line-height:2em;"
+         >
+           <text style='line-height:2em'> {{item.content}}  </text>
+        </view>
+      </view>
+
+      <view id="{{item.content}}"  catchtap="checkdetailsImg" wx:if="{{item.atype=='img' }}" style="width:100%;height:auto;text-align: center;border-bottom:{{delHidden?0:1}}px dashed #d9d9d9;">
+        <image wx:if="{{item.atype=='img' }}"  bindtap="editImg" id="{{item.id}}" src="{{item.content}}" style="{{choiceId==item.id?'border:2rpx solid #09BB07;':item.style}};margin:20px 0px;width:{{item.width<280?item.width:'100%'}}px;" mode="widthFix"></image>
+      </view>
+    </block>
+  </view>
+<!--
+<view class="{{editHidden==false?'editState':'noeditState'}}">
+  <import src="../../../../../wxParse/wxParse.wxml" />
+  <template is="wxParse" data="{{wxParseData:editArticle.nodes}}" />
+</view>-->
+<view hidden="{{createPro==''}}" class="weui-footer" style="margin-top:25px;margin-bottom:25px;"hidden="true">
+  <view class="weui-footer__text" style="font-size:14px;">此文转载于公众号：{{createPro}}</view>
+</view>
+
+<view class="page__bd" style="margin-top:20px;">
+  <view class="mypage__hd2">
+    <view class="myweui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__hd">
+          <view style="display: inline-block; vertical-align: middle;font-size:22px;;color: #666666;">{{personData.name}}</view>
+        </view>
+        <view class="weui-cell__bd" style="margin-left:20px;">
+          <view style="padding-top:5px;display: inline-block; vertical-align: middle;font-size:14px;color: #999999;">{{personData.zhiwei}}</view>
+        </view>
+        <view class="weui-cell__ft" style="position: relative;margin-right: 5px;">
+          <image bindtap="yulangtouxing" id="{{personData.personImg}}" src="{{personData.personImg}}" style="border-radius:12px;width: 60px; height: 60px; display: block" />
+        </view>
+      </view>
+      <view class="myweui-cell weui-cell_access">
+        <view class="weui-cell__hd">
+          <view style="display: inline-block; vertical-align: middle;color: #999999;font-size:14px;width:50px;text-align:left;">电话</view>
+
+        </view>
+        <view class="weui-cell__hd" style="font-size:14px;">
+          <view bindtap="callPhone" id="{{personData.phone}}" style="display: inline-block; vertical-align: middle;color: #70a0ff;font-size:16px;">{{personData.phone}}</view>
+        </view>
+      </view>
+
+      <view class="myweui-cell weui-cell_access" style="margin-top:-5px;">
+        <view class="weui-cell__hd">
+          <view style="display: inline-block; vertical-align: middle;color: #999999;font-size:14px;width:50px;text-align:left;">公司</view>
+
+        </view>
+        <view class="weui-cell__hd">
+          <view style="display: inline-block; vertical-align: middle;font-size:14px;color: #333333;">{{personData.belongCom}}</view>
+        </view>
+      </view>
+      <view class="myweui-cell weui-cell_access" style="margin-top:-5px;">
+        <view class="weui-cell__hd">
+          <view style="display: inline-block; vertical-align: middle;color: #999999;font-size:14px;width:50px;text-align:left;">QQ</view>
+
+        </view>
+        <view class="weui-cell__hd">
+          <view style="display: inline-block; vertical-align: middle;color: #333333;font-size:16px;">{{personData.qq}}</view>
+        </view>
+      </view>
+      <view class="myweui-cell weui-cell_access" style="margin-top:-5px;">
+        <view class="weui-cell__hd">
+          <view style="display: inline-block; vertical-align: middle;color: #999999;font-size:14px;width:50px;text-align:left;">微信</view>
+
+        </view>
+        <view class="weui-cell__hd" style="font-size:14px;">
+          <view style="display: inline-block; vertical-align: middle;color: #333333;font-size:16px;">{{personData.wechar}}</view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <view class="page__bd page__bd_spacing" style="background:#ffffff;padding-top:15px;padding-bottom:15px;margin-top:20px;">
+    <view class="weui-flex" style="width:100%;">
+      <view class="weui-flex__item" style="width:33%;border-right: 1rpx solid #e8e8e8;">
+        <image src="{{icon1}}" style="width: 25px; height: 25px; display: block;margin:auto;" />
+        <view style="padding-top:5px;text-align:center;padding-right:-5px;font-size:14px;color: #333333;margin:auto;">人气：{{personData.renqi}}</view>
+      </view>
+
+
+
+      <view class="weui-flex__item" style="width:33%;border-right: 1rpx solid #e8e8e8;">
+        <view style="position:relative;top:0;left:0;opacity:1;display:flex;flex-direction:rows;width:30px; height:25px;margin:auto;z-index:100;">
+          <image bindtap="bindZan" src="{{bindTapFlag1==1?icon2:icon2_th}}" style="opacity:1;z-index:10;position:relative;top:0;left:0;width: 25px; height: 25px; display: block;margin:auto;" />
+          <view style="height:25px;line-heigth:50px;width:5px;color:red;"></view>
+        </view>
+        <view animation="{{animationData}}" class="{{bindTapFlag1==1?'hiddenClass':'showClass'}}">
+          <image src="{{icon2_th}}" style="width: 25px; height:25px;" />
+          <view style="height:25px;line-heigth:50px;width:5px;color:red;" hidden="{{bindTapFlag1_2}}">+1</view>
+        </view>
+        <view style="padding-top:5px;text-align:center;padding-right:-5px;font-size:14px;color: #333333;margin-top:-25px;">赞：{{personData.zan}}</view>
+      </view>
+
+
+      <view class="weui-flex__item" style="width:33%;">
+        <view style="position:relative;top:0;left:0;opacity:1;display:flex;flex-direction:rows;width:30px; height:25px;margin:auto;z-index:100;">
+          <image bindtap="bindFav" src="{{bindTapFlag2==1?icon3:icon3_th}}" style="opacity:1;z-index:10;position:relative;top:0;left:0;width: 25px; height: 25px; display: block;margin:auto;" />
+          <view style="height:25px;line-heigth:50px;width:5px;color:red;"></view>
+        </view>
+        <view animation="{{animationData2}}" class="{{bindTapFlag2==1?'hiddenClass':'showClass'}}">
+          <image src="{{icon3_th}}" style="width: 25px; height:25px;" />
+          <view style="height:25px;line-heigth:50px;width:5px;color:red;" hidden="{{bindTapFlag2_2}}">+1</view>
+        </view>
+        <view style="padding-top:5px;text-align:center;padding-right:-5px;font-size:14px;color: #333333;margin-top:-25px;">收藏：{{personData.fav}}</view>
+      </view>
+
+    </view>
+  </view>
+  <view class="page__hd" style="margin-top:20px;height:auto;text-align:left;background-color:white;font-size:14px;padding:10px 20px 10px 20px;color:#333333" hidden="{{textTest==''}}">
+    {{textTest}}
+  </view>
+  <!--不是草稿的显示-->
+  <view class="page__hd" hidden="{{draft==1}}">
+    <button hidden="{{articleType==1&&isTeam==0}}" bindtap="editArticlePage" class="weui-btn" type="warn">编辑此文</button>
+    <button hidden="{{articleType==1&&isTeam==0}}"  bindtap="delArticleChoose" class="weui-btn" type="default" style="background-color:white;">
+      删除此文
+    </button>
+  </view>
+  <view class="page__hd" hidden="{{draft==0}}">
+    <button  bindtap="editArticlePage" class="weui-btn" type="warn">编辑此文</button>
+    <button  bindtap="delArticleChoose" class="weui-btn" type="default" style="background-color:white;">
+      删除此文
+    </button>
+  </view>
+
+<view bindtap="getBackToAllArticle" class="weui-footer" style="margin-top:30px;margin-bottom:30px;">
+  <view class="weui-footer__text" style="font-size:16px;" >{{personData.name}}的全部文章</view>
+</view>
+  <!--<view class="page__hd" hidden="{{newUser==1?false:true}}">
+    <button bindtap="zixun" class="weui-btn" type="primary">我要咨询</button>
+    <button bindtap="IWantToKaiTong" class="weui-btn" type="default" style="background-color:white;">
+      <image src="https://media.ccyishe.com/xcx/image/free.png" style="height:30px;width:30px;float:right;margin-right:-15px;"></image>
+      我也要开通
+    </button>
+  </view>
+  <view class="page__hd" hidden="{{newUser==0?false:true}}">
+    <button bindtap="zixun" class="weui-btn" type="primary">我要咨询</button>
+    <button bindtap="IWantToKaiTong2" class="weui-btn" type="default" style="background-color:white;">
+      
+      我的名片
+    </button>
+  </view>-->
+</view>

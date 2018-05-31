@@ -1,0 +1,56 @@
+<view style="height:100px;width:100%;background-color:white;padding:15px;" hidden="{{fengmian!=''}}">
+  <view hidden="{{picfiles.length!=0}}" bindtap="choosePic" style="height:98px;width:{{width-28}}px;;border:1px dashed #212121;">
+    <view style="height:25px;width:120px;display:flex;flex-direction:row;margin-top:37px;margin-left:{{marginLeft}}px;">
+      <image style="height:25px;width:25px;" src="../../../../../image/plus.png"></image>
+      <view style="height:25px;line-height:25px;width:95px;text-align:center;color:#999999;font-size:18px;">添加封面</view>
+    </view>
+  </view>
+</view>
+
+<image hidden="{{true}}" src="{{fengmian}}" bindload="imgLoadFunction"></image>
+<view bindtap="choosePic" style="height:{{imgHeight}}px;width:100%;overflow:hidden;" hidden="{{fengmian==''}}">
+  <image style="position:relative;top:{{-top}}px;left:0px;display:block;height:{{imgHeight}}px;width:100%;" mode="widthFix" src="{{fengmian}}"></image>
+</view>
+<!--<view bindtap="choosePic" style="height:{{imgHeight}}px;width:100%;background:url({{fengmian}}) no-repeat;background-size:{{width}}px {{oldImgHeight}}px;background-position:0px {{0-top}}px; " hidden="{{fengmian==''}}">
+</view>-->
+<!--<view hidden="true" bindtap="choosePic" hidden="{{fengmian==''}}" style="position:fixed;top:{{imgHeight-35}}px;z-index:1000;left:{{width-80}}px;height:24px;width:70px;text-align:center;line-height:24px;font-size:12px;background-color:white;border-radius:12px;border:1px solid #212121;">换封面</view>-->
+
+<view class="weui-cells__title" style="">文章标题</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <textarea cursor-spacing="60" bindblur="setTitle" style="height: 3.3em" placeholder="{{titleplaceholder}}"  value="{{title}}" />
+    </view>
+  </view>
+</view>
+
+<view class="weui-cells__title">文章描述</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <textarea cursor-spacing="60" bindblur="setDis"  placeholder="{{displaceholder}}" class="weui-textarea" value="{{dis}}" style="height: 3.3em" />
+    </view>
+  </view>
+</view>
+<view class="page__hd"  hidden="{{postType==1}}">
+  <button  hidden="{{postType==1}}" bindtap="savaArticle" class="weui-btn" type="primary">发布</button>
+  <button hidden="{{postType==1}}" bindtap="savaAsDrafts" class="weui-btn" type="default" style="background-color:white;">保存草稿</button>
+</view>
+<view class="page__hd"  hidden="{{postType!=1}}">
+  <button class="weui-btn" type="primary" bindtap="savaArticle">发布</button>
+</view>
+<!--<view style="display:flex;flex-direction:row;widht:100%;margin-top:20px;">
+  <view style="width:38%;margin-left:7.6%;" hidden="{{postType==1}}">
+    <button style="width:100%;height:35px;line-height:35px;border:1px solid #d9d9d9;" class="weui-btn" type="default" bindtap="savaAsDrafts">保存草稿</button>
+  </view>
+  <view style="width:38%;margin-left:8%;" hidden="{{postType==1}}">
+    <button style="width:100%;height:35px;line-height:35px;" class="weui-btn" type="primary" bindtap="savaArticle">发布</button>
+  </view>
+</view>-->
+
+<!--<view hidden="{{postType!=1}}" style="position:fixed;top:{{height-65}}px;left:0px;height:65px;width:100%;background-color:white;z-index:1000;">
+  <button style="margin:10px 40px;" class="weui-btn" type="primary" bindtap="savaArticle">发布</button>
+</view>-->
+<view hidden="{{areaHidden}}" style="height:600px;width:100%;">
+
+</view>

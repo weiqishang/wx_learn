@@ -1,0 +1,29 @@
+/* ts.wxss */
+.page{
+  background: #f8f8f8;
+  height: 100%;
+  box-sizing: border-box;
+}
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 50px;
+}
+button:after{
+  content: none;
+}
+button{
+  border: 1px solid #f60;
+  color: white;
+  width: 50%;
+  line-height: 2.1;
+  margin-top: 20px;
+}
+button:first-of-type{
+  background: #f60;
+}
+button:last-of-type{
+  color: #f60;
+  background: white;
+}

@@ -1,0 +1,67 @@
+.art-btn {
+  display: flex;
+  flex-direction: row;
+}
+
+.art-btn button {
+  flex: 1;
+  border-radius: 0;
+  height: 60px;
+  line-height: 60px;
+  font-size: 16px;
+  color: #2b2d3a;
+}
+
+button {
+  background: white;
+}
+
+.art-btn button:after {
+  content: none;
+}
+
+.art-icon {
+  /*display: block;*/
+  width: 20px;
+  height: 20px;
+  /*position: absolute;*/
+  /*top: 20px;*/
+  /*left: 15%;*/
+  margin-right: 10px;
+  margin-bottom: -5px;
+}
+
+.myweui-cells .weui-cell {
+  height: 60px;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #2b2d3a;
+}
+
+.myweui-cells .weui-cell image {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.myweui-cells .weui-cell:before {
+  left: 0;
+}
+
+.mycell__ft {
+  font-family: "Arial";
+  font-size: 16px;
+  font-weight: 700;
+  color: #AAA;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  color: #626574;
+  margin: 50px 0 20px -10px;
+  line-height: 30px;
+  
+}

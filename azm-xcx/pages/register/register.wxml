@@ -1,0 +1,111 @@
+<!--login.wxml-->
+
+<view class="page">
+  
+  <swiper class="swiper">
+    <swiper-item bindtap="checkAdInfo">
+      <image src="{{icon.banner}}" class="slide-image" mode="aspectFill" />
+    </swiper-item>
+  </swiper>
+  <view class="main">
+     <view class="weui-cells_after-title myinput">
+    <view class="weui-cell weui-cell_input ">
+      <view class="weui-cell__hd">
+        <image src="{{icon.shouji}}" style="width:15px;height:21px;position:relative;top:14px;left:10px;"></image>
+      </view>
+      <view class="weui-cell__bd weui-b weui-d">
+        <input class="weui-input" id="phone" value="{{phone}}" placeholder="请输入手机号" bindinput="setInfo" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input weui-cell_vcode ">
+      <view class="weui-cell__hd">
+        <image src="{{icon.suoping}}" style="width:16px;height:21px;position:relative;top:14px;left:10px;"></image>
+      </view>
+      <view class="weui-cell__bd weui-b weui-c">
+        <input class="weui-input" id="phonecode" value="{{phonecode}}" placeholder="请输入验证码" bindinput="setInfo" />
+      </view>
+      <view class="weui-cell__ft weui-a">
+        <view style="color:{{buttoncolor}};border-bottom:1rpx solid #999999;"  bindtap="{{isCode?'getCode':''}}" class="">{{checkvalue}}</view>
+      </view>
+      
+    </view>
+    <view class="btn" bindtap='register' >
+           <image src="{{icon.zhuce}}" style="width:100%;height:72px;"></image>
+      </view>
+    <view style="text-align:center;font-size:16px;" hidden='{{tuijianren==""}}'>推荐人：{{tuijianren}}/{{tuijianrenphone}}</view>
+  </view>
+    <view class="icons">
+      <block wx:for="{{iconInfos}}" wx:key="id">
+        <view class="icon" id="{{item.id}}" bindtap="checkDetails">
+          <image src="{{item.picUrl}}" style="{{item.id==1?'height:26px;width: 32px;padding:3px 0;':''}}"></image>
+          <view class="word">{{item.smallName}}</view>
+          <view class="worda">{{item.smallN}}</view>
+        </view>
+
+      </block>
+    </view>
+  </view>
+  <view class="head weui-cells__title" >
+  <view class="hengxian"></view>
+  <view class="icon iconb">为什么选择爱知脉</view>
+  <view class="hengxia"></view>
+  </view>
+  
+  <view class="weui-cells weui-cells_after-title">
+   
+    <view class="weui-cell" id="1" bindtap="checkrenmai">
+      <view class="weui-cell__hd">
+        <image src="{{icon.zhiying}}" class="part"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title">五大精准人脉</view>
+        <view class="part-text">最容易转化的五大精准人脉</view>
+    </view>
+    </view>
+    <view class="weui-cell" id="2" bindtap="checkrenmai">
+      <view class="weui-cell__hd">
+        <image src="{{icon.wei}}" class="part"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title">100%精准</view>
+        <view class="part-text">100%的精准属性，近100%能搜索到微信号
+      </view>
+    </view>
+    </view>
+    <view class="weui-cell" id="3" bindtap="checkrenmai">
+      <view class="weui-cell__hd">
+        <image src="{{icon.yiduiyi}}" class="part"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title">一对一</view>
+        <view class="part-text">封闭式联系，不用担心聊好的人脉被同行抢走</view>
+      </view>
+    </view>
+    <view class="weui-cell" id="4" bindtap="checkrenmai">
+      <view class="weui-cell__hd">
+        <image src="{{icon.siying}}" class="part"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title">2万条</view>
+        <view class="part-text">一年提供2万条精准人脉，加人加到您手软</view>
+      </view>
+    </view>
+    <view class="weui-cell" id="5" bindtap="checkrenmai">
+      <view class="weui-cell__hd">
+        <image src="{{icon.baoxian}}" class="part"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title">30分钟</view>
+        <view class="part-text">用半个小时解决您一天所需的人脉</view>
+      </view>
+    </view>
+   
+
+  </view>
+  <view class="btm" style="line-height:2em;">
+    <view style="font-size:15px;">点击右上角“...”分享给好友</view>
+    <view style="font-size:15px;">专为直销人、微商解决人脉问题</view>
+  </view>
+
+ 
+</view>

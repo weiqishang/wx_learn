@@ -1,0 +1,45 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="请输入公司名称，如：卡当" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="searchPerson" bindfocus="inputFocus" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput" style="height:30px">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">请输入公司名称，如：卡当</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+    <block wx:for="{{pBooK}}">
+      <view class="weui-cells__title" hidden="{{item.hidden}}">{{item.zubie}}</view>
+      <view class="weui-cells weui-cells_after-title">
+        <block wx:for="{{item.coms}}" wx:for-item="myItem">
+          <view class="weui-cell" hidden="{{myItem.hidden}}" id="{{myItem.cid}}_{{myItem.cName}}" bindtap="setCom">
+            <view class="weui-cell__hd">
+              <view style="font-size: 16px;color: #888888;margin-left:-19px;">{{myItem.cName}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <view class="weui-footer" style="margin-top:30px;">
+      <view class="weui-footer__text">没有更多公司了</view>
+    </view>
+  </view>
+</view>
+<view style="position:fixed;color:#09BB07;height:52px;line-height:50px;text-align:center;width:45px;z-index:1000;top:{{H-57}}px;left:{{W-60}}px;">
+  <view style="background-color:#09BB07;height:30px;line-height:40px;margin:auto;text-align:center;width:30px;border-radius:50%;">
+    <contact-button type="default-light" size="20" session-from="weapp">
+    </contact-button>
+  </view>
+  <view style="height:22px;line-height:22px;width:48px;text-align:center;font-size:12px;">
+    联系客服
+  </view>
+</view>
+<view class="huimenceng" hidden="{{cengHidden}}" style="height:20000%;width:100%;"></view>

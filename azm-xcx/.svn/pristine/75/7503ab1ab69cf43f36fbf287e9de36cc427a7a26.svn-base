@@ -1,0 +1,36 @@
+/* six.wxss */
+.page{
+  background: #f8f8f8;
+  min-height: 100%;
+}
+.top{
+  padding: 20px 0;
+  text-align: center;
+  color: #666;
+}
+.weui-cell:before{
+  left: 0;
+}
+.weui-cell__ft {
+  font-family: "Arial";
+  font-size: 16px;
+  font-weight: bold;
+  font-style: italic;
+}
+.rules {
+  padding: 20px 10px;
+  font-size: 14px;
+}
+.rule-list text {
+  display: block;
+  line-height: 25px;
+}
+.rule-list {
+  border: 1px solid #ccc;
+  padding: 15px 10px;
+  background: white;
+}
+.weui-cell{
+  height: 50px;
+  box-sizing: border-box;
+}

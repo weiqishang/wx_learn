@@ -1,0 +1,113 @@
+/* zan.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 30px 0;
+}
+
+.container-top {
+  display: flex;
+  flex-direction: row;
+}
+
+.container-top view {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  color: #888;
+}
+
+.container-top view>text:first-of-type {
+  font-size: 16px;
+  color: #999;
+}
+
+.container-top view>text:last-of-type {
+  font-size: 32px;
+  color: #000;
+}
+.myweui-btn {
+  background: white;
+  color: #f60;
+  border: 1px solid #f60;
+  border-radius: 20px;
+  font-size: 14px;
+  width: 178px;
+  height: 38px;
+  margin-top: 25px;
+}
+
+.myweui-btn:after {
+  content: none;
+}
+
+
+
+
+.myweui-navbar {
+  height: 44px;
+  font-size: 16px;
+  color: #666;
+  position: fixed;
+  background: #fff;
+}
+.weui-navbar {
+  position: relative;
+  top:10px;
+  background: #fff;
+}
+.weui-navbar__item.weui-bar__item_on {
+  color: #2b2d3a;
+  font-weight: 700;
+}
+.weui-navbar__slider {
+  background: #2b2d3a;
+}
+
+
+weui-tab__content {
+  padding-top: 60px;
+  text-align: left;
+}
+
+.weui-cells.weui-cells_after-title::before {
+  border-top: 0;
+}
+
+button[type='warn'].sc-on {
+  background: #ccc;
+}
+
+button[type='warn'].sc-on:after {
+  border-color: #ccc;
+}
+
+button[type='warn'] {
+  width: 75px;
+  padding: 0;
+}
+
+button[type='warn']:after {
+  border-color: #e64340;
+}
+
+
+
+.userinfo-vip {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-top: -5px;
+}
+
+.list_money{
+  color: #ff6600;
+  font-size: 32rpx;
+}
+.list_common{
+  font-size: 26rpx;
+  color: #666;
+  padding-top:5px;
+}

@@ -1,0 +1,19 @@
+
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result:before{
+    display: none;
+}
+.weui-cell{
+    padding: 12px 15px 12px 35px;
+}
+.huimenceng{
+    position:absolute;  
+    top:46px;
+    left: 0px;
+    background-color: #212121;
+    opacity: 0.2;
+    z-index: 2000;
+}

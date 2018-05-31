@@ -1,0 +1,7 @@
+{
+  "navigationBarTextStyle": "#fff",
+  "navigationBarTitleText": "截取二维码",
+  "navigationBarBackgroundColor": "#2B2D3A",
+  "backgroundColor": "#2B2D3A",
+  "enablePullDownRefresh": false
+}

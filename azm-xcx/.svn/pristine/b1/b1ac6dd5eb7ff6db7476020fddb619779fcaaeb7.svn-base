@@ -1,0 +1,6 @@
+/* pages/card/chat/chat.wxss */
+.chatimage{
+    width:60px;
+    height: 60px;
+    
+}

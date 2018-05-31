@@ -1,0 +1,7 @@
+{
+  "navigationBarTextStyle": "#fff",
+  "navigationBarTitleText": "咨询",
+  "navigationBarBackgroundColor": "#2B2D3A",
+  "backgroundColor": "#fbf9fe",
+  "enablePullDownRefresh": true
+}

@@ -1,0 +1,28 @@
+/* tqarticle.wxss */
+
+.weui-textarea {
+  background: white;
+  height: 100px;
+  line-height: 60rpx;
+  border-bottom: 1rpx solid #e8e8e8;
+  padding: 15px 10px;
+  box-sizing: border-box;
+}
+
+button[type="primary"] {
+  width: 80%;
+  margin-top: 25px;
+}
+
+.mybtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  color: #666;
+  line-height: 24px;
+   position: fixed;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+}

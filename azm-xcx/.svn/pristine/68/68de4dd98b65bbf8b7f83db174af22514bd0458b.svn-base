@@ -1,0 +1,97 @@
+<view class="page">
+  <view class="weui-navbar">
+    <block wx:for="{{tabs}}" wx:key="*this">
+      <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+        <view class="weui-navbar__title">{{item}}</view>
+      </view>
+    </block>
+    <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+  </view>
+
+  <view class="weui-tab__content" style="padding-top:50px;" hidden="{{activeIndex != 0}}">
+    <block wx:for="{{myZanList}}">
+     <view bindtap="{{item.companyLongName==''||item.companyLongName==null?'':'checkCard'}}" id="{{item.cid}}"  class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_access">
+          <view class="weui-cell__hd">
+            <image src="{{item.picurl}}" style="margin-right: 10px;vertical-align: middle;width:50px; height: 50px;border-radius:8px;"></image>
+          </view>
+          <view class="weui-cell__bd" hidden="{{item.companyLongName==''||item.companyLongName==null}}">
+            <view>{{item.name}}
+              <image src="../../../image/vip.png" class="userinfo-vip" hidden="{{item.version==0}}"></image>
+            </view>
+            <view hidden="{{item.teamName==''||item.teamName==null}}" style="font-size: 13px;color: #888888;margin-top:5px;">{{item.companyName}}
+              <block wx:if="{{item.teamName!=''}}">- 
+                <block wx:if="{{item.province!=null}}">
+                  {{item.teamName}}
+                </block>
+                <block wx:if="{{item.province==null}}">
+                  {{item.phone}}
+                </block>
+              </block>
+            </view>
+            <view hidden="{{item.teamName==''||item.teamName==null?false:true}}" style="font-size: 13px;color: #888888;margin-top:5px;" class="weui-cell__bd">
+              {{item.companyLongName}}
+            </view>
+          </view>
+          <!--<view class="weui-cell__bd">
+            <view>{{item.name}}
+              <image src="../../../image/vip.png" class="userinfo-vip" hidden="{{item.version==0}}"></image>
+            </view>
+            <view style="font-size: 13px;color: #888888;margin-top:5px;">{{item.companyName}} - {{item.teamName}}</view>
+          </view>-->
+          <view class="weui-cell__ft" hidden="{{item.companyLongName==''||item.companyLongName==null}}">
+            <button catchtap="scMyZan" id="{{item.cid}}" class="weui-btn mini-btn {{item.collection==0 ? '':'sc-on'}}" type="warn" size="mini">{{item.collection==0 ? '收藏':'已收藏'}}</button>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view class="weui-footer" style="margin-top:30px;">
+      <view class="weui-footer__text" hidden="{{myZanList.length<myZanListCount?false:true}}">上拉加载更多</view>
+      <view class="weui-footer__text" hidden="{{myZanList.length==myZanListCount?false:true}}">没有更多了</view>
+    </view>
+  </view>
+
+  <view class="weui-tab__content" style="padding-top:50px;" hidden="{{activeIndex != 1}}">
+    <block wx:for="{{beenZanedList}}">
+      <view bindtap="{{item.companyLongName==''||item.companyLongName==null?'':'checkCard'}}" id="{{item.cid}}"  class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_access">
+          <view class="weui-cell__hd">
+            <image src="{{item.picurl}}" style="margin-right: 10px;vertical-align: middle;width:50px; height: 50px;border-radius:8px;"></image>
+          </view>
+          <view class="weui-cell__bd" hidden="{{item.companyLongName==''||item.companyLongName==null}}">
+            <view>{{item.name}}
+              <image src="../../../image/vip.png" class="userinfo-vip" hidden="{{item.version==0}}"></image>
+            </view>
+            <view hidden="{{item.teamName==''||item.teamName==null}}" style="font-size: 13px;color: #888888;margin-top:5px;">{{item.companyName}}
+              <block wx:if="{{item.teamName!=''}}">- 
+                <block wx:if="{{item.province!=null}}">
+                  {{item.teamName}}
+                </block>
+                <block wx:if="{{item.province==null}}">
+                  {{item.phone}}
+                </block>
+              </block>
+            </view>
+            <view hidden="{{item.teamName==''||item.teamName==null?false:true}}" style="font-size: 13px;color: #888888;margin-top:5px;" class="weui-cell__bd">
+              {{item.companyLongName}}
+            </view>
+          </view>
+          <!--<view class="weui-cell__bd">
+            <view>{{item.name}}
+              <image src="../../../image/vip.png" class="userinfo-vip" hidden="{{item.version==0}}"></image>
+            </view>
+            <view style="font-size: 13px;color: #888888;margin-top:5px;">{{item.companyName}} - {{item.teamName}}</view>
+          </view>-->
+          <view class="weui-cell__ft" hidden="{{item.companyLongName==''||item.companyLongName==null}}">
+            <button catchtap="scBeenZaned" id="{{item.cid}}" class="weui-btn mini-btn {{item.collection==0 ? '':'sc-on'}}" type="warn" size="mini">{{item.collection==0 ? '收藏':'已收藏'}}</button>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view class="weui-footer" style="margin-top:30px;">
+      <view class="weui-footer__text" hidden="{{beenZanedList.length<beenZanedListCount?false:true}}">上拉加载更多</view>
+      <view class="weui-footer__text" hidden="{{beenZanedList.length==beenZanedListCount?false:true}}">没有更多了</view>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,30 @@
+<!--six.wxml-->
+<view class="page">
+
+  <view class="top">
+    <view>累积人脉总数</view>
+    <view style="font-size:34px;">{{totalcount}}人</view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title">
+  
+   <block wx:for="{{rmList}}" wx:key="orderById">
+    <view class="weui-cell" bindtap="checkzxrm" id="{{item.orderById}}" >
+      <view class="weui-cell__bd">{{item.rmtype}}</view>
+      <view class="weui-cell__ft">{{item.Count}}</view>
+    </view>
+  </block>
+  </view>
+
+  <view class="rules">
+    <view style="color:#666666;">温馨提示：</view>
+    <view class="rule-list">
+      <text>1、非VIP会员只能查看一度人脉信息</text>
+      <text>2、六度人脉仅为查看好友之间的人脉关系</text>
+      <text>3、六度人脉不代表爱知脉执行六级分销模式</text>
+      <text>4、爱知脉完全遵守微信分销规则</text>
+      <text>5、爱知脉随时会根据微信官方的通知，对六度人脉进行优化和调整。</text>
+    </view>
+  </view>
+
+</view>  

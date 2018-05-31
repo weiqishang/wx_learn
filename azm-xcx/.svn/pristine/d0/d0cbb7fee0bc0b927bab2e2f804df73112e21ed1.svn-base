@@ -1,0 +1,62 @@
+<view class="page">
+
+  <view class="weui-cells weui-cells_after-title">
+    <view   bindtap="mymingpian" class="weui-cell">
+      <view class="weui-cell__hd">
+        <image src="{{icon.mingpian}}" class="part"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title">我的名片</view>
+        <view class="part-text">专属于您自己的个人事业名片</view>
+      </view>
+      <view class="weui-cell__ft free">免费</view>
+    </view>
+  </view>
+
+<view class="weui-grids">
+    <block wx:for="{{iconInfos}}">
+      <view id="{{item.id}}" bindtap="checkDetails" class="weui-grid" hover-class="weui-grid_active">
+        <image class="weui-grid__icon" src="{{item.picUrl}}" />
+        <view class="weui-grid__label">{{item.smallName}}</view>
+       </view>
+    </block>
+</view>
+
+<view class="weui-cells">
+    <view class="weui-cell" bindtap="moveToEditPic">
+      <view class="weui-cell__hd">
+        <image src="{{icon.pingtu}}" class="part"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title">海报拼图</view>
+        <view class="part-text">用海报＋二维码生成属于自己的二维码海报</view>
+      </view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__hd">
+        <image src="{{icon.shiyexiangce}}" class="part"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title" style="color:#cccccc">事业相册</view>
+        <view class="part-text" style="color:#cccccc">留下你美好的事业足迹，与好友一起分享</view>
+      </view>
+      <view class="weui-cell__ft myft">
+        <image src="{{icon.jingqingqidai}}"></image>
+      </view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__hd">
+        <image src="{{icon.zhengpingxiaozhan}}" class="part"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="title" style="color:#cccccc">臻品小栈</view>
+        <view class="part-text" style="color:#cccccc">一键发布、智能装修、在线交易、实时到账</view>
+      </view>
+      <view class="weui-cell__ft myft">
+        <image src="{{icon.jingqingqidai}}"></image>
+      </view>
+    </view>
+  </view>
+
+
+</view>

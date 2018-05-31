@@ -1,0 +1,19 @@
+<view style="background-color: #212121;width:{{width}}px;height:{{height}}px;">
+  <view style="height:{{top}}px;width:100%;"></view>
+  <view style="width:{{width}}px;height:auto;">
+    <image bindtap="checkImg" id="{{url}}" bindload="setImgHeight" src="{{url}}" style="width:{{width}}px;" mode="widthFix"></image>
+  </view>
+</view>
+<!--<view style="width:100%;">
+  <image bindtap="checkImg" id="{{url}}" bindload="setImgHeight" src="{{url}}" style="width:100%;margin-top:{{top}}px;" mode="widthFix"></image>
+</view>-->
+<view style="position:fixed;top:{{height-60}}px;left:{{width*0.05}}px;width:{{width*0.4}}px;font-size:16px;line-height:40px;text-align:center;opacity:0.9;">
+  <button bindtap="myFactory"class="weui-btn" style="width:100%;" type="warn">
+    我的工场
+  </button>
+</view>
+<view style="position:fixed;top:{{height-60}}px;left:{{width*0.55}}px;width:{{width*0.4}}px;font-size:16px;line-height:40px;text-align:center;opacity:0.9;">
+  <button  bindtap="delPoster"  class="weui-btn" style="width:100%;" type="warn">
+    删除此海报
+  </button>
+</view>

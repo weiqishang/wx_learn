@@ -1,0 +1,190 @@
+/* pages/register/reg.wxss */
+.page{
+  
+  min-height: 100%;
+}
+
+
+.top button {
+  padding: 0;
+  width: 70px;
+  float: right;
+  margin-right: 20px;
+}
+
+.icons {
+  /* border-top: 1px solid #ccc; */
+  
+  box-sizing: border-box;
+  margin-top: 25px;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background: white;
+}
+
+.icon {
+  width: 33.33%;
+  text-align: center;
+  font-size: 14px;
+  
+}
+
+.icon image {
+  width: 32px;
+  height: 32px;
+}
+
+.word{
+  font-size: 15px;
+  font-weight: bold;
+}
+.worda{
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.icond{
+  width: 28%;
+  height: 30px;
+  line-height: 30px;
+}
+.iconb{
+  font-size: 20px;
+  color: #f57a42;
+  height: 30px;
+  line-height: 30px;
+  width: 100%;
+  font-weight:bold;
+
+}
+.head{
+  display: flex;
+  flex-direction:row;
+  position: relative;
+
+}
+.hengxian,.hengxia{
+  height: 1rpx;
+  width: 15%;
+  background: #f57a42;
+}
+.hengxian{
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+.hengxia{
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+.weui-cells__title{
+  padding: 25px 28px 23px;
+  background: #f8e0d0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.icona{
+  height: 1rpx;
+  background:#f57a42;
+  line-height: 30px;
+  
+}
+.weui-d{
+  flex: 0.8;
+}
+.weui-cells{
+ background: #f8e0d0;
+}
+.weui-cells:after{
+ border-bottom:0;
+
+}
+.weui-cells:before{
+ border-top:0;
+}
+.weui-cell:before{
+  left: 0;
+  border-top:0;
+
+}
+.weui-cell{
+  height: ;
+  box-sizing: border-box;
+  padding: 0 27px 20px 14px;
+}
+.title{
+  font-size: 18px;
+  color: #2b2d3a;
+  font-weight: bold;
+}
+.part {
+  margin-right: 8px;
+  vertical-align: middle;
+  width: 73px;
+  height:73px;
+  
+}
+.part-box {
+  margin-right: 20px;
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  border:1rpx solid #e4e4e4;
+  border-radius: 6px;
+}
+
+.part-text {
+  font-size: 15px;
+  color: #626574;
+  margin-top: 8px;
+}
+.btm{
+  padding: 28px;
+  text-align: center;
+  
+  background: #f8e0d0;
+}
+.red{
+  color: red;
+}
+
+
+.swiper {
+  height: 500rpx;
+  width: 100%;
+  margin-bottom: 80rpx;
+}
+.swiper image {
+  height: 100%;
+  width: 100%;
+}
+
+.btn{
+  padding-left: 28rpx;
+  padding-right: 28rpx;
+  margin-bottom: 23rpx
+}
+.weui-cell_input{
+      border: 2px solid #f57a42;
+    height: 50px;
+    border-radius: 47px;
+    margin: 0 28px 20px 28px;
+}
+
+.weui-b{
+   position: relative;
+  top: 10px;
+  left:30px
+}
+.weui-a{
+  position: relative;
+  top: 10px;
+  left:55px;
+
+}
+.weui-c{
+  flex: 0.7;
+}

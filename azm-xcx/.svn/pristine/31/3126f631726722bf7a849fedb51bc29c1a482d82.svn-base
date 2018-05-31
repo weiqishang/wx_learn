@@ -1,0 +1,211 @@
+<scroll-view scroll-y="{{true}}" bindscroll="scrollArticle" style="height:{{delHidden?height-51:height-66}}px;width:100%;">
+  <view style="padding:20px 20px;line-height:30px;color:#333333;font-size:17px;background-color:white;">
+    <block wx:for="{{article}}">
+      <view catchtap="chooseText" id="{{item.id}}" wx:if="{{item.atype=='text'}}" style="width:100%;height:auto;display:flex;flex-direction:row;border-bottom:{{delHidden?0:1}}px dashed #d9d9d9;">
+        <view catchlongtap="longtapText" wx:if="{{item.atype=='text'}}" style="{{choiceId==item.id?choosedStyle:(item.style==''?defaultStyle:item.style)}};width:{{delHidden?width:width-45}}px;height:auto;{{delHidden?'':'padding-right:10px;padding-left:10px;'}}padding:10px 5px;line-height:2em;" id="{{item.id}}">
+           <text style='line-height:2em'>{{item.content}} </text>
+        </view>
+        <image id="{{item.id}}" catchtap="delFast" hidden="{{delHidden}}" style="width:25px;margin-top:3px;margin-right:3px;" src="../../../../../image/close2.jpg"   mode='widthFix'></image>
+      </view>
+      <view id="{{item.id}}" wx:if="{{item.atype=='img' }}" style="width:100%;height:auto;border-bottom:{{delHidden?0:1}}px dashed #d9d9d9;text-align:center;">
+        <image wx:if="{{item.atype=='img' }}" bindtap="editImg" id="{{item.id}}" src="{{item.content}}" style="{{choiceId==item.id?'border:2rpx solid #09BB07;':item.style}};width:{{item.width<280?item.width:'100%'}}px;margin:20px 0px;" mode="widthFix"></image>
+        <image id="{{item.id}}" catchtap="delFast" hidden="{{delHidden}}" style="width:25px;margin-top:3px;margin-right:3px;" src="../../../../../image/close2.jpg" mode='widthFix' ></image>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+
+<view style="background-color:#F9F9F9;border-top:1px solid #e8e8e8;width:100%;{{delHidden?'padding:5px 0px;':''}}">
+  <view hidden="{{delHidden}}" style="height:45px;padding:10px 40px;">
+    <button bindtap="indexDelFast" class="weui-btn" type="primary">完成删除</button>
+  </view>
+  <view hidden="{{!delHidden}}" class="weui-flex" style="font-size:12px;color:#2B2D3A;text-align:center;">
+    <view class="weui-flex__item" bindtap="insertImg">
+      <view style="height:40px;width:100%;display:flex;flex-direction:column;">
+        <image style="height:20px;width:20px;margin:auto;" src="../../../../../image/addpic.png"></image>
+        <view style="height:20px;width:auto;line-height:20px;">插图片</view>
+      </view>
+    </view>
+    <view class="weui-flex__item" bindtap="insertText">
+      <view style="height:40px;width:100%;display:flex;flex-direction:column;">
+        <image style="height:20px;width:20px;margin:auto;" src="../../../../../image/addtext.png"></image>
+        <view style="height:20px;width:auto;line-height:20px;">插文字</view>
+      </view>
+    </view>
+    <view class="weui-flex__item" bindtap="indexEditText">
+      <view style="height:40px;width:100%;display:flex;flex-direction:column;">
+        <image style="height:20px;width:20px;margin:auto;" src="../../../../../image/edittext.png"></image>
+        <view style="height:20px;width:auto;line-height:20px;">改文字</view>
+      </view>
+    </view>
+    <view class="weui-flex__item" bindtap="indexDelFast">
+      <view style="height:40px;width:100%;display:flex;flex-direction:column;">
+        <image style="height:20px;width:20px;margin:auto;" src="../../../../../image/remove.png"></image>
+        <view style="height:20px;width:auto;line-height:20px;">删除</view>
+      </view>
+    </view>
+    <view class="weui-flex__item">
+      <button style="height:30px;width:90%;font-size:14px;line-height:30px;margin-top:5px;" type="primary" bindtap="{{publish==0?'saveImgPathsBeforeSaveArticle':'saveImgPathsBeforeSaveArticleByNone'}}">提交</button>
+    </view>
+  </view>
+</view>
+<view hidden="{{editHidden}}">
+  <view style="position:fixed;top:0px;left:0px;width:100%;height:{{height}}px;z-index:1000;background-color:white;opacity:1;color:#212121;">
+    <view class="weui-flex" style="border-bottom:1px solid #D9D9D9;">
+      <view bindtap="editViewHidden" class="weui-flex__item" style="text-align:center;height:40px;line-height:40px;color:#d81e06;font-size:14px;">
+        取消
+        <!--<image bindtap="editViewHidden" style="height:25px;width:25px;" src="../../../../../image/close.png"></image>-->
+      </view>
+      <view id="fontSize0" bindtap="setYangShi" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{textSizeChoose==true?fontSize1:fontSize0}}"></image>
+      </view>
+      <view id="fontColor" bindtap="setYangShi" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;;">
+        <image style="height:25px;width:25px;" src="{{textColorChoose==true?fontColor1:fontColor0}}"></image>
+      </view>
+      <view id="fontBg" bindtap="setYangShi" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;;">
+        <image style="height:25px;width:25px;" src="{{fontBgChoose==true?fontBg1:fontBg0}}"></image>
+      </view>
+      <view id="fontWeight" bindtap="setYangShi" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{textWeightChoose==true?fontWeight1:fontWeight0}}"></image>
+      </view>
+
+      <!--<view id="clear" bindtap="setYangShi" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{fontClear1}}"></image>
+      </view>-->
+      <view id="fontalign" bindtap="setYangShi" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{fontalignChoose==true?fontalign1:fontalign0}}"></image>
+      </view>
+      <view bindtap="{{isSure?'comfirmEdit':''}}" class="weui-flex__item" style="text-align:center;height:40px;line-height:40px;font-size:14px;{{isSure?'color:#09BB07;':'color:#aaaaaa;'}}">
+        确定
+        <!--<image style="height:25px;width:25px;" src="../../../../../image/comfirmEdit.png"></image>-->
+      </view>
+    </view>
+    <view class="weui-flex" hidden="{{!textSizeChoose}}" style="border-bottom:1px solid #D9D9D9;">
+      <view id="s12" bindtap="setTextSize" class="weui-flex__item {{sizeChoice==12? 'textSizeStyleChoosed121': 'textSizeStyleChoosed120'}}">
+        12px
+      </view>
+      <view id="s14" bindtap="setTextSize" class="weui-flex__item {{sizeChoice==14? 'textSizeStyleChoosed141': 'textSizeStyleChoosed140'}}">
+        14px
+      </view>
+      <view id="s17" bindtap="setTextSize" class="weui-flex__item {{sizeChoice==17? 'textSizeStyleChoosed161': 'textSizeStyleChoosed160'}}">
+        17px
+      </view>
+      <view id="s18" bindtap="setTextSize" class="weui-flex__item {{sizeChoice==18? 'textSizeStyleChoosed181': 'textSizeStyleChoosed180'}}">
+        18px
+      </view>
+      <view id="s20" bindtap="setTextSize" class="weui-flex__item {{sizeChoice==20? 'textSizeStyleChoosed201': 'textSizeStyleChoosed200'}}">
+        20px
+      </view>
+      <view id="s24" bindtap="setTextSize" class="weui-flex__item {{sizeChoice==24? 'textSizeStyleChoosed241': 'textSizeStyleChoosed240'}}">
+        24px
+      </view>
+
+    </view>
+    <view>
+    <view class="weui-flex" hidden="{{!fontBgChoose}}" style="border-bottom:1px solid #D9D9D9;">
+      <view id="c0" bindtap="setBg" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{bgcolorChoice==0?cgw1:cgw0}}"></image>
+      </view>
+      <view id="c1" bindtap="setBg" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{bgcolorChoice==1?cg1:cg0}}"></image>
+      </view>
+      <view id="c2" bindtap="setBg" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{bgcolorChoice==2?cb1:cb0}}"></image>
+      </view>
+      <view id="c3" bindtap="setBg" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{bgcolorChoice==3?cgr1:cgr0}}"></image>
+      </view>
+      <view id="c4" bindtap="setBg" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{bgcolorChoice==4?cp1:cp0}}"></image>
+      </view>
+      <view id="c5" bindtap="setBg" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{bgcolorChoice==5?co1:co0}}"></image>
+      </view>
+      <view id="c6" bindtap="setBg" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{bgcolorChoice==6?cr1:cr0}}"></image>
+      </view>
+
+    </view>
+    <view class="weui-flex" hidden="{{!fontBgChoose}}" style="border-bottom:1px solid #D9D9D9;">
+      <view id="2B2D3A" bindtap="setBg" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{bgcolorChoice==7?_2B2D3A1:_2B2D3A}}"></image>
+      </view>
+      <view id="33cc33" bindtap="setBg" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{bgcolorChoice==8?_33cc331:_33cc33}}"></image>
+      </view>
+      <view id="353535" bindtap="setBg" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{bgcolorChoice==9?_3535351:_353535}}"></image>
+      </view>
+      <view id="626574" bindtap="setBg" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{bgcolorChoice==10?_6265741:_626574}}"></image>
+      </view>
+      <view id="888888" bindtap="setBg" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{bgcolorChoice==11?_8888881:_888888}}"></image>
+      </view>
+      <view id="B2B2B2" bindtap="setBg" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{bgcolorChoice==12?_B2B2B21:_B2B2B2}}"></image>
+      </view>
+      <view id="FF6666" bindtap="setBg" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{bgcolorChoice==13?_FF66661:_FF6666}}"></image>
+      </view>
+
+    </view>
+
+
+
+    <view class="weui-flex" hidden="{{!textColorChoose}}" style="border-bottom:1px solid #D9D9D9;">
+      <view id="c0" bindtap="setTextColor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{colorChoice==0?cgw1:cgw0}}"></image>
+      </view>
+      <view id="c1" bindtap="setTextColor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{colorChoice==1?cg1:cg0}}"></image>
+      </view>
+      <view id="c2" bindtap="setTextColor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{colorChoice==2?cb1:cb0}}"></image>
+      </view>
+      <view id="c3" bindtap="setTextColor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{colorChoice==3?cgr1:cgr0}}"></image>
+      </view>
+      <view id="c4" bindtap="setTextColor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{colorChoice==4?cp1:cp0}}"></image>
+      </view>
+      <view id="c5" bindtap="setTextColor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{colorChoice==5?co1:co0}}"></image>
+      </view>
+      <view id="c6" bindtap="setTextColor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{colorChoice==6?cr1:cr0}}"></image>
+      </view>
+
+    </view>
+    <view class="weui-flex" hidden="{{!textColorChoose}}" style="border-bottom:1px solid #D9D9D9;">
+      <view id="2B2D3A" bindtap="setTextColor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{colorChoice==7?_2B2D3A1:_2B2D3A}}"></image>
+      </view>
+      <view id="33cc33" bindtap="setTextColor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{colorChoice==8?_33cc331:_33cc33}}"></image>
+      </view>
+      <view id="353535" bindtap="setTextColor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{colorChoice==9?_3535351:_353535}}"></image>
+      </view>
+      <view id="626574" bindtap="setTextColor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{colorChoice==10?_6265741:_626574}}"></image>
+      </view>
+      <view id="888888" bindtap="setTextColor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{colorChoice==11?_8888881:_888888}}"></image>
+      </view>
+      <view id="B2B2B2" bindtap="setTextColor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{colorChoice==12?_B2B2B21:_B2B2B2}}"></image>
+      </view>
+      <view id="FF6666" bindtap="setTextColor" class="weui-flex__item" style="text-align:center;height:40px;line-height:55px;">
+        <image style="height:25px;width:25px;" src="{{colorChoice==13?_FF66661:_FF6666}}"></image>
+      </view>
+
+    </view>
+    </view>
+    <textarea focus="{{focusFlag}}" style="position:absolute;top:{{height-textareaH}}px;left:0px;font-weight:{{textWeightChoose==true? 'bold': 'normal'}};text-align:{{fontaligntext}};color:{{textcolor}};background-color:{{bgcolor}};font-size:{{sizeChoice}}px;height:{{textareaH}}px;width:100%;padding:5px;line-height:30px;" bindfocus="setSure"
+      bindblur="setEditContent" cursor-spacing="0" maxlength="-1" value="{{content}}" />
+
+    <!--<textarea focus="{{focusFlag}}" style="font-weight:{{textWeightChoose==true? 'bold': 'normal'}};text-align:{{fontaligntext}};color:{{textcolor}};background-color:{{bgcolor}};font-size:{{sizeChoice}}px;height:{{textColorChoose||textSizeChoose||fontBgChoose?height-51-41:height-51}}px;width:100%;padding:5px;line-height:30px;"
+      bindinput="setEditContent" cursor-spacing="0" maxlength="-1" value="{{content}}" />-->
+  </view>
+</view>

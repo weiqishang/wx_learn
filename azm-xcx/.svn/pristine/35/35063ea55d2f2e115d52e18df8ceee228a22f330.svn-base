@@ -1,0 +1,96 @@
+.icon{
+  color: red;
+  font-size: 14px;
+}
+.myft{
+  max-width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.weui-cell__ft{
+  font-size: 15px;
+}
+
+
+.myweui-uploader__input-box {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin-top: 9px;
+  margin-bottom: 9px;
+  margin-left: 10px;
+  border: 5px solid #d9d9d9;
+  border-radius: 15px;
+}
+.iconTitle{
+  width:100px;
+  height: 10px;
+  font-size: 14px;
+  padding-left: 11px;
+  color: #999999;
+}
+.iconTitle2{
+  width:120px;
+  height: 10px;
+  font-size: 14px;
+  color: #999999;
+  margin-left: -13px;
+}
+.weui-uploader__img {
+  display:block;
+  margin-right: 9px;
+  margin-bottom: 9px;
+  width: 77px;
+  height: 77px;
+  border-radius: 15px;
+}
+.hidden {
+    opacity: 0;
+}
+.area-item {
+    line-height: 40px;
+    text-align: center;
+}
+
+.distpicker {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 560rpx;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #fff;
+}
+
+.distpicker-btn {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 40rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    background-color: #fafafa;
+    color: #586C94;
+}
+
+.distpicker-content {
+    box-sizing: border-box;
+    width: 100%;
+    height: 560rpx;
+    background-color: #fff;
+}
+
+.mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 998;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4);
+}

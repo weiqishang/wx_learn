@@ -1,0 +1,76 @@
+.weui-form-preview{
+    margin-bottom: 25px;
+}
+.weui-article__p{
+    background-color: #ffffff;
+    padding: 10px;
+}
+.consult{
+  height: 348rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+.consult .consult-name{
+	height: 90rpx;
+  display: flex;
+	border-bottom: 1px solid #eeeeee;
+}
+.consult .consult-name .name-one{
+	display: inline-block;
+	height: 90rpx;
+  width: 50%;
+	font-size: 32rpx;
+	line-height: 90rpx;
+	margin-left: 20rpx;
+  letter-spacing:2rpx;
+
+}
+.consult .consult-name .consult-date{
+	font-size: 28rpx;
+  letter-spacing:2rpx;
+  line-height: 90rpx;
+}
+.consult .consult-name .consult-time{
+	font-size: 28rpx;
+	margin-left: 20rpx;
+  letter-spacing:2rpx;
+  line-height: 90rpx;
+}
+.consult-contact{
+	height: 54rpx;
+	overflow: hidden;
+	box-sizing:border-box;
+	border-bottom: 1px solid #eeeeee;
+  display: flex;
+}
+.consultLeft{
+  width: 50%;
+  height: 54rpx;
+  position: relative;
+}
+.consultLeft image{
+  margin-left: 20rpx;
+  height: 34rpx;
+  width: 24rpx;
+  position: absolute;
+  top: 10rpx;
+}
+.consultLeft span{
+  position: absolute;
+  left: 65rpx;
+}
+.consultRight image{
+  height: 33rpx;
+  width: 42rpx;
+  position: absolute;
+  top: 10rpx;
+}
+.consultRight span{
+  position: absolute;
+  left: 65rpx;
+}
+.consultRight{
+  width: 50%;
+  height: 54rpx;
+  position: relative;
+}

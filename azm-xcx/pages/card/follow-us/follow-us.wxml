@@ -1,0 +1,37 @@
+<view class="page">
+  
+    <view class="contentpage" style="height:{{wheight}}px">
+      <view class="content" style="height:88%">
+        <view class="weui-cell" style="height:12%">
+          <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src="https://m.ccyishe.com/html/images/20171102/Mlogo-01.png" style="width: 50px; height: 50px; display: block;border-radius:12rpx;" />
+          </view>
+          <view class="weui-cell__bd">
+            <view>爱知脉</view>
+            <view style="font-size: 13px;color: #888888;">用知脉获取无限精准人脉</view>
+          </view>
+        </view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">公众号名称</view>
+            <view class="weui-cell__ft">爱知脉</view>
+          </view>
+          <view class="weui-cell">
+            <view class="weui-cell__bd">公众微信号</view>
+            <view class="weui-cell__ft">copyTools</view>
+          </view>
+        </view>
+        <view style="height:66%">
+          <view style="text-align:center;margin-top:9%;height:64%">
+            <image bindlongtap="mylongtap" bindtap="tapGongzhonghao" src="https://m.ccyishe.com/html/images/20171102/wechatCode.jpg?v={{sjc}}" style="width:{{picw}}px ;height:{{picw}}px"></image>  
+          </view>
+          <view class="weui-footer" style="margin-top:3%;text-align:center;height:10%">
+            <view class="weui-footer__text" style="font-size:100%;">点击二维码，保存图片</view>
+          </view>
+          <view style="text-align:center;height:10%;font-size:90%;margin-top:-3%">扫一扫，选择图片，识别即可关注</view>
+        </view>
+      </view>
+    </view>
+    
+ 
+</view>

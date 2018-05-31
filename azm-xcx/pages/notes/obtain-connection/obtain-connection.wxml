@@ -1,0 +1,66 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab" >
+        <view class="city" style="background:#ffffff">
+     <image  style="width:24px;height:24px;"  src="http://www.zaixiaoba.com/kuwa/zmimg/image/location.png"></image>
+     
+     <view >呼和好特自治区</view>
+    </view>
+            <view class="weui-navbar" style="width:65%;right:0;background:#ffffff"> 
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);left:0;width: 4em;"></view>
+            </view>
+            <view class="weui-tab__panel" style="text-align:center;font-size:16px;">
+                <view class="weui-tab__content" hidden="{{activeIndex != 0}}">  
+                    <view class="page__desc" style=" background: #ffffff;padding:15px 10px;margin-top:10px;margin-bottom:20px">
+                        <text>虽然我们不提倡，但是还是有很多老师建议我们开放经销商的资源，当然前提是您愿意开放自己的信息给其他的经销商。
+                        </text>
+                    </view>
+                
+                    <text>想查找经销商的人脉资源吗?
+                    8月不见不散
+                    </text></view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+                    <view class="page__desc" style=" background: #ffffff;padding:15px 10px;margin-top:10px;margin-bottom:20px">
+                        <text>微商模式是由直销模式演化而来，微商人对直销模式的理解，以及市场推广方式都非常相似，无疑微商的人脉对于直企经销商来说，最容易沟通发展的人脉资源。
+                        </text>
+                    </view>
+                
+                    <text>想查找微商的人脉资源吗?
+                    8月不见不散
+                    </text>
+                </view>
+
+                <view class="weui-tab__content" hidden="{{activeIndex != 2}}"><view class="page__desc" style=" background: #ffffff;padding:15px 10px;margin-top:10px;margin-bottom:20px">
+                        <text>宝妈（包括准妈妈）为了更好的照顾宝宝，大部分都选择辞职在家，在失去一个经济来源的情况下，家庭经济压力会非常大。为了补贴家用，很多宝妈都会选择从事直销、微商、保险行业。根据相关数据统计，开始接触直销和从事直销行业，宝妈的比例人群占有3成。
+                        </text>
+                    </view>
+                
+                    <text>想查找宝妈的人脉资源吗?
+                    8月不见不散
+                    </text>
+                    </view>
+
+            <view class="weui-tab__content" hidden="{{activeIndex != 3}}">
+                    <view class="page__desc" style=" background: #ffffff;padding:15px 10px;margin-top:10px;margin-bottom:20px">
+                        <text>如果您有很多闲余时间，你会选择找一份兼职来做吗？
+如果您不想继续上班，有没有太多的资金积累，你想找一份投资少回报大的事业加盟吗？
+如果您没有一技之长，工资太低，家庭生活压力大，你会选择一份只要努力，入门门槛底的事业来做吗？
+这些人脉相对比较松散，暂时无法定性的客户群，我们也将会为你寻找。
+                        </text>
+                    </view>
+                
+                    <text>想查找这类的人脉资源吗?
+                    8月不见不散
+                    </text>
+                </view>
+
+          
+            </view>
+        </view>
+    </view>
+</view>

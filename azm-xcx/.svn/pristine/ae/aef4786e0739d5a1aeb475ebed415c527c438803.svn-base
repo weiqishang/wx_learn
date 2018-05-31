@@ -1,0 +1,75 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar myweui-navbar">
+       
+          <view id="0" class="weui-navbar__item {{activeIndex == 0 ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">我的海报</view>
+          </view>
+          <view id="1" class="weui-navbar__item {{activeIndex == 1 ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">我的二维码</view>
+          </view>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+        <view>
+          <image bindtap="add" style="height:25px;width:25px;margin-top:10px;margin-right:10px;" src="https://media.ccyishe.com/xcx/images/codeExam/add.png"></image>
+        </view>
+      </view>
+      <view class="weui-tab__panel" style="background-color:white;">
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <view style="height:auto;width:45%;margin-left:3%;float:left;">
+            <block wx:for="{{myPoster1}}">
+              <view id="{{item.picurl}}" data-my="{{item.cid}}" bindtap="checkPoster" style="height:auto;width:100%;">
+                <image style="display:block;height:auto;width:100%;margin-top:10px;" src="{{item.picurl}}" mode="widthFix"></image>
+              </view>
+            </block>
+          </view>
+          <view style="height:auto;width:45%;;margin-right:3%;float:right;">
+            <block wx:for="{{myPoster2}}">
+              <view id="{{item.picurl}}" data-my="{{item.cid}}" bindtap="checkPoster" style="height:auto;width:100%;">
+                <image style="display:block;margin-top:10px;height:auto;width:100%;" src="{{item.picurl}}" mode="widthFix"></image>
+              </view>
+            </block>
+          </view>
+          <!--<view style="width:100%;height:auto;margin-top:10px;">
+            <block wx:for="{{myPoster}}">
+              <view id="{{item.picurl}}" data-my="{{item.cid}}" bindtap="checkPoster" style="height:auto;width:45%;margin-top:10px;margin-left:3%;float:left;">
+                <image style="display:block;height:auto;width:100%;" src="{{item.picurl}}" mode="widthFix"></image>
+              </view>
+            </block>
+          </view>-->
+          <view class="weui-footer" style="clear:both;">
+            <view class="weui-footer__text" style="padding-top:30px;" hidden="{{myPoster.length<count?false:true}}">上拉加载更多海报</view>
+            <view class="weui-footer__text" style="padding-top:30px;" hidden="{{myPoster.length==count?false:true}}">没有更多海报</view>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <view style="height:auto;width:45%;margin-left:3%;float:left;">
+            <block wx:for="{{myCode1}}">
+              <view id="{{item.picurl}}" data-my="{{item.cid}}" bindtap="checkCode" style="height:auto;width:100%;margin-left:3%;">
+                <image style="display:block;height:auto;margin-top:10px;width:100%;" src="{{item.picurl}}" mode="widthFix"></image>
+                <view style="font-size:16px;text-align:center;margin-top:5px;">{{item.displayName}}</view>
+              </view>
+            </block>
+          </view>
+          <view style="height:auto;width:45%;margin-right:3%;float:right;">
+            <block wx:for="{{myCode2}}">
+              <view id="{{item.picurl}}" data-my="{{item.cid}}" bindtap="checkCode" style="height:auto;width:100%;margin-left:3%;">
+                <image style="display:block;height:auto;margin-top:10px;width:100%;" src="{{item.picurl}}" mode="widthFix"></image>
+                <view style="font-size:16px;text-align:center;margin-top:5px;">{{item.displayName}}</view>
+              </view>
+            </block>
+          </view>
+          <view class="weui-footer" style="clear:both;padding-bottom:65px;">
+            <view class="weui-footer__text" style="padding-top:30px;" hidden="{{myCode.length<codecount?false:true}}">上拉加载更多二维码</view>
+            <view class="weui-footer__text" style="padding-top:30px;" hidden="{{myCode.length==codecount?false:true}}">没有更多二维码</view>
+          </view>
+
+          <!--<view style="position:fixed;top:{{height-65}}px;left:0px;height:65px;width:100%;background-color:white;z-index:1000;">
+            <button style="margin:10px 40px;" class="weui-btn" type="primary" bindtap="addTwoCode">添加二维码</button>
+          </view>-->
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>

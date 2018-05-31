@@ -1,0 +1,54 @@
+/* pages/discover2/disvover2.wxss */
+/* find.wxss */
+.page{
+  background: #e8e8e8;
+  min-height: 100%;
+}
+.free{
+  font-size: 12px;
+  color: white;
+  background: #1AAD19;
+  padding: 2px 5px;
+  border-radius: 2px;
+}
+.weui-grids{
+  border-top: 0;
+}
+.weui-grid{
+  width: 25%;
+  background: white;
+  padding: 10px;
+}
+
+.weui-cell:before{
+  left: 0;
+}
+.myft image{
+  width: 32px;
+  height: 32px;
+}
+.myft{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.weui-cell{
+  height: 80px;
+  box-sizing: border-box;
+}
+.title{
+  font-size: 17px;
+  color: #2b2d3a;
+}
+.part {
+  margin-right: 20px;
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+}
+
+.part-text {
+  font-size: 12px;
+  color: #626574;
+  margin-top: 10px;
+}

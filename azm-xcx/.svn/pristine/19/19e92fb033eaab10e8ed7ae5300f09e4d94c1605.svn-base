@@ -1,0 +1,132 @@
+<!--pages/home2/speed/speed.wxml-->
+<view class="page">
+  <view class="swiper">   
+      <image src="{{icon.title}}" class="slide-image" mode="aspectFill" style="" /> 
+  </view>
+  <view style="display:none;">{{personData.name}}-{{personData.zhiwei}}-{{personData.phone}}-{{personData.qq}}-{{personData.wechar}}-{{personData.belongCom}}-{{personData.picurlXcxQr}}-{{personData.picurl}}</view>
+  <view class="weui-cells weui-cells_after-title" style='border-bottom:1rpx solid #d9d9d9;'>
+    <view class="weui-cell" style="padding:15px;" bindtap="setmycard">
+      <view class="weui-cell__hd" style="margin-right: 15px;">
+        <image class="userinfo-avatar" src="{{avatarUrl}}"></image>
+      </view>
+      <view class="weui-cell__bd"> 
+        <view class="userinfo-nickName">{{person.name}}
+          <!-- <image wx:if="{{version==1}}" src="../../image/vip.png" class="userinfo-vip"></image>
+          <image wx:if="{{hehuo=='1'}}" src="../../image/he.png" class="userinfo-vip"></image> -->
+        </view>
+        
+        <view class="userinfo-company">{{person.belongCom}}
+        </view> 
+       
+      </view>
+      <view  class="weui-cell__ft weui-cell__ft_in-access">
+        <block hidden="{{personData}}">预览</block>
+      </view>
+    </view>
+    <view style="height:1rpx;border-top:1rpx solid #d9d9d9;margin-bottom:20rpx;margin-left:30rpx;margin-right:30rpx;"></view>
+    <view class="icons">
+      <block wx:for="{{mymingpian}}" wx:key="id">
+        <view class="icon" id="{{item.id}}" bindtap="checkDetails">
+         <image src="{{item.picUrl}}"></image>
+           <view class="word">{{item.smallName}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title" style='border-bottom:1rpx solid #d9d9d9;margin-top:20px;'>
+    <view class="weui-cell" style="padding:15px;" bindtap="findrenmai">
+      <view class="weui-cell__hd" style="margin-right: 15px;">
+        <image class="userinfo-avatar" src="{{person.findrenm}}"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="userinfo-nickName">{{person.findren}}
+          <!-- <image wx:if="{{version==1}}" src="../../image/vip.png" class="userinfo-vip"></image>
+          <image wx:if="{{hehuo=='1'}}" src="../../image/he.png" class="userinfo-vip"></image> -->
+        </view>
+        
+        <view class="userinfo-company">{{person.belongren}}
+        </view>
+       
+      </view>
+      <view  class="weui-cell__ft weui-cell__ft_in-access">
+        <block hidden="{{personData.shareCom==''}}">进入</block>
+      </view>
+    </view>
+    <view style="height:1rpx;border-top:1rpx solid #d9d9d9;margin-bottom:20rpx;margin-left:30rpx;margin-right:30rpx;"></view>
+    <view class="icons">
+      <block wx:for="{{zhaorenmai}}" wx:key="id">
+        <view class="icon" id="{{item.id}}" bindtap="checkDetail">
+          <image src="{{item.picUrl}}"></image>
+           <view class="word">{{item.smallName}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+  
+<view class="weui-cells weui-cells_after-title" style='border-bottom:1rpx solid #d9d9d9;margin-top:20px;'>
+    <view class="weui-cell" style="padding:15px;" bindtap="myxiaochengxuzhan">
+      <view class="weui-cell__hd" style="margin-right: 15px;">
+        <image class="userinfo-avatar" src="{{person.mywenz}}"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="userinfo-nickName">{{person.wenzhang}}
+          <!-- <image wx:if="{{version==1}}" src="../../image/vip.png" class="userinfo-vip"></image>
+          <image wx:if="{{hehuo=='1'}}" src="../../image/he.png" class="userinfo-vip"></image> -->
+        </view>
+        
+        <view class="userinfo-company">{{person.belongwen}}
+        </view>
+       
+      </view>
+      <view  class="weui-cell__ft weui-cell__ft_in-access">
+        <block hidden="{{personData.shareCom==''}}">预览</block>
+      </view>
+    </view>
+    <view style="height:1rpx;border-top:1rpx solid #d9d9d9;margin-bottom:20rpx;margin-left:30rpx;margin-right:30rpx;"></view>
+    <view class="icons">
+      <block wx:for="{{mywenzheng}}" wx:key="id">
+        <view class="icon" id="{{item.id}}" bindtap="checkDetailss">
+        <image src="{{item.picUrl}}"></image>
+           <view class="word">{{item.smallName}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+ <view class="weui-cells weui-cells_after-title" style='border-bottom:1rpx solid #d9d9d9;margin-top:20px;margin-bottom:50px;'>
+    <view class="weui-cell" style="padding:15px;" bindtap="tuiguangzq">
+      <view class="weui-cell__hd" style="margin-right: 15px;">
+        <image class="userinfo-avatar" src="{{person.tuigzq}}"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="userinfo-nickName">{{person.tuiguang}}
+          <!-- <image wx:if="{{version==1}}" src="../../image/vip.png" class="userinfo-vip"></image>
+          <image wx:if="{{hehuo=='1'}}" src="../../image/he.png" class="userinfo-vip"></image> -->
+        </view>
+        
+        <view class="userinfo-company">{{person.belongtui}}
+        </view>
+       
+      </view>
+      <view  class="weui-cell__ft weui-cell__ft_in-access">
+        <block hidden="{{personData.shareCom==''}}">进入</block>
+      </view>
+    </view>
+    <view style="height:1rpx;border-top:1rpx solid #d9d9d9;margin-bottom:20rpx;margin-left:30rpx;margin-right:30rpx;"></view>
+    <view class="icons">
+      <block wx:for="{{tuiqian}}" wx:key="id">
+        <view class="icon" id="{{item.id}}" bindtap="checkDetailsss">
+         <image src="{{item.picUrl}}"></image>
+           <view class="word">{{item.smallName}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+ <view class="foot" bindtap="index">   
+      <image src="{{icon.zhifu}}"  mode="aspectFill" style="" /> 
+  </view>
+  
+</view>
+

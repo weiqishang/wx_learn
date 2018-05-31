@@ -1,0 +1,16 @@
+<view class="page">
+    <view style="text-align: center;margin-top:120px;">
+       <image src="../../../images/icon_nav_z-index.png" style="width:50px;height:50px;"></image>
+    </view>
+    <view class="weui-footer" style="margin-top:30px;">
+            <view class="weui-footer__text" style="font-size:40rpx;">九极还没有团队入驻</view>
+            <view class="weui-footer__text" style="font-size:40rpx;margin-top:10px;">让团队成员的知脉名片带上团队信息                 </view>
+    </view>
+
+   <button class="weui-btn" type="primary" style="width:260px;">团队入驻</button>
+   <view class="weui-footer" style="margin-top:10px;">
+            <view class="weui-footer__text" style="font-size:40rpx;">邀请你们的团队领导人入驻我们吧</view>
+            
+    </view>
+
+</view>

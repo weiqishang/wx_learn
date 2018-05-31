@@ -1,0 +1,34 @@
+/* name.wxss */
+.picker{
+  height:30px;line-height:30px;background-color:white;padding:10px 0px 10px 20px;
+}
+
+.page{
+  height: 100%;
+  background: #f8f8f8;
+  padding-top: 10px;
+  box-sizing: border-box;
+}
+button[type="primary"]{
+  width: 80%;
+  margin-top: 25px;
+}
+
+.weui-cell__ft button{
+  padding: 5px;
+  margin: 10px 10px 10px 0;
+  line-height: 1.5;
+  font-size: 14px;
+  background: white;
+  color: #1AAD19;
+  border: 1px solid #1AAD19;
+}
+.weui-cell__ft button.phone{
+  padding: 5px 15px;
+}
+.weui-cell__ft button:after{
+  content: none;
+}
+.weui-label{
+  width: 80px;
+}

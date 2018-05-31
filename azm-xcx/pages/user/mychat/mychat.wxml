@@ -1,0 +1,71 @@
+<view class="page">
+    
+    <scroll-view scroll-y="true" style="height:{{H}}px;padding:20rpx;box-sizing:border-box;background-color:#D5D5D6;" bindscrolltolower="getNewChatsScroll">
+      <block wx:for="{{chats}}" wx:key="cid">
+         <view  wx:if="{{item.isDelete == 0}}" class="weui-cells weui-cells_after-title">
+          <navigator style='border-bottom: 1px solid #D5D5D6;' url="user" class="weui-cell weui-cell_access" hover-class="weui-cell_active" redirect="true">
+            <view class="weui-cell__hd">
+            </view>
+            <view class="weui-cell__bd">{{item.name}}</view>
+            <view class="weui-cell__ft">{{item.createDate}}</view>
+          </navigator>
+          <view class="weui-form-preview" style="margin-top:-1px;">
+            <view style='height:74rpx;position: relative;border-bottom: 1px solid #D5D5D6;'>
+              <image style="height:50rpx;width:50rpx;position: absolute;left:24rpx;top:20rpx;" src="images/dingwei-50.png"></image> 
+              <view style='font-size:28rpx;font-weight: 500;position: absolute;top:24rpx;left:114rpx;'>{{item.province}} - {{item.city}}</view>
+              
+            </view>
+            <view style='height:74rpx;position: relative;border-bottom: 1px solid #D5D5D6;'>
+              <image style="height:50rpx;width:50rpx;position: absolute;left:24rpx;top:20rpx;" src="images/shouji-50.png"></image> 
+              <view style='font-size:28rpx;font-weight: 500;position: absolute;top:24rpx;left:114rpx;'>{{item.phone}}</view>
+              <view catchtap="copyData" id='{{item.phone}}' style='position: absolute;font-size:26rpx;font-weight: 500;color:#999999;height:40rpx;width:90rpx;top:16rpx;border:1px solid #999999;text-align: center;line-height: 40rpx;border-radius: 20rpx;right:28rpx'>复制</view>
+            </view>
+            <view wx:if="{{item.wechat}}" style='height:74rpx;position: relative;border-bottom: 1px solid #D5D5D6;'>
+              <image style="height:50rpx;width:50rpx;position: absolute;left:24rpx;top:20rpx;" src="images/weixin-50.png"></image> 
+              <view style='font-size:28rpx;font-weight: 500;position: absolute;top:24rpx;left:114rpx;'>{{item.wechat}}</view>
+              <view catchtap="copyData" id='{{item.wechat}}' style='position: absolute;font-size:26rpx;font-weight: 500;color:#999999;height:40rpx;width:90rpx;top:16rpx;border:1px solid #999999;text-align: center;line-height: 40rpx;border-radius: 20rpx;right:28rpx'>复制</view>
+            </view>
+            <view style='padding:30rpx;font-size:26rpx;color:#999999;font-weight: 500;'>
+              {{item.qdesc}}
+            </view>
+            
+            
+            <view class="weui-form-preview__ft">
+              <view class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" id="{{item.cid}}" bindtap="openConfirm">删除</view>
+              <view class="weui-form-preview__btn weui-form-preview__btn_primary" data-name="{{item.name}}" hover-class="weui-form-preview__btn_active" id="{{item.phone}}" catchtap="phoneNumTap">保存到通讯录</view>
+            </view>
+          </view>
+        </view> 
+        <!-- <view class='consult'>
+          <view class="consult-name">
+            <span class="name-one">
+                ALUN彭先灿
+            </span>
+            <span  class="consult-date">
+              2017-11-11
+            </span>
+            <span class="consult-time">	
+            10:00
+            </span>
+          </view>
+          <view class="consult-contact">
+            <view class='consultLeft'  id="">
+              <image src="../image/shouji.png"></image>
+              <span  >13677777777</span>
+            </view>
+            <view class='consultRight'  id="">
+              <image src="../image/wenxin.png"></image>
+              <span  >13677777777</span>
+            </view>
+            <textarea bindblur="bindTextAreaBlur" auto-height placeholder="自动变高" />
+          </view>
+        </view> -->
+        
+				
+				
+      </block>
+      <view class="weui-footer" style="margin-top:30px;">
+      <view class="weui-footer__text">没有更多咨询了</view>
+    </view>
+    </scroll-view>
+</view>

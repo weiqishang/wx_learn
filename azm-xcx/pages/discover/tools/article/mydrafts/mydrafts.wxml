@@ -1,0 +1,22 @@
+<block wx:for="{{myarticles}}">
+  <view bindtap="checkArticle" id="{{item.cid}}" class="myweui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd" style="width: 70%;line-height: 1.8;">
+        <view class="title">{{item.displayName}}</view>
+        <view class="disc">{{item.smallDesc}}...</view>
+        <view class="time">{{item.createDate}}
+          <text style="padding-left:20px;" hidden="{{item.checked==0?false:true}}">待发布</text>
+          <text style="padding-left:20px;" hidden="{{item.checked==1?false:true}}">正常显示</text>
+          <text style="padding-left:20px;" hidden="{{item.checked==2?false:true}}">审核不通过</text>
+        </view>
+      </view>
+      <view class="weui-cell__ft">
+        <image src="{{item.picurl=='https://media.ccyishe.com/xcx/images/default_20170622120213.jpg'?'../../../image/none.png':item.picurl}}" style="width: 40px;height: 40px;"></image>
+      </view>
+    </view>
+  </view>
+</block>
+<view class="weui-footer" style="margin-top:30px;margin-bottom:30px;">
+  <view class="weui-footer__text" hidden="{{myarticles.length<count?false:true}}">上拉加载更多文章</view>
+  <view class="weui-footer__text" hidden="{{myarticles.length==count?false:true}}">没有更多文章</view>
+</view>

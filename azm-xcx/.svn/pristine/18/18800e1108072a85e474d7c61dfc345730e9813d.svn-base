@@ -1,0 +1,28 @@
+<view class="page" >
+    <view class="page__bd" >
+        <view class="msg_success js_show">
+            <view class="weui-msg">
+                   
+    <icon class="icon-box-img" type="warn" size="100"></icon>
+                <view class="weui-msg__text-area" style='margin-top:20px;'>
+                    <view class="weui-msg__title">非VIP用户，无法操作</view>
+                    <text class="weui-msg__desc"style='margin-top:10px;'>发文章暂只对VIP会员开放
+                    给您代理的不变，敬请谅解！</text>
+                </view>
+                <view class="weui-msg__opr-area">
+                    <view class="weui-btn-area">
+                         <button bindtap="payClick"  class="weui-btn" type="warn">开通VIP会员</button>
+                    </view>
+                </view>
+                <view class="weui-msg__extra-area" >
+                    <view class="weui-footer">
+                        <view class="weui-footer__links">
+                            <view class="weui-footer__link">爱知脉编辑文章工具</view>
+                        </view>
+                        <view style='margin-top:10px;'class="weui-footer__text">Copyright © 2017 copyTools</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

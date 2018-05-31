@@ -1,0 +1,276 @@
+
+.shenji{
+  float:right;margin-right:15px;
+  height:45px;line-height: 45px;
+}
+.shenjibtm{
+  height:30px;background-color:white;border:1px solid #FF9800;color:#FF9800;
+  margin-top: 7px;
+}
+.improvevip{
+  padding:5px;line-height:45px;background-color:white; 
+  opacity:1;height:45px;position:fixed;bottom:0px;left:0px;
+  border-top:1px solid #d9d9d9;width:100%;
+}
+
+.diyueqiHead{
+  height:120px;width:100%;
+  text-align:center;line-height:120px;font-size:55rpx;
+  color:white;background-color:#09BB07;
+}
+.diyueqiHead2{
+  height:120px;width:100%;
+  text-align:center;line-height:120px;font-size:55rpx;
+  color:white;background-color:#FF9999;
+}
+
+.showModal{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, .2);
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+.modalbox{
+  border: 1px solid #999;
+  background: #f8f8f8;
+  margin-top: 30%;
+}
+.weui-cell__ft_in-access{
+  font-size: 13px;
+}
+.modal_title{
+  text-align: center;
+  padding: 20px;
+}
+.modal_btn{
+  width: 80%;
+  margin: 20px auto 50px;
+}
+
+
+.myweui-navbar {
+  height: 44px;
+  font-size: 16px;
+  color: #666;
+  position: fixed;
+  background: #fff;
+}
+.weui-navbar__item.weui-bar__item_on {
+  color: #2b2d3a;
+  font-weight: 700;
+}
+.weui-navbar__slider {
+  background: #2b2d3a;
+}
+
+
+
+.page{
+  background: #f8f8f8;
+  padding:1.1764em 15px 65px;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+.weui-cells:before{
+  content:none;
+}
+.weui-cells:after{
+  content: none;
+}
+.weui-cell:before{
+  content: none;
+}
+.myweui-cell__bd{
+  font-size: 18px;
+  color: #666;
+}
+.weui-cell__hd{
+  font-size: 14px;
+  color: #666;
+  margin-right: 10px;
+  width: 45px;
+}
+ .weui-cells{
+  border: 1px solid #e4e4e4;
+  /* border-radius: 5px; */
+  overflow: hidden;
+}
+
+.weui-cells_after-title{
+  margin-top: 20px;
+}
+.mybtn{
+  height: 44px;
+  background: white;
+  border-top: 1px solid #e4e4e4;
+  color: #1AAD19;
+  border-radius: 0;
+}
+.mybtn:after{
+  content: none;
+}
+
+.btm {
+  background:white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  padding: 10px;
+  border-top: 1rpx solid #d9d9d9;
+  box-sizing: border-box;
+}
+
+.btm button {
+  padding: 0;
+  width: 80px;
+  font-size: 14px;
+  background: white;
+  color: #f60;
+  border: 1px solid #f60;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+.btm button:after{
+  content: none;
+}
+.add{
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 10px;
+  background: white;
+  border: 1px dashed #888;
+}
+.text{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  line-height: 30px;
+  color: #999;
+  padding: 15px 0;
+}
+.lists .list-top{
+  background: #09bb07;
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+  font-size: 20px;
+}
+.lists view:nth-child(even) .list-top{
+  background: #ff9999;
+}
+.lists>view{
+  margin-bottom: 25px;
+}
+.list-btm image{
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.list-btm{
+  padding: 10px;
+  background: white;
+  border: 1px solid #d9d9d9;
+  position: relative;
+}
+.showModal{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, .2);
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+.modalbox{
+  border: 1px solid #999;
+  background: #f8f8f8;
+  margin-top: 30%;
+}
+.weui-cell__ft_in-access{
+  font-size: 13px;
+}
+.modal_title{
+  text-align: center;
+  padding: 20px;
+}
+.modal_btn{
+  width: 80%;
+  margin: 20px auto 50px;
+}
+
+
+.hidden {
+    opacity: 0;
+    display: none;
+}
+.area-item {
+    line-height: 40px;
+    text-align: center;
+}
+
+.distpicker {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 560rpx;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #fff;
+}
+
+.distpicker-btn {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 40rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    background-color: #fafafa;
+    color: #586C94;
+}
+
+.distpicker-content {
+    box-sizing: border-box;
+    width: 100%;
+    height: 560rpx;
+    background-color: #fff;
+}
+
+.mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 998;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+
+.btm_home{
+  height: 50px;
+  line-height: 50px;
+  background: #2b2d3a;
+  color: white;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}

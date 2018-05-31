@@ -1,0 +1,80 @@
+
+@import "../../../../../wxParse/wxParse.wxss";
+.chioceStyle{
+  background-color: #09BB07;opacity: 0.3;padding: 10px;
+}
+
+Page{
+  background-color: #ffffff;
+  width: 100%;
+  max-height: 100%;
+}
+.articleBackground{
+  background-color:#dbdbdb;
+}
+.rich_media_meta rich_media_meta_text{
+  background-color: red;
+}
+/*.editState{
+  z-index:-1;
+  position:fixed;top:0px;left:0px;font-size:16px;
+}
+.noeditState{
+z-index:-1;margin-bottom:80px;font-size:16px;
+
+}*/
+.textSizeStyleChoosed121{
+  text-align:center;height:38px;line-height:38px;margin-top: 1px;margin-bottom: 1px;font-size: 12px;background-color:#3cc51f;
+}
+.textSizeStyleChoosed120{
+  text-align:center;height:38px;line-height:38px;margin-top: 1px;margin-bottom: 1px;font-size: 12px;
+  
+}
+
+.textSizeStyleChoosed141{
+  text-align:center;height:38px;line-height:38px;margin-top: 1px;margin-bottom: 1px;font-size: 14px;background-color:#3cc51f;
+}
+.textSizeStyleChoosed140{
+  text-align:center;height:38px;line-height:38px;margin-top: 1px;margin-bottom: 1px;font-size: 14px;
+  
+}
+
+.textSizeStyleChoosed161{
+  text-align:center;height:38px;line-height:38px;margin-top: 1px;margin-bottom: 1px;font-size: 17px;background-color:#3cc51f;
+}
+.textSizeStyleChoosed160{
+  text-align:center;height:38px;line-height:38px;margin-top: 1px;margin-bottom: 1px;font-size: 17px;
+  
+}
+
+.textSizeStyleChoosed181{
+  text-align:center;height:38px;line-height:38px;margin-top: 1px;margin-bottom: 1px;font-size: 18px;background-color:#3cc51f;
+}
+.textSizeStyleChoosed180{
+  text-align:center;height:38px;line-height:38px;margin-top: 1px;margin-bottom: 1px;font-size: 18px;
+  
+}
+
+.textSizeStyleChoosed201{
+  text-align:center;height:38px;line-height:38px;margin-top: 1px;margin-bottom: 1px;font-size: 20px;background-color:#3cc51f;
+}
+.textSizeStyleChoosed200{
+  text-align:center;height:38px;line-height:38px;margin-top: 1px;margin-bottom: 1px;font-size: 20px;
+  
+}
+
+.textSizeStyleChoosed221{
+  text-align:center;height:38px;line-height:38px;margin-top: 1px;margin-bottom: 1px;font-size: 22px;background-color:#3cc51f;
+}
+.textSizeStyleChoosed220{
+  text-align:center;height:38px;line-height:38px;margin-top: 1px;margin-bottom: 1px;font-size: 22px;
+  
+}
+
+.textSizeStyleChoosed241{
+  text-align:center;height:38px;line-height:38px;margin-top: 1px;margin-bottom: 1px;font-size: 24px;background-color:#3cc51f;
+}
+.textSizeStyleChoosed240{
+  text-align:center;height:38px;line-height:38px;margin-top: 1px;margin-bottom: 1px;font-size: 24px;
+  
+}

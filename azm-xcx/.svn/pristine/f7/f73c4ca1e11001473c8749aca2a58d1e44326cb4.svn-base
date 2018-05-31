@@ -1,0 +1,38 @@
+<view id="top" style="position:fixed;width:100%;height:19px;top:0;left:0px;background-color:#2B2D3A;z-index:1000;opacity:0.7;background:#2B2D3A;"></view>
+<view style="height:1px;width:{{W-38}}px;background-color:#d9d9d9;position:fixed;left:19px;top:19px;opacity:0.6;z-index:1200;"></view>
+<view id="right" style="position:fixed;width:19px;height:{{H-65-40}}px;top:20px;left:{{W-20}}px;background-color:#2B2D3A;z-index:1000;opacity:0.7;border-left:1px solid #d9d9d9;background:#2B2D3A;"></view>
+<view id="left" style="position:fixed;width:19px;height:{{H-65-40}}px;top:20px;left:0px;background-color:#2B2D3A;z-index:1000;opacity:0.7;border-right:1px solid #d9d9d9;background:#2B2D3A;"></view>
+<view id="bottom" style="position:fixed;width:100%;height:19px;top:{{H-85}}px;left:0px;background-color:#2B2D3A;z-index:1000;opacity:0.7;;background:#2B2D3A;"></view>
+<view style="height:1px;width:{{W-38}}px;background-color:#d9d9d9;position:fixed;left:19px;top:{{H-65-20}}px;opacity:0.6;z-index:1200;"></view>
+
+
+<!--<image src="{{imgUrl}}" bindload="imgLoadFinish" hidden="true"></image>-->
+<canvas catchtouchend="touchendImg" catchtouchmove="touchMoveImg" catchtouchstart="touchstartImg" style="display:block;height:{{cH}}px;width:{{cW}}px;margin-top:20px;margin-bottom:20px;margin-left:20px;margin-right:20px;" canvas-id="myCanvas3"></canvas>
+<canvas style="position:fixed;top:{{H}}px;left:0px;display:block;height:{{cH* standardValue}}px;width:{{cW* standardValue}}px;margin-top:20px;margin-bottom:20px;margin-left:20px;margin-right:20px;" canvas-id="myCanvas4"></canvas>
+
+<view animation="{{animationData2}}" style="position:fixed;top:{{H}}px;left:0px;height:65px;line-height:65px;width:100%;background-color:#F8F8F8;z-index:1000;display:flex;flex-direction:row;">
+  <view style="width:100%;display:flex;flex-direction:row;margin-top:12.5px;">
+    <button bindtap="chooseTwoCode" style="height:40px;width:145px;background-color:white;font-size:16px;color:#2B2D3A;border:1px solid #2B2D3A;">
+      <view style="height:40px;width:101px;margin:auto;display:flex;flex-direction:row;">
+        <view>
+          <image src="https://media.ccyishe.com/xcx/images/codeExam/add.png" style="height:16px;width:16px;"></image>
+        </view>
+        <view style="text-align:left;width:99px;margin-left:2px;">插入二维码</view>
+      </view>
+    </button>
+    <button bindtap="finishToDraw" style="height:40px;width:130px;background-color:#2B2D3A;font-size:16px;color:white;">
+      <view style="height:40px;width:82px;margin:auto;display:flex;flex-direction:row;">
+        <view>
+          <image src="https://media.ccyishe.com/xcx/images/20170623/picfinish.png" style="height:16px;width:16px;"></image>
+        </view>
+        <view style="text-align:left;width:74px;margin-left:2px;">生成海报</view>
+      </view>
+    </button>
+  </view>
+  <!--<button  bindtap="chooseTwoCode"  style="height:40px;width:145px;margin-top:12.5px;background-color:white;font-size:16px;color:#33CC99;">插入二维码
+    <image src="https://media.ccyishe.com/xcx/images/20170623/picadd.png" style="height:16px;width:16px;float:left;margin-right:-12px;margin-top:10px;"></image>
+  </button>
+  <button bindtap="finishToDraw" style="margin-top:12.5px;height:40px;width:130px;background-color:#33CC99;font-size:16px;color:white;">生成海报
+    <image src="https://media.ccyishe.com/xcx/images/20170623/picfinish.png" style="height:16px;width:16px;float:left;margin-right:-12px;margin-top:10px;"></image>
+  </button>-->
+</view>

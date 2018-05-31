@@ -1,0 +1,86 @@
+<view class="page">
+  <view class="page__bd">
+    
+    <view class="main">
+      <video id="myVideo" src="https://media.ccyishe.com/media/1.mp4"  style='width:100%'></video>
+    </view>
+    <!--引导语-->
+    <view style="color: rgb(136, 136, 136);padding:20px 17px;">
+      <text style=" font-size: 28px;font-weight: bold;padding-right:20px;">“</text> 全国唯一一家做精准人脉服务的公司，人脉有保护期，一对一封闭式联系，不用担心聊好的客户被同行抢走。
+      <text style="color: rgb(136, 136, 136); font-size: 28px;font-weight: bold;padding:20px 17px;">”</text>
+    </view>
+
+    <!--第一步-->
+    <view style="box-sizing: border-box; text-align: center;padding:30px 17px;">
+      <view style="box-sizing: border-box; color: rgb(26, 173, 25); font-size: 20px;line-height:20px">如何再次使用爱知脉？</view>
+      <view style="box-sizing: border-box; color: rgb(26, 173, 25); font-size: 20px;line-height:20px">—</view>
+     
+      <view style="box-sizing: border-box;  font-size: 18px;line-height:25px;text-align: left;">您可以通过下面三种方式，再次使用爱知脉：</view>
+      <view style="color: rgb(136, 136, 136);line-height:25px;padding:10px 0px;text-align: left;">（1）微信 >> 发现 >> 小程序 >> 爱知脉 </view><view style="color: rgb(136, 136, 136);line-height:25px;padding:10px 0px;text-align: left;">（2）微信  >> 添加公众号  >> 爱知脉plus</view><view style="color: rgb(136, 136, 136);line-height:28px;padding:10px 0px;text-align: left;">（3）安卓手机：进入爱知脉 >> 点击右上角3个点  >> 添加到桌面</view>
+    </view>
+
+
+    <!--第一步-->
+    <view style="box-sizing: border-box; text-align: center;padding:30px 17px;">
+      <view style="box-sizing: border-box; color: rgb(26, 173, 25); font-size: 20px;line-height:20px">第一步</view>
+      <view style="box-sizing: border-box; color: rgb(26, 173, 25); font-size: 20px;line-height:20px">—</view>
+      <view style="box-sizing: border-box;  font-size: 18px;line-height:25px;">完善个人信息</view>
+      <view style="color: rgb(136, 136, 136);line-height:25px;padding:20px 0px;text-align: left;">完善个人信息，即可生成属于你的事业名片。</view>
+      <image mode="widthFix" src="{{zd1url}}" style="width:100%;border-radius: 10px;border:1rpx solid #cccccc"></image>
+    </view>
+
+    <!--第二步-->
+    <view style="box-sizing: border-box; text-align: center;padding:30px 17px;">
+      <view style="box-sizing: border-box; color: rgb(26, 173, 25); font-size: 20px;line-height:20px">第二步</view>
+      <view style="box-sizing: border-box; color: rgb(26, 173, 25); font-size: 20px;line-height:20px">—</view>
+      <view style="box-sizing: border-box;  font-size: 18px;line-height:25px;">查看人脉</view>
+      <view style="color: rgb(136, 136, 136);line-height:28px;padding:20px 0px;text-align: left;">六大精准人脉，每个vip查看的都不一样，有保护期的一对一封闭式联系，不用担心建立信任的客户被同行抢走。</view>
+      <image mode="widthFix" src="{{zd2}}" style="width:100%;border-radius: 10px;border:1rpx solid #cccccc"></image>
+      <image mode="widthFix" src="{{zd3}}" style="margin:20px 0px;width:100%;border-radius: 10px;border:1rpx solid #cccccc"></image>
+    </view>
+
+    <!--第三步-->
+    <view style="box-sizing: border-box; text-align: center;padding:30px 17px;">
+      <view style="box-sizing: border-box; color: rgb(26, 173, 25); font-size: 20px;line-height:20px">第三步</view>
+      <view style="box-sizing: border-box; color: rgb(26, 173, 25); font-size: 20px;line-height:20px">—</view>
+      <view style="box-sizing: border-box;  font-size: 18px;line-height:25px;">邀请好友使用</view>
+      <view style="color: rgb(136, 136, 136);line-height:28px;padding:20px 0px 0px;text-align: left;">生成小程序码，邀请好友注册，在六度人脉查看你的六代人脉信息。</view>
+      <view style="color: rgb(136, 136, 136);line-height:28px;padding:5px 0px 20px;text-align: left;">VIP会员分享可以享受优惠返现100元、50元的2代奖金。</view>
+      <image mode="widthFix" src="{{zd4}}" style="width:100%;border-radius: 10px;border:1rpx solid #cccccc"></image>
+      <image mode="widthFix" src="{{zd5}}" style="margin:20px 0px;width:100%;border-radius: 10px;border:1rpx solid #cccccc"></image>
+    </view>
+
+    <!--第四步-->
+    <view style="box-sizing: border-box; text-align: center;padding:30px 17px;">
+      <view style="box-sizing: border-box; color: rgb(26, 173, 25); font-size: 20px;line-height:20px">第四步</view>
+      <view style="box-sizing: border-box; color: rgb(26, 173, 25); font-size: 20px;line-height:20px">—</view>
+      <view style="box-sizing: border-box;  font-size: 18px;line-height:25px;">发文章</view>
+      <view style="color: rgb(136, 136, 136);line-height:28px;padding:20px 0px 0px;text-align: left;">复制公众号、今日头条文章链接，提取链接文章，即可删除别人的广告，插入自己的广告。</view>
+      <view style="color: rgb(136, 136, 136);line-height:28px;padding:5px 0px 20px;text-align: left;">让别人的文章为你打广告！！！</view>
+      
+      <image mode="widthFix" src="{{zd7}}" style="width:100%;border-radius: 10px;border:1rpx solid #cccccc"></image>
+      <image mode="widthFix" src="{{zd8}}" style="margin:20px 0px;width:100%;border-radius: 10px;border:1rpx solid #cccccc"></image>
+    </view>
+
+    <!--第五步-->
+    <view style="box-sizing: border-box; text-align: center;padding:30px 17px;">
+      <view style="box-sizing: border-box; color: rgb(26, 173, 25); font-size: 20px;line-height:20px">第五步</view>
+      <view style="box-sizing: border-box; color: rgb(26, 173, 25); font-size: 20px;line-height:20px">—</view>
+      <view style="box-sizing: border-box;  font-size: 18px;line-height:25px;">我的名片</view>
+      <view style="color: rgb(136, 136, 136);line-height:28px;padding:20px 0px;text-align: left;">生成只属于你个人的事业名片，分享给建立信任的伙伴，帮助了解，推广你的事业。</view>
+      <image mode="widthFix" src="{{zd9}}" style="width:100%;border-radius: 10px;border:1rpx solid #cccccc"></image>
+    </view>
+    
+   
+  </view>
+    <view style="position:fixed;color:#09BB07;height:52px;line-height:50px;text-align:center;width:45px;z-index:1000;bottom:60px;right:10px;">
+  <view style="background-color:#09BB07;height:30px;line-height:40px;margin:auto;text-align:center;width:30px;border-radius:50%;">
+    <contact-button type="default-light" size="20" session-from="weapp">
+    </contact-button>
+  </view>
+  <view style="height:22px;line-height:22px;width:48px;text-align:center;font-size:12px;">
+    联系客服
+  </view>
+</view>
+</view>
+  <view class="btm"  bindtap="moveToHome">进入首页</view>

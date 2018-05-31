@@ -1,0 +1,56 @@
+/* mydrafts.wxss */
+
+.weui-cell:before {
+  left: 0;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2b2d3a;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 90%;
+}
+
+.disc {
+  font-size: 14px;
+  color: #626574;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 90%;
+}
+
+.time {
+  font-size: 12px;
+  color: #999;
+}
+.myweui-cells {
+  position: relative;
+  margin-top:0px;
+  background-color: #FFFFFF;
+  line-height: 1.41176471;
+  font-size: 17px;
+}
+.myweui-cells:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  
+  color: #D9D9D9;
+}
+.myweui-cells:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+ border-bottom:1px solid #D9D9D9;
+  color: #D9D9D9;
+}

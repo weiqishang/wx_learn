@@ -1,0 +1,1409 @@
+var area = require("../../../utils/area");
+var p = 0, c = 0, d = 0
+Page({
+  data: {
+    provinceName: [],
+    provinceCode: [],
+    provinceSelIndex: '',
+    cityName: [],
+    cityCode: [],
+    citySelIndex: '',
+    districtName: [],
+    districtCode: [],
+    districtSelIndex: '',
+    showMessage: false,
+    messageContent: '',
+    showDistpicker: false,
+
+    buttoncolor: "#999999",//灰色
+    yanzhengmahidden: true,
+    checkvalue: "获取验证码",
+    files: [],
+    files2: [],
+    textarea: '',//'我是九极专业导师，欢迎咨询一切有关天狮产品、直销事业，以及个人创业的问题，您可以咨询我，我将竭诚为您服务！',
+    belongCom: '',
+    companyId: '',
+    userInfo: null,
+    shengxia: 200,
+    personName: '',
+    personPhone: '',
+    personWeChat: '',
+    zhiwei: "",
+    personQQ: '',
+    team: '',
+    teamId: '',
+    checkCode: "",
+    textHeight: 3.3,
+
+    code: '',				//小程序登陆后的code
+    encryptedData: '',		//小程序用户详细数据【加密】
+    iv: '',
+
+    methodFlag: 0,
+    xcxSession: '',
+    haveChooseImg: false,//标记是否选择修改过个人头像
+
+    region: ['广东省', '广州市', '海珠区'],
+    array: ['男', '女'],
+    index: 0,
+
+    date: '0000-00-00',
+    teamId: 0,
+
+    array2: ['其它', '直销', '微商', '实体店长', '保险', '销售'],
+    index2: 0,
+  },
+  getBack: function () {
+    wx.switchTab({
+      url: '../user',
+    })
+
+  },
+  bindPickerChange2: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index2: e.detail.value
+    })
+    var Tmp = '';
+    if (e.detail.value == 0) {
+      Tmp = "其它";
+    } else if (e.detail.value == 1) {
+      Tmp = "直销";
+    } else if (e.detail.value == 2) {
+      Tmp = "微商";
+    } else if (e.detail.value == 3) {
+      Tmp = "实体店长";
+    } else if (e.detail.value == 4) {
+      Tmp = "保险";
+    } else if (e.detail.value == 5) {
+      Tmp = "销售";
+    }
+
+    console.log("选择" + Tmp);
+
+    var xcxSession = wx.getStorageSync("xcxSession");
+    var teamId = this.data.teamId;
+    wx.request({
+      url: 'https://m.ccyishe.com/page/xcx/user!updateUser.jsp',
+      data: {
+        xcxSession: xcxSession,
+        phone: '',
+        code: '',
+        name: '',
+        wechat: '',
+        qq: '',
+        position: '',
+        userInfo: '',
+        companyId: '',
+        teamId: teamId,
+        sex: '',
+        province: '',
+        city: '',
+        Birthday: '',
+        doit: Tmp,
+        picurl: '',
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(Tmp + "修改成功");
+        console.log(res);
+      },
+      fail: function (res) {
+        console.log("修改失败");
+        console.log(res);
+      },
+      complete: function (res) {
+
+      }
+    })
+  },
+  bindDateChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+
+    var date = e.detail.value;
+    var xcxSession = wx.getStorageSync("xcxSession");
+    var teamId = this.data.teamId;
+    wx.request({
+      url: 'https://m.ccyishe.com/page/xcx/user!updateUser.jsp',
+      data: {
+        xcxSession: xcxSession,
+        phone: '',
+        code: '',
+        name: '',
+        wechat: '',
+        qq: '',
+        position: '',
+        userInfo: '',
+        companyId: '',
+        teamId: teamId,
+        sex: '',
+        province: '',
+        city: '',
+        Birthday: date,
+        doit: '',
+        picurl: '',
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(date + "修改成功");
+        console.log(res);
+      },
+      fail: function (res) {
+        console.log("修改失败");
+        console.log(res);
+      },
+      complete: function (res) {
+
+      }
+    })
+  },
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+    var sexTmp = '';
+    if (e.detail.value == 0) {
+      sexTmp = "男";
+    } else {
+      sexTmp = "女";
+    }
+    console.log("选择" + sexTmp);
+
+    var xcxSession = wx.getStorageSync("xcxSession");
+    var teamId = this.data.teamId;
+    wx.request({
+      url: 'https://m.ccyishe.com/page/xcx/user!updateUser.jsp',
+      data: {
+        xcxSession: xcxSession,
+        phone: '',
+        code: '',
+        name: '',
+        wechat: '',
+        qq: '',
+        position: '',
+        userInfo: '',
+        companyId: '',
+        teamId: teamId,
+        sex: sexTmp,
+        province: '',
+        city: '',
+        Birthday: '',
+        doit: '',
+        picurl: '',
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(sexTmp + "修改成功");
+        console.log(res);
+      },
+      fail: function (res) {
+        console.log("修改失败");
+        console.log(res);
+      },
+      complete: function (res) {
+
+      }
+    })
+  },
+  setRegionValue: function (province, city, district) {
+
+    this.setData({
+      province: province,
+      city: city,
+    });
+    var that = this;
+    var xcxSession = wx.getStorageSync("xcxSession");
+    var teamId = this.data.teamId;
+    wx.request({
+      url: 'https://m.ccyishe.com/page/xcx/user!updateUser.jsp',
+      data: {
+        xcxSession: xcxSession,
+        phone: '',
+        code: '',
+        name: '',
+        wechat: '',
+        qq: '',
+        position: '',
+        userInfo: '',
+        companyId: '',
+        teamId: teamId,
+        sex: '',
+        province: province,
+        city: city,
+        Birthday: '',
+        doit: '',
+        picurl: '',
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(province + "修改成功" + city);
+        console.log(res);
+      },
+      fail: function (res) {
+        console.log("修改失败");
+        console.log(res);
+      },
+      complete: function (res) {
+
+      }
+    })
+
+  },
+  onLoad: function (options) {
+    // 载入时要显示再隐藏一下才能显示数据，如果有解决方法可以在issue提一下，不胜感激:-)
+    // 初始化数据
+    this.setAreaData(0, 0, 0, 0);
+  },
+  setAreaData: function (p, c, d, i) {
+    var p = p || 0 // provinceSelIndex
+    var c = c || 0 // citySelIndex
+    var d = d || 0 // districtSelIndex
+    // 设置省的数据
+    var province = area['100000']
+    var provinceName = [];
+    var provinceCode = [];
+    for (var item in province) {
+      provinceName.push(province[item])
+      provinceCode.push(item)
+    }
+    this.setData({
+      provinceName: provinceName,
+      provinceCode: provinceCode
+    })
+    // 设置市的数据
+    var city = area[provinceCode[p]];
+    var cityName = [];
+    var cityCode = [];
+    for (var item in city) {
+      cityName.push(city[item])
+      cityCode.push(item)
+    }
+    this.setData({
+      cityName: cityName,
+      cityCode: cityCode
+    })
+
+    // 设置区的数据
+    var district = area[cityCode[c]]
+    var districtName = [];
+    var districtCode = [];
+    for (var item in district) {
+      districtName.push(district[item])
+      districtCode.push(item)
+    }
+    this.setData({
+      districtName: districtName,
+      districtCode: districtCode,
+    });
+    if (i > 0) {
+      this.setRegionValue(provinceName[p], cityName[c], districtName[d]);
+      this.setData({
+        region: [provinceName[p], cityName[c], districtName[d]]
+      });
+    }
+
+  },
+  changeArea: function (e) {
+    p = e.detail.value[0]
+    c = e.detail.value[1]
+    d = e.detail.value[2]
+    this.setAreaData(p, c, d, 1);
+  },
+  bindRegionChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    // console.log('触发时间',p);
+
+    this.setData({
+      showDistpicker: true
+    })
+  },
+  distpickerCancel: function () {
+    this.setData({
+      showDistpicker: false
+    })
+  },
+  distpickerSure: function () {
+    this.setData({
+      showDistpicker: false
+    });
+  },
+  upPersonImg: function () {
+    var file = this.data.files2;
+    var that = this;
+    console.log("上传参数：" + that.data.xcxSession + "---" + file[0]);
+    var dotLoc = file[0].lastIndexOf('.');
+    var fileLen = file[0].length;
+    var fileFileName = file[0].substring(dotLoc, fileLen);
+    var xcxSession = wx.getStorageSync("xcxSession");
+    wx.showLoading({
+      title: '修改中...',
+    })
+    console.log(fileFileName);
+    if (file.length != 0) {
+      wx.uploadFile({
+        url: 'https://m.ccyishe.com/page/xcx/user!uppic.jsp',
+        filePath: file[0],
+        name: 'file',
+        formData: {
+          'type': 0,
+          'xcxSession': xcxSession,
+          'fileFileName': fileFileName,
+        },
+        success: function (res) {
+          console.log("上传成功");
+          console.log(res);
+          wx.hideLoading();
+
+        },
+        fail: function (res) {
+          var data = res.data
+          console.log("上传失败");
+          console.log(res);
+        }
+      })
+    }
+
+  },
+  setNewImg: function () {
+    var that = this;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        that.setData({
+          files2: res.tempFilePaths,
+          picurl: res.tempFilePaths,
+          haveChooseImg: true,
+        });
+        var userInfo = that.data.userInfo;
+        userInfo.avatarUrl = res.tempFilePaths;
+        that.setData({ userInfo: userInfo });
+        that.upPersonImg();
+      }
+    })
+  },
+  newEditWay: function (e) {
+    var id = e.currentTarget.id;
+    var teamId = this.data.teamId;//需要把teamId传过去，如果修改没有提交teamId的旧值，会被更新
+
+    var value = "";
+
+    if (id == 'name') {
+      value = this.data.personName
+    }
+    if (id == 'wechat') {
+      value = this.data.personWeChat
+    }
+    if (id == 'qq') {
+      value = this.data.personQQ
+    }
+    if (id == 'position') {
+      value = this.data.zhiwei
+    }
+    if (id == 'userInfo') {
+      value = this.data.textarea
+    }
+    if (id == "picurl") {//这里在改了在当前页面提交改头像的时候，这里的判断就不需要了
+      this.setNewImg();
+    } else {
+      if (id == "phone") {
+        wx.navigateTo({
+          url: './updPhone/updPhone',
+        })
+      } else {
+        wx.navigateTo({
+          url: './name/name?id=' + id + "&teamId=" + teamId + "&value=" + value,
+        })
+      }
+    }
+
+  },
+  settextHeight: function (value) {
+    var len = value.length;
+    if (len <= 50) {
+      this.setData({ textHeight: 3.5 });
+    } else if (len > 50 && len <= 100) {
+      this.setData({ textHeight: 6.5 });
+    } else if (len > 100 && len <= 150) {
+      this.setData({ textHeight: 9.5 });
+    } else if (len > 150 && len <= 200) {
+      this.setData({ textHeight: 13.5 });
+    }
+  },
+  initSystem: function () {
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        var width = res.windowWidth;
+        var height = res.windowHeight;
+        that.setData({ width: width, height: height });
+      }
+    })
+  },
+  upPersonImg: function () {
+    var file = this.data.files2;
+    var that = this;
+    console.log("上传参数：" + that.data.xcxSession + "---" + file[0]);
+    var dotLoc = file[0].lastIndexOf('.');
+    var fileLen = file[0].length;
+    var fileFileName = file[0].substring(dotLoc, fileLen);
+    console.log(fileFileName);
+    if (file.length != 0) {
+      wx.uploadFile({
+        url: 'https://m.ccyishe.com/page/xcx/user!uppic.jsp',
+        //url: 'http://localhost:8080/tmx/testUp.action',
+        filePath: file[0],
+        name: 'file',
+        formData: {
+          'type': 0,
+          'xcxSession': that.data.xcxSession,
+          'fileFileName': fileFileName,
+        },
+        success: function (res) {
+          console.log("上传成功");
+          console.log(res);
+        },
+        fail: function (res) {
+          var data = res.data
+          console.log("上传失败");
+          console.log(res);
+        }
+      })
+    }
+
+  },
+  chooseImage2: function (e) {
+    var that = this;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        var obj = {
+          avatarUrl: res.tempFilePaths
+        };
+        that.setData({
+          files2: res.tempFilePaths,
+          userInfo: obj,
+          haveChooseImg: true,
+        });
+        wx.setStorageSync("personImg", res.tempFilePaths);
+      }
+    })
+  },
+  time: function (wait) {
+    console.log(wait);
+    var that = this;
+    if (wait == 0) {
+      this.setData({
+        checkvalue: "获取验证码",
+        buttoncolor: "green",
+      })
+      wait = 60;
+    } else {
+      this.setData({
+        checkvalue: wait + "s后重新获取",
+        buttoncolor: "#999999",
+      })
+      wait--;
+      setTimeout(function () {
+        that.time(wait);
+      },
+        1000)
+    }
+  },
+  getCodeFromService: function (phone) {
+
+    var that = this;
+    wx.login({
+      success: function (res) {//用户登录成功
+        if (res.code) {
+          var code = res.code;
+          console.log(code);
+          wx.getUserInfo({//获取用户信息
+            success: function (res) {
+              var encryptedData = res.encryptedData;
+              var iv = res.iv;
+              console.log(code);
+              console.log(encryptedData);
+              console.log(iv);
+              that.setData({ iv: iv });
+              that.setData({ encryptedData: encryptedData });
+              that.setData({ code: code });
+              wx.request({//发到服务器，进行解密数据
+                url: 'https://m.ccyishe.com/page/xcx/user!phoneCode.jsp',
+                method: "GET",
+                data: {
+                  code: code,
+                  phone: phone,
+                },
+                // header: {
+                //   'content-type': 'application/x-www-form-urlencoded'
+                // },
+                success: function (res) {
+                  console.log("测试成功返回");
+                  console.log(res);
+                },
+                fail: function (res) {
+                  console.log("测试失败返回");
+                  console.log(res);
+                }
+              })
+            },
+            fail: function (res) {
+              wx.openSetting({
+                success: function (res) {
+
+                }
+              });
+            }
+          })
+        } else {
+          console.log('用户登陆状失败' + res.errMsg);
+        }
+      },
+
+    });
+  },
+  getCheckCode: function () {
+    var wait = 60;
+    this.time(wait);
+    if (this.data.personPhone == "") {
+      wx.showToast({
+        title: '缺少必要信息',
+        icon: 'loading',
+        duration: 1000
+      });
+    }
+
+
+    this.getCodeFromService(this.data.personPhone);
+
+  },
+  setInfo: function (e) {
+    var that = this;
+    var id = e.target.id;
+    var value = e.detail.value;
+    console.log(id + "--" + value);
+
+
+    if (id == "personName") {
+      this.setData({ personName: value });
+      wx.setStorageSync('personName', value);
+      if (this.data.methodFlag != 0) {
+        wx.setStorageSync('epersonName', value);
+      }
+    } else if (id == "personPhone") {
+      this.setData({ personPhone: value });
+      wx.setStorageSync('personPhone', value);
+      if (this.data.methodFlag != 0) {
+        wx.setStorageSync('epersonPhone', value);
+      }
+      var length = value.length;
+      if (this.data.methodFlag) {
+        if (this.data.phoneFlag != value && length == 11 && /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(14[0-9]{1})|)+\d{8})$/.test(value)) {
+          that.setData({
+            buttoncolor: "green",
+            yanzhengmahidden: false,
+          })
+        } else {
+          that.setData({
+            buttoncolor: "#999999",
+            yanzhengmahidden: true,
+          })
+        }
+      } else {
+        if (length == 11 && /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(14[0-9]{1})|)+\d{8})$/.test(value)) {
+          that.setData({
+            buttoncolor: "green",
+            yanzhengmahidden: false,
+          })
+        } else {
+          that.setData({
+            buttoncolor: "#999999",
+            yanzhengmahidden: true,
+          })
+        }
+      }
+      //phoneFlag
+
+    } else if (id == "personWeChat") {
+      this.setData({ personWeChat: value });
+      wx.setStorageSync('personWeChat', value);
+      if (this.data.methodFlag != 0) {
+        wx.setStorageSync('epersonWeChat', value);
+      }
+    } else if (id == "personQQ") {
+      this.setData({ personQQ: value });
+      wx.setStorageSync('personQQ', value);
+      if (this.data.methodFlag != 0) {
+        wx.setStorageSync('epersonQQ', value);
+      }
+    } else if (id == "checkCode") {
+      this.setData({ checkCode: value });
+
+    } else if (id = "zhiwei") {
+      this.setData({ zhiwei: value });
+      wx.setStorageSync('zhiwei', value);
+      if (this.data.methodFlag != 0) {
+        wx.setStorageSync('ezhiwei', value);
+      }
+    }
+  },
+
+  validataCheck: function () {
+    if (this.data.userInfo == undefined) {
+      wx.showToast({
+        title: '请选择个人头像',
+        icon: 'loading',
+        duration: 1000
+      });
+      return false;
+    }
+    if (this.data.userInfo != undefined) {
+      if (this.data.userInfo.avatarUrl == null) {
+        wx.showToast({
+          title: '请选择个人头像',
+          icon: 'loading',
+          duration: 1000
+        });
+        return false;
+      }
+    }
+
+    if (this.data.personName.length < 2) {
+      wx.showToast({
+        title: '请正确输入姓名',
+        icon: 'loading',
+        duration: 1000
+      });
+      return false;
+    }
+    if (this.data.zhiwei.length == 0) {
+      wx.showToast({
+        title: '请正确输入职位',
+        icon: 'loading',
+        duration: 1000
+      });
+      return false;
+    }
+    if (this.data.personPhone.length != 11) {
+      wx.showToast({
+        title: '请正确输入手机号',
+        icon: 'loading',
+        duration: 1000
+      });
+      return false;
+    }
+    if (this.data.personWeChat.length < 6) {
+      wx.showToast({
+        title: '请正确输入微信号',
+        icon: 'loading',
+        duration: 1000
+      });
+      return false;
+    }
+    if (this.data.personQQ.length < 6) {
+      wx.showToast({
+        title: '请正确输入QQ号',
+        icon: 'loading',
+        duration: 1000
+      });
+      return false;
+    }
+
+
+    // if (this.data.textarea.length > 0 && this.data.textarea.length < 10) {
+    //   wx.showToast({
+    //     title: '个人介绍必须10个字以上',
+    //     icon: 'loading',
+    //     duration: 1000
+    //   });
+    //   return false;
+    // }
+    return true;
+  },
+  choiceCom: function () {
+    var that = this;
+    wx.navigateTo({
+      url: "my-company/my-company?team=" + that.data.team + "&companyId=" + that.data.companyId,
+    });
+  },
+  choiceTeam: function () {
+
+    var that = this;
+    var belongCom = that.data.companyId + "_" + that.data.belongCom;
+    wx.navigateTo({
+      url: "my-team/my-team?belongCom=" + belongCom
+    });
+  },
+  editCard: function () {
+    this.checkUserInfo(0);
+    console.log("修改信息");
+    if (!this.validataCheck()) {
+      return;
+    }
+
+
+    var that = this;
+    wx.request({
+      url: 'https://m.ccyishe.com/page/xcx/user!modify.jsp',
+      data: {
+        phone: that.data.personPhone,						// 帐号（用户手机唯一 ）
+        name: that.data.personName,						// 姓名
+        companyId: that.data.companyId,					//公司id 
+        teamId: that.data.teamId,							//团队id
+        qq: that.data.personQQ,							//qq
+        wechat: that.data.personWeChat,						//微信号
+        userInfo: that.data.textarea,					//招商简述
+        xcxSession: that.data.xcxSession,
+        position: that.data.zhiwei,
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log("修改成功" + that.data.teamId);
+        console.log(res);
+        var flag = res.data.result;
+        if (res.data.result == "phoneCode is error") {
+          wx.showToast({
+            title: '验证码有误',
+            icon: 'loading',
+            duration: 2000
+          })
+        }
+        if (res.data.result == "phone is exist") {
+          wx.showToast({
+            title: '手机号已注册过',
+            icon: 'loading',
+            duration: 2000
+          })
+        }
+        if (flag == "success") {
+          wx.showToast({
+            title: '修改成功',
+            icon: 'success',
+            duration: 1500
+          })
+          if (that.data.haveChooseImg) {
+            that.upPersonImg();
+          }
+          setTimeout(function () {
+            wx.reLaunch({
+              url: '../../card/index?ownerId=' + that.data.ownerId,
+            })
+          }, 2000)
+
+        } else {
+          wx.showToast({
+            title: '修改失败',
+            icon: 'success',
+            duration: 1500
+          })
+        }
+
+      },
+      fail: function (res) {
+        console.log("修改失败");
+        console.log(res);
+      },
+      complete: function (res) {
+
+      }
+    })
+  },
+
+  savaCard: function () {
+    this.checkUserInfo(1);
+  },
+  savaCard2: function () {
+    //this.getCodeFromService('15603081422');
+    var that = this;
+
+
+    if (!this.validataCheck()) {
+      return;
+    }
+    var parentOne = wx.getStorageSync('parentOne');
+
+    var data = {
+      phone: that.data.personPhone,						// 帐号（用户手机唯一 ）
+      name: that.data.personName,						// 姓名
+      parentOne: parentOne,					//第一层上级
+      companyId: that.data.companyId,					//公司id 
+      teamId: that.data.teamId,							//团队id
+      qq: that.data.personQQ,							//qq
+      wechat: that.data.personWeChat,						//微信号
+      userInfo: that.data.textarea,					//招商简述
+      code: that.data.code,				//小程序登陆后的code
+      encryptedData: that.data.encryptedData,		//小程序用户详细数据【加密】
+      iv: that.data.iv,
+      phoneCode: that.data.checkCode,				//验证码
+      position: that.data.zhiwei,
+    };
+    console.log(data);
+    wx.request({
+      url: 'https://m.ccyishe.com/page/xcx/user!in.jsp',
+      data: data,
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log("注册成功");
+        console.log(res);
+        // if (res.data.json.errmsg=='null'){
+        //   that.savaCard();
+        //   return ;
+        // }
+        if (res.data.result) {
+          if (res.data.result == "user is exist") {
+            wx.showToast({
+              title: '请勿重复注册',
+              icon: 'loading',
+              duration: 2000
+            })
+
+            return;
+          } else if (res.data.result == "phoneCode is error") {
+            wx.showToast({
+              title: '验证码有误',
+              icon: 'loading',
+              duration: 2000
+            })
+          }
+        }
+        var objTmp = res.data;
+
+        if (objTmp.json.xcxSession) {
+          if (objTmp.json.xcxSession) {
+            wx.setStorageSync('xcxSession', objTmp.json.xcxSession);
+            that.setData({ xcxSession: objTmp.json.xcxSession });
+          }
+          if (objTmp.json.userId) {
+            wx.setStorageSync('myId', objTmp.json.userId);
+          }
+          if (that.data.haveChooseImg) {
+            that.upPersonImg();
+          }
+          wx.showToast({
+            title: '保存成功',
+            icon: 'success',
+            duration: 2000
+          })
+
+          setTimeout(function () {
+            wx.reLaunch({
+              url: '../../card/index?ownerId=' + objTmp.json.userId,
+            })
+          }, 2000)
+        }
+        //  else {
+        //   wx.showToast({
+        //     title: '注册失败',
+        //     icon: 'loading',
+        //     duration: 2000
+        //   })
+        //   return;
+        // }
+
+      },
+      fail: function (res) {
+        console.log("注册失败");
+        console.log(res);
+      },
+      complete: function (res) {
+
+      }
+    })
+  },
+
+  setSlefIntru: function (e) {//设置个人简介
+    let value = e.detail.value;
+    let shengxia = 200 - value.length;
+    console.log(shengxia);
+    if (shengxia < 0) {
+      wx.showToast({
+        title: '字数超限',
+        icon: 'loading',
+        duration: 1000
+      });
+      return;
+    }
+    this.settextHeight(value);
+    wx.setStorageSync('textarea', value);
+    if (this.data.methodFlag != 0) {
+      wx.setStorageSync('etextarea', value);
+    }
+    this.setData({ textarea: value, shengxia: shengxia });
+  },
+  chooseImage: function (e) {
+    var that = this;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        that.setData({
+          files: res.tempFilePaths
+        });
+      }
+    })
+  },
+  previewImage: function (e) {
+    wx.previewImage({
+      current: e.currentTarget.id, // 当前显示图片的http链接
+      urls: this.data.files // 需要预览的图片http链接列表
+    })
+  },
+  getUserInfo: function (cb) {
+    var that = this
+    if (this.userInfo) {
+      typeof cb == "function" && cb(this.userInfo)
+    } else {
+      //调用登录接口
+      wx.login({
+        success: function () {
+          wx.getUserInfo({
+            success: function (res) {
+              that.userInfo = res.userInfo
+              typeof cb == "function" && cb(that.userInfo)
+            }
+          })
+        }
+      })
+    }
+  },
+  initEditPersonInfoFromCache: function () {//
+    var that = this;
+
+    var value = wx.getStorageSync('epersonName')
+    if (value != '') {
+      this.setData({ personName: value });
+    }
+
+
+    value = wx.getStorageSync('epersonPhone');
+    if (value != '') {
+      this.setData({ personPhone: value });
+    }
+
+    value = wx.getStorageSync('epersonWeChat');
+    if (value != '') {
+      this.setData({ personWeChat: value });
+    }
+
+
+    value = wx.getStorageSync('epersonQQ');
+    if (value != '') {
+      this.setData({ personQQ: value });
+    }
+
+    value = wx.getStorageSync('etextarea');
+    var tmpValue = value;
+    if (tmpValue != '') {
+      this.settextHeight(tmpValue);
+      setTimeout(function () {
+        that.setData({ textarea: tmpValue });
+      }, 1000);
+
+    }
+
+
+    value = wx.getStorageSync('echeckCode');
+    if (value != '') {
+      this.setData({ checkCode: value });
+    }
+
+    value = wx.getStorageSync('ezhiwei');
+    if (value != '') {
+      this.setData({ zhiwei: value });
+    }
+
+    var phoneRegex = this.data.personPhone;
+    if (this.data.methodFlag) {
+      if (this.data.phoneFlag != phoneRegex && phoneRegex.length == 11 && /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(14[0-9]{1})|)+\d{8})$/.test(phoneRegex)) {
+        that.setData({
+          buttoncolor: "green",
+          yanzhengmahidden: false,
+        })
+      } else {
+        that.setData({
+          buttoncolor: "#999999",
+          yanzhengmahidden: true,
+        })
+      }
+    } else {
+      if (phoneRegex.length == 11 && /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(14[0-9]{1})|)+\d{8})$/.test(phoneRegex)) {
+        that.setData({
+          buttoncolor: "green",
+          yanzhengmahidden: false,
+        })
+      } else {
+        that.setData({
+          buttoncolor: "#999999",
+          yanzhengmahidden: true,
+        })
+      }
+    }
+
+
+
+  },
+  initEditData: function (user, options) {
+    console.log("初始化编辑1111111");
+    console.log(user);
+    this.setData({
+      belongCom: user.companyName,
+      companyId: user.companyId,
+      team: user.teamName,
+      teamId: user.teamId,
+      textarea: user.userInfo,
+      personName: user.name,
+      personPhone: user.phone,
+      personWeChat: user.wechat,
+      personQQ: user.qq,
+      parentOne: user.parentOne,
+      ownerId: user.cid,
+      zhiwei: user.position,
+      yanzhengmahidden: true,
+      buttoncolor: 'green',
+      birthday: user.birthday,
+      province: user.province,
+      sex: user.sex,
+      doit: user.doit,
+      city: user.city,
+      phoneFlag: user.phone,//为了去验证重新输入的手机号是否与原来的一样
+
+      // belongCom: user.companyName, 
+      // companyId: user.companyId,
+      // team: user.teamName, 
+      // teamId: user.teamId
+
+    });
+    if (user.birthday != '') {
+      this.setData({ date: user.birthday });
+    }
+
+    if (user.sex == "男") {
+      this.setData({ index: 0 });
+    } else if (user.sex == "女") {
+      this.setData({ index: 1 });
+    }
+    if (user.doit == "") {
+
+    }
+    var Tmp = 0
+    if (user.doit == "其它" || user.doit == '') {
+      Tmp = 0;
+      this.setData({ index2: Tmp });
+    } else if (user.doit == "直销") {
+      Tmp = 1;
+      this.setData({ index2: Tmp });
+    } else if (user.doit == "微商") {
+      Tmp = 2;
+      this.setData({ index2: Tmp });
+    } else if (user.doit == "实体店长") {
+      Tmp = 3;
+      this.setData({ index2: Tmp });
+    } else if (user.doit == "保险") {
+      Tmp = 4;
+      this.setData({ index2: Tmp });
+    } else if (user.doit == "销售") {
+      Tmp = 5;
+      this.setData({ index2: Tmp });
+    }
+    if (user.province == "") {
+      var region = ['请选择', ''];
+      this.setData({ region: region });
+
+    } else {
+      var region = [user.province, user.city];
+      this.setData({ region: region });
+    }
+
+    var that = this;
+    setTimeout(function () {
+      that.setData({ textarea: user.userInfo });
+    }, 1000);
+
+    this.initEditPersonInfoFromCache();
+
+    var path = undefined;
+    var personImg = wx.getStorageSync('personImg');
+    if (personImg != '') {
+      console.log("这里执行了--------------------------------------111111111111");
+      this.setData({ haveChooseImg: true, files2: personImg });
+      path = personImg[0];
+    } else {
+      if (user.picurl.indexOf('https') > -1) {
+        path = user.picurl;
+      } else {
+        path = "https" + user.picurl.substring(4, user.picurl.length);
+      }
+
+    }
+
+    var obj = {
+      avatarUrl: path
+    };
+    this.setData({
+      userInfo: obj,
+    });
+    this.settextHeight(user.userInfo);
+
+
+
+    // let belongCom = options.belongCom;
+    // console.log('belongCom:' + belongCom);
+    // if (belongCom != undefined) {
+    //   var ss = belongCom.split("_");
+    //   this.setData({ belongCom: ss[1], companyId: ss[0] });
+    // }
+    // let teamName = options.teamName;
+    // if (teamName != undefined) {
+    //   if (teamName == "") {
+    //     this.setData({ team: "", teamId: "" });
+    //   } else {
+    //     var ss = teamName.split("_");
+    //     this.setData({ team: ss[1], teamId: ss[0] });
+    //   }
+
+    // }
+  },
+  getUserInfoBeforeEdit: function (xcxSession) {
+    var that = this;
+    console.log("------" + xcxSession);
+    wx.request({
+      url: 'https://m.ccyishe.com/page/xcx/user!userInfo.jsp',
+      data: {
+        xcxSession: xcxSession,//'f1a0695d-5340-4e18-9b7d-b17212f5e921',
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        // success
+        console.log("查询用户信息返回");
+        console.log(res.data.json.user);
+        that.initEditData(res.data.json.user);
+      },
+      fail: function (res) {
+        // fail
+      },
+      complete: function (res) {
+        // complete
+      }
+    })
+  },
+
+  checkUserInfo: function (flag) {//flag为1代表执行savaCard2
+    var that = this;
+    wx.login({
+      success: function (res) {//用户登录成功
+        if (res.code) {
+          var code = res.code;
+          console.log(code);
+          wx.getUserInfo({//获取用户信息
+            success: function (res) {
+              var encryptedData = res.encryptedData;
+              var iv = res.iv;
+              console.log(code);
+              console.log(encryptedData);
+              console.log(iv);
+              that.setData({ iv: iv });
+              that.setData({ encryptedData: encryptedData });
+              that.setData({ code: code });
+              if (flag == 1) {
+                that.savaCard2();
+              }
+
+            },
+            fail: function (res) {
+              wx.openSetting({
+                success: function (res) {
+                  that.getUserInfo(function (userInfo) {
+                    //更新数据
+                    that.setData({
+                      userInfo: userInfo
+                    })
+                  })
+                }
+              });
+            }
+          })
+        } else {
+          console.log('用户登陆状失败' + res.errMsg);
+        }
+      },
+
+    });
+  },
+  onReady: function () {
+    // 生命周期函数--监听页面初次渲染完成
+    //String3
+  },
+
+  initPersonInfo: function () {//
+    var that = this;
+
+    var value = wx.getStorageSync('personName')
+    this.setData({ personName: value });
+
+    value = wx.getStorageSync('personPhone');
+    this.setData({ personPhone: value });
+
+    value = wx.getStorageSync('personWeChat');
+    this.setData({ personWeChat: value });
+
+
+    value = wx.getStorageSync('personQQ');
+    this.setData({ personQQ: value });
+
+    value = wx.getStorageSync('textarea');
+    var tmpValue = value;
+    this.settextHeight(tmpValue);
+    setTimeout(function () {
+      that.setData({ textarea: tmpValue });
+    }, 1000);
+
+    value = wx.getStorageSync('checkCode');
+    this.setData({ checkCode: value });
+
+    value = wx.getStorageSync('zhiwei');
+    this.setData({ zhiwei: value });
+
+    var phoneRegex = this.data.personPhone;
+    if (this.data.methodFlag) {
+      if (this.data.phoneFlag != phoneRegex && phoneRegex.length == 11 && /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(14[0-9]{1})|)+\d{8})$/.test(phoneRegex)) {
+        that.setData({
+          buttoncolor: "green",
+          yanzhengmahidden: false,
+        })
+      } else {
+        that.setData({
+          buttoncolor: "#999999",
+          yanzhengmahidden: true,
+        })
+      }
+    } else {
+      if (phoneRegex.length == 11 && /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(14[0-9]{1})|)+\d{8})$/.test(phoneRegex)) {
+        that.setData({
+          buttoncolor: "green",
+          yanzhengmahidden: false,
+        })
+      } else {
+        that.setData({
+          buttoncolor: "#999999",
+          yanzhengmahidden: true,
+        })
+      }
+    }
+
+
+    that.getUserInfo(function (userInfo) {
+      //更新数据
+      that.setData({
+        userInfo: userInfo
+      })
+    })
+
+    var personImg = wx.getStorageSync('personImg');
+    if (personImg != '') {
+      var obj = {
+        avatarUrl: personImg[0]
+      };
+      this.setData({
+        userInfo: obj,
+        haveChooseImg: true,
+        files2: personImg
+      });
+    }
+
+  },
+  onShow: function () {
+    this.initSystem();
+    var that = this
+    var xcxSession = wx.getStorageSync('xcxSession');
+    var myId = wx.getStorageSync('myId');
+    if (xcxSession != "" && myId != "0" && myId != "") {//编辑名片
+      console.log(xcxSession + "修改名片" + myId);
+      this.setData({ methodFlag: 1 });
+
+      this.getUserInfoBeforeEdit(xcxSession);
+      this.setData({ xcxSession: xcxSession });
+    }
+  },
+  //onLoad: function (options) {
+  // 生命周期函数--监听页面加载
+  //String2
+
+  // var that = this
+  // var xcxSession = wx.getStorageSync('xcxSession');
+  // var myId = wx.getStorageSync('myId');
+  // if (xcxSession != "" && myId != "0" && myId != "") {//编辑名片
+  //   console.log(xcxSession + "修改名片" + myId);
+  //   this.setData({ methodFlag: 1 });
+
+  //   this.getUserInfoBeforeEdit(xcxSession, options);
+  //   this.setData({ xcxSession: xcxSession });
+  // } else {
+
+  //   this.initPersonInfo();
+  //   console.log("注册名片");
+  //   //调用应用实例的方法获取全局数据
+  //   console.log(options);
+  //   let belongCom = options.belongCom;
+  //   if (belongCom != "undefined") {
+  //     var ss = belongCom.split("_");
+  //     this.setData({ belongCom: ss[1], companyId: ss[0] });
+  //   }
+  //   let teamName = options.teamName;
+  //   if (teamName != "undefined") {
+  //     if (teamName == "") {
+  //       this.setData({ team: "", teamId: "" });
+  //     } else {
+  //       var ss = teamName.split("_");
+  //       this.setData({ team: ss[1], teamId: ss[0] });
+  //     }
+  //   }
+  // }
+
+  //},
+  onHide: function () {
+    // 生命周期函数--监听页面隐藏
+    //String5
+  },
+  onUnload: function () {
+    // 生命周期函数--监听页面卸载
+    //String6
+  },
+  onPullDownRefresh: function () {
+    // 页面相关事件处理函数--监听用户下拉动作
+    //String7
+  },
+  onReachBottom: function () {
+    // 页面上拉触底事件的处理函数
+    //String8
+  },
+})

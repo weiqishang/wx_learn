@@ -1,0 +1,75 @@
+<view class="page">
+  <view class="page__bd">
+    <view style="display: flex;flex-direction: column;align-items: center;background: #2B2D3A;padding: 50px 0 30px;">
+      <image bindtap="checkPersonImg" id="{{personData.personImg}}" src="{{personData.personImg}}" style="width: 80px;height:80px;border-radius: 50%;margin-bottom: 10px;" />
+      <view style="color: #9D9FA8;font-size: 16px;font-weight: 700;">{{personData.name}}
+        <image hidden="{{version==0}}" src="../../../image/vip.png" style="width: 25px;height: 25px;vertical-align: middle;margin: -5px 0 0 5px;" />
+      </view>
+      <view style="font-size: 14px;color: #9D9FA8;margin-top: 10px;">
+      {{personData.teamName=='undefined'?personData.belongCom:personData.shareCom}}
+      <block wx:if="{{personData.teamName!=''&&personData.teamName!='undefined'}}">-{{personData.teamName}}</block>
+      </view>
+    </view>
+    
+    <view class="art-btn"> 
+      <button style="border-bottom:1rpx  solid #D9D9D9;" bindtap="editarticle">
+        <image src="../../../image/fb.png" class="art-icon"></image>写文章</button>
+      <button bindtap="tqarticle"  
+      style="border-bottom:1rpx solid #D9D9D9;border-left:1rpx solid #D9D9D9">
+        <image src="../../../image/tq.png" class="art-icon"></image>提取文章</button>
+    </view> 
+
+    <view class="weui-cells myweui-cells" style="margin-bottom:20px;">
+      <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="mydrafts" style="height:60px">
+        <view class="weui-cell__hd">
+          <image src="../../../image/drafts.png" ></image>
+        </view>
+        <view class="weui-cell__bd">我的草稿</view>
+        <view class="weui-cell__ft ">
+          <text class="mycell__ft">{{cgCount}}</text>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="published">
+        <view class="weui-cell__hd">
+          <image src="../../../image/fbed.png" ></image>
+        </view>
+        <view class="weui-cell__bd">已发布</view>
+        <view class="weui-cell__ft ">
+          <text class="mycell__ft">{{fbCount}}</text>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_access"
+       hover-class="weui-cell_active" bindtap="myxiaochengxuzhan">
+        <view class="weui-cell__hd">
+          <image src="../../../image/myxcx.png" ></image>
+        </view>
+        <view class="weui-cell__bd">我的文章</view>
+        <view class="weui-cell__ft ">
+        </view>
+      </view>
+      <view bindtap="checkTeamArticle"
+       wx:if="{{personData.teamName!=''&&personData.teamName!='undefined'}}"
+        class="weui-cell weui-cell_access" hover-class="weui-cell_active"
+       >
+        <view class="weui-cell__hd">
+          <image src="../../../image/myteam.png" ></image>
+        </view>
+        <view class="weui-cell__bd">团队文章</view>
+        <view class="weui-cell__ft ">
+        </view>
+      </view>
+      <view bindtap="help" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__hd">
+          <image src="../../../image/help.png" style="margin-top:5px;"></image>
+        </view>
+        <view class="weui-cell__bd">使用帮助</view>
+        <view class="weui-cell__ft ">
+          如何分享朋友圈？
+        </view>
+      </view>
+    </view>
+  </view>
+   <view class="bottom" hidden="true">
+      <text>坚持每天分享，再普通的人也可以成功</text>
+    </view>
+</view>

@@ -1,0 +1,14 @@
+<!--share.wxml-->
+<view class="page">
+
+  <view class="share">
+    <view style="color:black;">如何分享到朋友圈？</view>
+    <view>第一步：关注公众号“爱知脉plus”</view>
+    <view>第二步：点击底部菜单“我的”—“我的文章”或“团队文章”</view>
+    <view>
+      <image src="https://m.ccyishe.com/web/mpRcode.jpg?v={{sjc}}" style="width:200px;height:200px;display:block;"></image>
+      <view>公众号：爱知脉plus</view>
+    </view>
+  </view>
+
+</view>

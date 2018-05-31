@@ -1,0 +1,101 @@
+page{
+    background:#e8e8e8;
+}
+.weui-tab__panel {
+  box-sizing: border-box;
+  height: 100%;
+  padding-top: 45px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.myweui-navbar {
+  height: 44px;
+  font-size: 16px;
+  color: #666;
+  position: fixed;
+  background: #fff;
+}
+.weui-navbar__item.weui-bar__item_on {
+  color: #2b2d3a;
+  font-weight: 700;
+}
+.weui-navbar__slider {
+  background: #2b2d3a;
+}
+
+.weui-cells:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1rpx solid white;
+  color: #D9D9D9;
+}
+.myweui-cells {
+  position: relative;
+  margin-top: 1.17647059em;
+  background-color: #FFFFFF;
+  line-height: 1.41176471;
+  font-size: 17px;
+}
+.myweui-cells:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1rpx solid white;
+  color: #D9D9D9;
+}
+.myweui-cells:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1rpx solid #D9D9D9;
+  color: #D9D9D9;
+}
+
+/*.myweui-cell__ft_in-access {
+  padding-right: 13px;
+  position: relative;
+}*/
+.myweui-cell__ft_in-access{
+  content: " ";
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-width: 0 2px 2px 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  -webkit-transform: matrix(0.707107,0.707107,-0.707107,0.707107,0,0);
+          transform: matrix(0.707107,0.707107,-0.707107,0.707107,0,0);
+  position: relative;
+  top: -2px;
+  top: 50%;
+  margin-top: -4px;
+  right: 2px;
+  margin-right:13px;
+}
+.myweui-cell__ft_in-access2{
+  content: " ";
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-width: 2px 0 0 2px;
+  border-color: #C8C8CD;
+  border-style: solid;
+  -webkit-transform: matrix(0.707107,0.707107,-0.707107,0.707107,0,0);
+          transform: matrix(0.707107,0.707107,-0.707107,0.707107,0,0);
+  position: relative;
+  top: -2px;
+  top: 50%;
+  margin-bottom: -4px;
+  right: 2px;
+  margin-right:13px;
+}

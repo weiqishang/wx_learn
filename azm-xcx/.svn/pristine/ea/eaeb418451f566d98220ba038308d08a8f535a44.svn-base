@@ -1,0 +1,107 @@
+<!--money.wxml-->
+<view class="page">
+  <view class="container">
+    <view class="container-top">
+      <view class="money-use">
+        <text>累计收入</text>
+        <text>{{allMoney}}</text>
+      </view>
+      <view class="money-used">
+        <text>可提现收入</text>
+        <text>{{money}}</text>
+      </view>
+    </view>
+    <button bindtap="tixian" class="myweui-btn">我要提现</button>
+  </view>
+</view>
+
+<view class="page">
+  <view class="weui-navbar" style="">
+    <block wx:for="{{tabs}}" wx:key="*this">
+      <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+        <view class="weui-navbar__title">{{item}}</view>
+      </view>
+    </block>
+    <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+  </view>
+<!-- <view class="" style="height:20rpx;width:100%;"></view> -->
+  <view  hidden="{{activeIndex != 0}}" style="position:relative;top:15rpx;">
+    <!-- <view class="" style="height:20rpx;width:100%;"></view> -->
+    <block wx:for="{{recommendSRList}}">
+      <view  id="{{item.cid}}" class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_access">
+          <view class="weui-cell__bd">
+            <view bindtap="call" id="{{item.phone}}">
+            {{item.username}}({{item.phone}})
+            </view>
+            <view  style="font-size: 13px;color: #888888;margin-top:5px;">
+            {{item.createDate}}
+             
+            </view>
+          </view>
+         
+              <view class="weui-cell__ft">
+                  <view class='list_money'>{{item.money}}</view>
+                  <view class='list_common'>支付：{{item.orderMoney}}</view>
+              </view>
+        </view>
+      </view>
+    </block>
+    <view class="weui-footer" style="margin-top:30px;margin-bottom:30px;">
+      <view class="weui-footer__text" hidden="{{recommendSRList.length<recommendSRCount?false:true}}">上拉加载更多</view>
+      <view class="weui-footer__text" hidden="{{recommendSRList.length==recommendSRCount?false:true}}">没有更多了</view>
+    </view>
+  </view>
+  <view class="weui-tab__content" hidden="{{activeIndex != 1}}" style="position:relative;top:15rpx;">
+    <block wx:for="{{daiLiList}}">
+      <view  id="{{item.cid}}" class="weui-cells weui-cells_after-title">
+         <view class="weui-cell weui-cell_access">
+          <view class="weui-cell__bd">
+            <view bindtap="call" id="{{item.phone}}">
+            {{item.name}}({{item.phone}})
+            </view>
+            <view  style="font-size: 13px;color: #888888;margin-top:5px;">
+            {{item.createDate}}
+             
+            </view>
+          </view>
+         
+              <view class="weui-cell__ft">
+                  <view class='list_money'>{{item.money}}</view>
+                  <view class='list_common'>支付：{{item.orderMoney}}</view>
+              </view>
+        </view>
+      </view>
+    </block>
+    <view class="weui-footer" style="margin-top:30px;margin-bottom:30px;">
+      <view class="weui-footer__text" hidden="{{daiLiList.length<daiLiListCount?false:true}}">上拉加载更多</view>
+      <view class="weui-footer__text" hidden="{{daiLiList.length==daiLiListCount?false:true}}">没有更多了</view>
+    </view>
+  </view>
+
+  <view class="weui-tab__content" hidden="{{activeIndex != 2}}" style="position:relative;top:15rpx;">
+    <block wx:for="{{tixianList}}">
+      <view  id="{{item.cid}}" class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_access">
+          <view class="weui-cell__bd">
+            <view>
+            {{item.title}}
+            </view>
+            <view  style="font-size: 13px;color: #888888;margin-top:5px;">
+            {{item.createDate}}
+             
+            </view>
+          </view>
+          <view class="weui-cell__ft" style="color:#f60;font-weight:bold;" >
+            {{item.money}}
+          </view>
+        </view>
+      </view>
+    </block>
+    <view class="weui-footer" style="margin-top:30px;margin-bottom:30px;">
+      <view class="weui-footer__text" hidden="{{tixianList.length<tixianCount?false:true}}">上拉加载更多</view>
+      <view class="weui-footer__text" hidden="{{tixianList.length==tixianCount?false:true}}">没有更多了</view>
+    </view>
+  </view>
+
+</view>

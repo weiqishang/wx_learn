@@ -1,0 +1,7 @@
+.weui-form-preview{
+    margin-bottom: 25px;
+}
+.weui-article__p{
+    background-color: #ffffff;
+    padding: 10px;
+}

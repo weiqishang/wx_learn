@@ -1,0 +1,66 @@
+/* pay.wxss */
+
+.paybtns {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 10px;
+}
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+button {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  width: 45%;
+  border-radius: 0;
+  background: white;
+  border: 1px solid #ccc;
+  position: relative;
+}
+
+button:after {
+  content: none;
+}
+
+button text:last-of-type {
+  font-size: 13px;
+  color: #888;
+  margin-top: -15px;
+}
+
+button text:last-of-type.red {
+  color: red;
+}
+
+.free {
+  font-size: 11px;
+  color: white;
+  background: red;
+  width: 40px;
+  height: 18px;
+  line-height: 18px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.rules {
+  margin: 30px 15px 15px;
+  font-size: 14px;
+}
+
+.rule-list {
+  border: 1px solid #ccc;
+  padding: 15px 10px;
+  background: white;
+}
+
+.rule-list text {
+  display: block;
+  line-height: 25px;
+}
